@@ -117,4 +117,33 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'hero call CTA has correct tel href',
+  fn: async (page) => {
+    const href = await page.locator('.hero .btn--call').getAttribute('href');
+    if (href !== 'tel:+13465518340') throw new Error(`unexpected href: ${href}`);
+  },
+});
+
+checks.push({
+  name: 'hero background image loads without 404',
+  fn: async (page) => {
+    const status = await page.evaluate(async () => {
+      const res = await fetch('assets/gallery/hero-backyard-oasis.jpg');
+      return res.status;
+    });
+    if (status !== 200) throw new Error(`hero image status ${status}`);
+  },
+});
+
+checks.push({
+  name: 'hero title switches language',
+  fn: async (page) => {
+    await page.click('.lang-toggle__option[data-lang="es"]');
+    const text = await page.locator('.hero__title').textContent();
+    if (!text.includes('Elevando')) throw new Error(`unexpected hero title: ${text}`);
+    await page.click('.lang-toggle__option[data-lang="en"]');
+  },
+});
+
 run();

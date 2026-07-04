@@ -3,10 +3,22 @@
     en: {
       nav: { home: 'Home', services: 'Services', gallery: 'Gallery', about: 'About', areas: 'Areas', contact: 'Contact' },
       header: { call: 'Call (346) 551-8340' },
+      hero: {
+        title: 'Elevating Your Outdoor Living Space',
+        subtitle: 'Premium hardscaping & construction for Greater Houston homeowners and businesses — where entertaining takes center stage.',
+        ctaCall: 'Call or Text (346) 551-8340',
+        ctaGallery: 'View Our Work',
+      },
     },
     es: {
       nav: { home: 'Inicio', services: 'Servicios', gallery: 'Galería', about: 'Nosotros', areas: 'Zonas', contact: 'Contacto' },
       header: { call: 'Llama (346) 551-8340' },
+      hero: {
+        title: 'Elevando Tu Espacio de Vida Exterior',
+        subtitle: 'Hardscaping y construcción premium para propietarios y negocios del área de Houston — donde el entretenimiento es protagonista.',
+        ctaCall: 'Llama o Textea (346) 551-8340',
+        ctaGallery: 'Ver Nuestro Trabajo',
+      },
     },
   };
 

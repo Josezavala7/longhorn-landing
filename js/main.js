@@ -16,4 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  const heroBg = document.querySelector('.hero__bg');
+  if (heroBg) {
+    const onHeroScroll = () => {
+      const offset = Math.min(window.scrollY * 0.3, 160);
+      heroBg.style.transform = `translateY(${offset}px)`;
+    };
+    onHeroScroll();
+    window.addEventListener('scroll', onHeroScroll, { passive: true });
+  }
 });
