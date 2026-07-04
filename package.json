@@ -7,12 +7,14 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "verify": "LD_LIBRARY_PATH=\"$(pwd)/.playwright-libs:$LD_LIBRARY_PATH\" node scripts/verify.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "playwright": "^1.61.1",
     "sharp": "^0.35.3"
   }
 }

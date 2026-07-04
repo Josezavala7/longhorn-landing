@@ -1,0 +1,156 @@
+:root {
+  --bg: #0a0a0a;
+  --bg-alt: #141210;
+  --surface: #1c1916;
+  --border: #2a251f;
+  --text: #f5f0e8;
+  --text-muted: #a8a199;
+  --accent-start: #d9b68c;
+  --accent-end: #b8763e;
+  --accent-dark: #8b5a2b;
+  --font-serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --container: 1200px;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; margin: 0 0 0.5em; }
+p { margin: 0 0 1em; color: var(--text-muted); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+section { scroll-margin-top: 84px; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent-end);
+  color: #0a0a0a;
+  padding: 12px 20px;
+  z-index: 1000;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn--call {
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  color: #17130f;
+  animation: btn-glow 2.6s ease-in-out infinite;
+}
+.btn--call:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184, 118, 62, 0.35); }
+@keyframes btn-glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(184, 118, 62, 0); }
+  50% { box-shadow: 0 0 18px rgba(184, 118, 62, 0.55); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn--call { animation: none; }
+}
+.btn--outline {
+  background: transparent;
+  border-color: var(--accent-end);
+  color: var(--text);
+}
+.btn--outline:hover { background: rgba(184, 118, 62, 0.12); transform: translateY(-2px); }
+
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+.site-header.is-scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  gap: 24px;
+}
+.site-header__logo img { height: 48px; width: auto; }
+.site-nav {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+}
+.site-nav a {
+  text-decoration: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.85;
+}
+.site-nav a:hover { opacity: 1; color: var(--accent-start); }
+.site-header__actions { display: flex; align-items: center; gap: 16px; }
+.lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+.lang-toggle__option {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.lang-toggle__option.is-active { background: var(--accent-end); color: #17130f; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle span { width: 22px; height: 2px; background: var(--text); display: block; }
+
+@media (max-width: 860px) {
+  .site-nav {
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    background: var(--bg-alt);
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    gap: 20px;
+    transform: translateY(-140%);
+    transition: transform 0.3s ease;
+    border-bottom: 1px solid var(--border);
+  }
+  .site-nav.is-open { transform: translateY(0); }
+  .nav-toggle { display: flex; }
+  .site-header__actions .btn--call span.btn-label { display: none; }
+}
