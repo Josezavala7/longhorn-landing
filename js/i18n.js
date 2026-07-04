@@ -9,6 +9,7 @@
         ctaCall: 'Call or Text (346) 551-8340',
         ctaGallery: 'View Our Work',
       },
+      trust: { years: 'Years Experience', cities: 'Cities Served', local: 'Locally Owned', estimates: 'Estimates' },
     },
     es: {
       nav: { home: 'Inicio', services: 'Servicios', gallery: 'Galería', about: 'Nosotros', areas: 'Zonas', contact: 'Contacto' },
@@ -19,6 +20,7 @@
         ctaCall: 'Llama o Textea (346) 551-8340',
         ctaGallery: 'Ver Nuestro Trabajo',
       },
+      trust: { years: 'Años de Experiencia', cities: 'Ciudades Atendidas', local: 'De Propiedad Local', estimates: 'Estimaciones Gratis' },
     },
   };
 

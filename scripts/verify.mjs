@@ -146,4 +146,14 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'trust counters animate to target value on scroll into view',
+  fn: async (page) => {
+    await page.locator('.trust').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1500);
+    const value = await page.locator('.counter[data-target="5"]').textContent();
+    if (value.trim() !== '5') throw new Error(`counter did not reach target, got "${value.trim()}"`);
+  },
+});
+
 run();
