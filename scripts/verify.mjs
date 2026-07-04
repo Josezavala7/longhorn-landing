@@ -234,4 +234,26 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'reveal elements become visible after scrolling into view',
+  fn: async (page) => {
+    await page.locator('#services').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(700);
+    const anyVisible = await page.evaluate(() =>
+      document.querySelectorAll('.service-card.reveal.is-visible').length > 0
+    );
+    if (!anyVisible) throw new Error('no service cards gained is-visible after scrolling into view');
+  },
+});
+
+checks.push({
+  name: 'no horizontal scroll at 375px mobile viewport',
+  fn: async (page) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    const overflowing = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    if (overflowing) throw new Error('page has horizontal overflow at 375px width');
+    await page.setViewportSize({ width: 1280, height: 900 });
+  },
+});
+
 run();

@@ -83,4 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\n${message}`);
     window.location.href = `mailto:info@longhornhctx.com?subject=${subject}&body=${body}`;
   });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 });
