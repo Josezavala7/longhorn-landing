@@ -322,3 +322,36 @@ body.lang-switching [data-i18n] { opacity: 0; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }
   .gallery { padding: 64px 0; }
 }
+
+.about { padding: 100px 0; }
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.about__photo img { border-radius: var(--radius); border: 1px solid var(--border); }
+.about__copy h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.about__founder { color: var(--accent-start); font-style: italic; margin-top: 16px; }
+
+.areas { padding: 100px 0; background: var(--bg-alt); }
+.areas__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+.city-chip {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 22px;
+  color: var(--text);
+  background: var(--surface);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .about__grid { grid-template-columns: 1fr; }
+  .about { padding: 64px 0; }
+  .areas { padding: 64px 0; }
+}

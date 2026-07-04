@@ -195,4 +195,24 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'areas section lists all 10 cities',
+  fn: async (page) => {
+    const count = await page.locator('.city-chip').count();
+    if (count !== 10) throw new Error(`expected 10 city chips, got ${count}`);
+    const text = await page.locator('.city-chip').nth(5).textContent();
+    if (text.trim() !== 'Missouri City') throw new Error(`unexpected 6th city: ${text}`);
+  },
+});
+
+checks.push({
+  name: 'about heading switches language',
+  fn: async (page) => {
+    await page.click('.lang-toggle__option[data-lang="es"]');
+    const text = await page.locator('[data-i18n="about.heading"]').textContent();
+    if (!text.includes('Grabado en Piedra')) throw new Error(`unexpected: ${text}`);
+    await page.click('.lang-toggle__option[data-lang="en"]');
+  },
+});
+
 run();

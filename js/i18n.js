@@ -31,6 +31,15 @@
         },
       },
       gallery: { sectionTitle: 'Our Work', sectionSubtitle: 'Real projects, real Houston backyards.' },
+      about: {
+        heading: 'Our Commitment to Excellence Is Set in Stone',
+        body: 'Longhorn Hardscape & Construction is a locally owned and operated company serving homeowners and businesses across Greater Houston. Co-founded by Cesar Guifarro, our team brings over 5 years of hands-on experience in construction and hardscaping to every project. We build on five core values — compassion, consistency, hard work, honesty, and respect — and we back every job with high-quality workmanship, on-time completion, and a budget you can count on.',
+        founder: 'Cesar Guifarro — Co-Founder',
+      },
+      areas: {
+        sectionTitle: 'Proudly Serving Greater Houston',
+        sectionSubtitle: 'From Katy to Pearland, we bring the same quality and care to every job site.',
+      },
     },
     es: {
       nav: { home: 'Inicio', services: 'Servicios', gallery: 'Galería', about: 'Nosotros', areas: 'Zonas', contact: 'Contacto' },
@@ -63,6 +72,15 @@
         },
       },
       gallery: { sectionTitle: 'Nuestro Trabajo', sectionSubtitle: 'Proyectos reales, patios reales de Houston.' },
+      about: {
+        heading: 'Nuestro Compromiso con la Excelencia Está Grabado en Piedra',
+        body: 'Longhorn Hardscape & Construction es una empresa de propiedad y operación local que atiende a propietarios y negocios en toda el área de Houston. Cofundada por Cesar Guifarro, nuestro equipo aporta más de 5 años de experiencia práctica en construcción y hardscaping a cada proyecto. Construimos sobre cinco valores fundamentales — compasión, consistencia, trabajo duro, honestidad y respeto — y respaldamos cada trabajo con mano de obra de calidad, cumplimiento de plazos y un presupuesto en el que puedes confiar.',
+        founder: 'Cesar Guifarro — Cofundador',
+      },
+      areas: {
+        sectionTitle: 'Sirviendo con Orgullo al Área de Houston',
+        sectionSubtitle: 'Desde Katy hasta Pearland, llevamos la misma calidad y cuidado a cada obra.',
+      },
     },
   };
 
