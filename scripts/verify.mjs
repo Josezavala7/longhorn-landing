@@ -256,4 +256,16 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'why-us section renders exactly 4 cards and switches language',
+  fn: async (page) => {
+    const count = await page.locator('.why-us__card').count();
+    if (count !== 4) throw new Error(`expected 4 why-us cards, got ${count}`);
+    await page.click('.lang-toggle__option[data-lang="es"]');
+    const text = await page.locator('[data-i18n="whyUs.items.oneTeam.title"]').textContent();
+    if (!text.includes('Un Solo Equipo')) throw new Error(`unexpected: ${text}`);
+    await page.click('.lang-toggle__option[data-lang="en"]');
+  },
+});
+
 run();

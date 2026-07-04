@@ -10,6 +10,15 @@
         ctaGallery: 'View Our Work',
       },
       trust: { years: 'Years Experience', cities: 'Cities Served', local: 'Locally Owned', estimates: 'Estimates' },
+      whyUs: {
+        sectionTitle: 'Why Homeowners Choose Longhorn',
+        items: {
+          oneTeam: { title: 'One Team, Start to Finish', desc: 'Turf, pavers, concrete, lighting, and painting — no juggling subcontractors for one project.' },
+          realPhotos: { title: 'Real Photos, Real Backyards', desc: 'Every photo in our gallery is our own work. What you see is what you get.' },
+          experience: { title: '5+ Years, 10+ Cities Served', desc: "From Katy to Pearland, we've built our reputation project by project." },
+          freeQuote: { title: 'Free, No-Pressure Estimates', desc: "Call or text and we'll walk your property — no obligation." },
+        },
+      },
       services: {
         sectionTitle: 'Our Services',
         items: {
@@ -63,6 +72,15 @@
         ctaGallery: 'Ver Nuestro Trabajo',
       },
       trust: { years: 'Años de Experiencia', cities: 'Ciudades Atendidas', local: 'De Propiedad Local', estimates: 'Estimaciones Gratis' },
+      whyUs: {
+        sectionTitle: 'Por Qué los Propietarios Eligen Longhorn',
+        items: {
+          oneTeam: { title: 'Un Solo Equipo, de Principio a Fin', desc: 'Césped, pavers, concreto, iluminación y pintura — sin subcontratistas que coordinar para un mismo proyecto.' },
+          realPhotos: { title: 'Fotos Reales, Patios Reales', desc: 'Cada foto en nuestra galería es trabajo nuestro. Lo que ves es lo que obtienes.' },
+          experience: { title: '5+ Años, 10+ Ciudades Atendidas', desc: 'Desde Katy hasta Pearland, construimos nuestra reputación proyecto por proyecto.' },
+          freeQuote: { title: 'Estimaciones Gratis, Sin Presión', desc: 'Llama o textea y visitamos tu propiedad — sin compromiso.' },
+        },
+      },
       services: {
         sectionTitle: 'Nuestros Servicios',
         items: {
