@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const heroBg = document.querySelector('.hero__bg');
-  if (heroBg) {
+  const heroBgWrap = document.getElementById('hero-bg-wrap');
+  if (heroBgWrap) {
     const onHeroScroll = () => {
       const offset = Math.min(window.scrollY * 0.3, 160);
-      heroBg.style.transform = `translateY(${offset}px)`;
+      heroBgWrap.style.transform = `translateY(${offset}px)`;
     };
     onHeroScroll();
     window.addEventListener('scroll', onHeroScroll, { passive: true });

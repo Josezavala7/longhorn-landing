@@ -96,7 +96,10 @@ checks.push({
       document.body.style.minHeight = '3000px';
       window.scrollTo(0, 200);
     });
-    await page.waitForTimeout(100);
+    await page.waitForFunction(
+      () => document.getElementById('site-header').classList.contains('is-scrolled'),
+      { timeout: 2000 }
+    ).catch(() => {});
     const hasClass = await page.evaluate(() => document.getElementById('site-header').classList.contains('is-scrolled'));
     await page.evaluate(() => {
       window.scrollTo(0, 0);
@@ -129,7 +132,7 @@ checks.push({
   name: 'hero background image loads without 404',
   fn: async (page) => {
     const status = await page.evaluate(async () => {
-      const res = await fetch('assets/gallery/hero-backyard-oasis.jpg');
+      const res = await fetch('assets/gallery/hero-firepit-dusk.jpg');
       return res.status;
     });
     if (status !== 200) throw new Error(`hero image status ${status}`);

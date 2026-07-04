@@ -8,7 +8,8 @@ const OUT_DIR = new URL('../assets/gallery/', import.meta.url).pathname;
 mkdirSync(OUT_DIR, { recursive: true });
 
 const MAP = [
-  ['gallery/g16.jpg', 'hero-backyard-oasis.jpg', 1920],
+  ['gallery/g07.jpg', 'hero-firepit-dusk.jpg', 1920],
+  ['gallery/g16.jpg', 'hero-backyard-oasis.jpg', 1400],
   ['gallery/g22.jpg', 'gallery-backyard-pool-2.jpg', 1400],
   ['gallery/g07.jpg', 'gallery-firepit-dusk.jpg', 1400],
   ['gallery/g21.jpg', 'gallery-firepit-circular.jpg', 1400],
