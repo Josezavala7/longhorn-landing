@@ -156,4 +156,22 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'services grid renders exactly 15 cards',
+  fn: async (page) => {
+    const count = await page.locator('.service-card').count();
+    if (count !== 15) throw new Error(`expected 15 service cards, got ${count}`);
+  },
+});
+
+checks.push({
+  name: 'service card text switches language',
+  fn: async (page) => {
+    await page.click('.lang-toggle__option[data-lang="es"]');
+    const text = await page.locator('[data-i18n="services.items.turf.title"]').textContent();
+    if (text.trim() !== 'Césped Sintético') throw new Error(`unexpected: ${text}`);
+    await page.click('.lang-toggle__option[data-lang="en"]');
+  },
+});
+
 run();
