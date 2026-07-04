@@ -79,4 +79,42 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'language toggle switches nav text to Spanish',
+  fn: async (page) => {
+    await page.click('.lang-toggle__option[data-lang="es"]');
+    const text = await page.locator('.site-nav a[href="#hero"]').textContent();
+    if (text.trim() !== 'Inicio') throw new Error(`expected "Inicio", got "${text.trim()}"`);
+    await page.click('.lang-toggle__option[data-lang="en"]');
+  },
+});
+
+checks.push({
+  name: 'header gains is-scrolled class after scrolling',
+  fn: async (page) => {
+    await page.evaluate(() => {
+      document.body.style.minHeight = '3000px';
+      window.scrollTo(0, 200);
+    });
+    await page.waitForTimeout(100);
+    const hasClass = await page.evaluate(() => document.getElementById('site-header').classList.contains('is-scrolled'));
+    await page.evaluate(() => {
+      window.scrollTo(0, 0);
+      document.body.style.minHeight = '';
+    });
+    if (!hasClass) throw new Error('site-header did not gain is-scrolled class');
+  },
+});
+
+checks.push({
+  name: 'mobile nav toggle opens navigation at narrow viewport',
+  fn: async (page) => {
+    await page.setViewportSize({ width: 375, height: 800 });
+    await page.click('#nav-toggle');
+    const isOpen = await page.evaluate(() => document.getElementById('site-nav').classList.contains('is-open'));
+    if (!isOpen) throw new Error('site-nav did not open on mobile toggle click');
+    await page.setViewportSize({ width: 1280, height: 900 });
+  },
+});
+
 run();

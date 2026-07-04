@@ -154,3 +154,6 @@ section { scroll-margin-top: 84px; }
   .nav-toggle { display: flex; }
   .site-header__actions .btn--call span.btn-label { display: none; }
 }
+
+[data-i18n], [data-i18n-placeholder] { transition: opacity 0.2s ease; }
+body.lang-switching [data-i18n] { opacity: 0; }
