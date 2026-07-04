@@ -30,6 +30,7 @@
           xeriscaping: { title: 'Xeriscaping', desc: 'Drought-tolerant landscape design that saves water without sacrificing curb appeal.' },
         },
       },
+      gallery: { sectionTitle: 'Our Work', sectionSubtitle: 'Real projects, real Houston backyards.' },
     },
     es: {
       nav: { home: 'Inicio', services: 'Servicios', gallery: 'Galería', about: 'Nosotros', areas: 'Zonas', contact: 'Contacto' },
@@ -61,6 +62,7 @@
           xeriscaping: { title: 'Xeriscaping', desc: 'Diseño de paisajismo tolerante a la sequía que ahorra agua sin sacrificar la belleza de tu propiedad.' },
         },
       },
+      gallery: { sectionTitle: 'Nuestro Trabajo', sectionSubtitle: 'Proyectos reales, patios reales de Houston.' },
     },
   };
 

@@ -174,4 +174,25 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'gallery renders exactly 17 items',
+  fn: async (page) => {
+    const count = await page.locator('.gallery__item').count();
+    if (count !== 17) throw new Error(`expected 17 gallery items, got ${count}`);
+  },
+});
+
+checks.push({
+  name: 'clicking a gallery item opens the lightbox, Escape closes it',
+  fn: async (page) => {
+    await page.locator('.gallery__item').first().click();
+    const isOpen = await page.evaluate(() => document.getElementById('lightbox').classList.contains('is-open'));
+    if (!isOpen) throw new Error('lightbox did not open');
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(100);
+    const stillOpen = await page.evaluate(() => document.getElementById('lightbox').classList.contains('is-open'));
+    if (stillOpen) throw new Error('lightbox did not close on Escape');
+  },
+});
+
 run();
