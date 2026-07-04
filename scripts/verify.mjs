@@ -215,4 +215,23 @@ checks.push({
   },
 });
 
+checks.push({
+  name: 'contact form shows native validation error on empty required field',
+  fn: async (page) => {
+    await page.locator('#contact-form button[type="submit"]').click();
+    const isInvalid = await page.evaluate(() => !document.querySelector('#contact-form input[name="name"]').checkValidity());
+    if (!isInvalid) throw new Error('empty required field did not fail validation');
+  },
+});
+
+checks.push({
+  name: 'footer contains all nav anchor links',
+  fn: async (page) => {
+    for (const id of ['hero', 'services', 'gallery', 'about', 'areas', 'contact']) {
+      const href = await page.locator(`.site-footer__nav a[href="#${id}"]`).count();
+      if (href !== 1) throw new Error(`missing footer link to #${id}`);
+    }
+  },
+});
+
 run();

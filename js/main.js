@@ -70,4 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
   lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  const contactForm = document.getElementById('contact-form');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    const name = data.get('name');
+    const phone = data.get('phone');
+    const email = data.get('email');
+    const message = data.get('message');
+    const subject = encodeURIComponent(`New project inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:info@longhornhctx.com?subject=${subject}&body=${body}`;
+  });
 });

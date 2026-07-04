@@ -40,6 +40,18 @@
         sectionTitle: 'Proudly Serving Greater Houston',
         sectionSubtitle: 'From Katy to Pearland, we bring the same quality and care to every job site.',
       },
+      contact: {
+        heading: "Let's Build Something Solid",
+        subtitle: 'Call or text us today for a free consultation — we usually respond within the hour.',
+        emailLabel: 'Email:', addressLabel: 'Address:', hoursLabel: 'Hours:',
+        hoursValue: 'Mon–Fri, 9:00 AM – 5:00 PM',
+        financingNote: 'Ask us about flexible payment options for your project.',
+        form: { name: 'Name', phone: 'Phone', email: 'Email', message: 'Message', submit: 'Send Message', hint: 'Opens your email app to send us the details.' },
+      },
+      footer: {
+        tagline: 'Our Commitment to Excellence Is Set in Stone!',
+        copyright: '© 2026 Longhorn Hardscape & Construction. All rights reserved.',
+      },
     },
     es: {
       nav: { home: 'Inicio', services: 'Servicios', gallery: 'Galería', about: 'Nosotros', areas: 'Zonas', contact: 'Contacto' },
@@ -80,6 +92,18 @@
       areas: {
         sectionTitle: 'Sirviendo con Orgullo al Área de Houston',
         sectionSubtitle: 'Desde Katy hasta Pearland, llevamos la misma calidad y cuidado a cada obra.',
+      },
+      contact: {
+        heading: 'Construyamos Algo Sólido',
+        subtitle: 'Llámanos o textéanos hoy para una consulta gratis — normalmente respondemos en menos de una hora.',
+        emailLabel: 'Correo:', addressLabel: 'Dirección:', hoursLabel: 'Horario:',
+        hoursValue: 'Lun–Vie, 9:00 AM – 5:00 PM',
+        financingNote: 'Pregúntanos por opciones de pago flexibles para tu proyecto.',
+        form: { name: 'Nombre', phone: 'Teléfono', email: 'Correo', message: 'Mensaje', submit: 'Enviar Mensaje', hint: 'Abre tu app de correo para enviarnos los detalles.' },
+      },
+      footer: {
+        tagline: '¡Nuestro Compromiso con la Excelencia Está Grabado en Piedra!',
+        copyright: '© 2026 Longhorn Hardscape & Construction. Todos los derechos reservados.',
       },
     },
   };

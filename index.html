@@ -201,10 +201,58 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="contact"></section>
+  <section id="contact" class="contact">
+    <div class="container contact__grid">
+      <div class="contact__info">
+        <h2 data-i18n="contact.heading">Let's Build Something Solid</h2>
+        <p data-i18n="contact.subtitle">Call or text us today for a free consultation — we usually respond within the hour.</p>
+        <a class="btn btn--call btn--large" href="tel:+13465518340" data-i18n="hero.ctaCall">Call or Text (346) 551-8340</a>
+        <ul class="contact__details">
+          <li><strong data-i18n="contact.emailLabel">Email:</strong> info@longhornhctx.com</li>
+          <li><strong data-i18n="contact.addressLabel">Address:</strong> 6140 Highway 6, Suite 3116, Missouri City, TX 77459</li>
+          <li><strong data-i18n="contact.hoursLabel">Hours:</strong> <span data-i18n="contact.hoursValue">Mon–Fri, 9:00 AM – 5:00 PM</span></li>
+        </ul>
+        <p class="contact__financing" data-i18n="contact.financingNote">Ask us about flexible payment options for your project.</p>
+      </div>
+      <form class="contact__form" id="contact-form">
+        <label>
+          <span data-i18n="contact.form.name">Name</span>
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          <span data-i18n="contact.form.phone">Phone</span>
+          <input type="tel" name="phone" required>
+        </label>
+        <label>
+          <span data-i18n="contact.form.email">Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span data-i18n="contact.form.message">Message</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn btn--call" data-i18n="contact.form.submit">Send Message</button>
+        <p class="contact__form-hint" data-i18n="contact.form.hint">Opens your email app to send us the details.</p>
+      </form>
+    </div>
+  </section>
 </main>
 
-<footer class="site-footer"></footer>
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <img src="assets/logo.png" alt="Longhorn Hardscape & Construction" class="site-footer__logo">
+    <p data-i18n="footer.tagline">Our Commitment to Excellence Is Set in Stone!</p>
+    <nav class="site-footer__nav">
+      <a href="#hero" data-i18n="nav.home">Home</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#areas" data-i18n="nav.areas">Areas</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <p class="site-footer__copy" data-i18n="footer.copyright">© 2026 Longhorn Hardscape & Construction. All rights reserved.</p>
+  </div>
+</footer>
 
 <div class="lightbox" id="lightbox">
   <button class="lightbox__close" id="lightbox-close" aria-label="Close">&times;</button>
