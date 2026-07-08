@@ -104,7 +104,7 @@
       gallery: { sectionTitle: 'Nuestro Trabajo', sectionSubtitle: 'Proyectos reales, patios reales de Houston.' },
       about: {
         heading: 'Nuestro Compromiso con la Excelencia Está Grabado en Piedra',
-        body: 'Longhorn Hardscape & Construction es una empresa de propiedad y operación local que atiende a propietarios y negocios en toda el área de Houston. Cofundada por Cesar Guifarro, nuestro equipo aporta más de 5 años de experiencia práctica en construcción y hardscaping a cada proyecto. Construimos sobre cinco valores fundamentales — compasión, consistencia, trabajo duro, honestidad y respeto — y respaldamos cada trabajo con mano de obra de calidad, cumplimiento de plazos y un presupuesto en el que puedes confiar.',
+        body: 'Longhorn Hardscape & Construction es una empresa de propiedad y operación local que atiende a propietarios y negocios en toda el área de Houston. Cofundada por Cesar Guifarro, nuestro equipo aporta más de 10 años de experiencia práctica en construcción y hardscaping a cada proyecto. Construimos sobre cinco valores fundamentales — compasión, consistencia, trabajo duro, honestidad y respeto — y respaldamos cada trabajo con mano de obra de calidad, cumplimiento de plazos y un presupuesto en el que puedes confiar.',
         founder: 'Cesar Guifarro — Cofundador',
       },
       areas: {
