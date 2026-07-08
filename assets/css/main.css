@@ -1201,7 +1201,8 @@ p {
   width: 100%;
 }
 
-.whatsapp-float {
+.whatsapp-float,
+.whatsapp-fab {
   position: fixed;
   bottom: 80px;
   right: 20px;
@@ -1217,12 +1218,14 @@ p {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.whatsapp-float:hover {
+.whatsapp-float:hover,
+.whatsapp-fab:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 28px rgba(37,211,102,0.5);
 }
 
-.whatsapp-float svg {
+.whatsapp-float svg,
+.whatsapp-fab svg {
   width: 28px;
   height: 28px;
   fill: #fff;
@@ -1947,7 +1950,8 @@ p {
   }
 
   /* WhatsApp */
-  .whatsapp-float {
+  .whatsapp-float,
+  .whatsapp-fab {
     bottom: 90px;
   }
 }
