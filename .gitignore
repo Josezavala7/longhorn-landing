@@ -3,4 +3,6 @@ node_modules/
 .playwright-libs/
 .claude/
 descargas/
-assets/videos/
+
+# Local Netlify folder
+.netlify
