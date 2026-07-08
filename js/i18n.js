@@ -15,7 +15,7 @@
         items: {
           oneTeam: { title: 'One Team, Start to Finish', desc: 'Turf, pavers, concrete, lighting, and painting — no juggling subcontractors for one project.' },
           realPhotos: { title: 'Real Photos, Real Backyards', desc: 'Every photo in our gallery is our own work. What you see is what you get.' },
-          experience: { title: '5+ Years, 10+ Cities Served', desc: "From Katy to Pearland, we've built our reputation project by project." },
+          experience: { title: '10+ Years, 10+ Cities Served', desc: "From Katy to Pearland, we've built our reputation project by project." },
           freeQuote: { title: 'Free, No-Pressure Estimates', desc: "Call or text and we'll walk your property — no obligation." },
         },
       },
@@ -42,7 +42,7 @@
       gallery: { sectionTitle: 'Our Work', sectionSubtitle: 'Real projects, real Houston backyards.' },
       about: {
         heading: 'Our Commitment to Excellence Is Set in Stone',
-        body: 'Longhorn Hardscape & Construction is a locally owned and operated company serving homeowners and businesses across Greater Houston. Co-founded by Cesar Guifarro, our team brings over 5 years of hands-on experience in construction and hardscaping to every project. We build on five core values — compassion, consistency, hard work, honesty, and respect — and we back every job with high-quality workmanship, on-time completion, and a budget you can count on.',
+        body: 'Longhorn Hardscape & Construction is a locally owned and operated company serving homeowners and businesses across Greater Houston. Co-founded by Cesar Guifarro, our team brings over 10 years of hands-on experience in construction and hardscaping to every project. We build on five core values — compassion, consistency, hard work, honesty, and respect — and we back every job with high-quality workmanship, on-time completion, and a budget you can count on.',
         founder: 'Cesar Guifarro — Co-Founder',
       },
       areas: {
