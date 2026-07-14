@@ -18,7 +18,25 @@
   }
 
   /* ----------------------------------------------------------
-     2. MOBILE NAV TOGGLE
+     2. MOBILE NAV ACCORDIONS
+  ---------------------------------------------------------- */
+  document.querySelectorAll('.mobile-nav-accordion').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.mobile-nav-accordion').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('is-open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('is-open');
+      }
+    });
+  });
+
+  /* ----------------------------------------------------------
+     3. MOBILE NAV TOGGLE
   ---------------------------------------------------------- */
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
