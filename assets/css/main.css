@@ -641,15 +641,7 @@ p {
 }
 
 .hero-mobile-tagline {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  margin-top: -12px;
-  margin-bottom: 24px;
+  display: none;
 }
 
 .hero h2 {
