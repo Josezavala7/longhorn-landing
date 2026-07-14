@@ -214,7 +214,33 @@
   });
 
   /* ----------------------------------------------------------
-     10. SERVICE CARD LIGHTBOX
+     10. STATS STRIP COUNTERS
+  ---------------------------------------------------------- */
+  const statNumbers = document.querySelectorAll('.stat-number[data-stat-target]');
+  if (statNumbers.length) {
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.statTarget);
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(ease * target);
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(tick);
+        statObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    statNumbers.forEach(el => statObserver.observe(el));
+  }
+
+  /* ----------------------------------------------------------
+     11. SERVICE CARD LIGHTBOX
   ---------------------------------------------------------- */
   const scLightbox = document.getElementById('scLightbox');
   if (scLightbox) {
