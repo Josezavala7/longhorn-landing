@@ -688,6 +688,19 @@ p {
   border-bottom: 1px solid var(--color-border);
 }
 
+.trust-bar.section-dark {
+  background: var(--color-dark);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.trust-bar.section-dark .trust-item h4 {
+  color: #fff;
+}
+
+.trust-bar.section-dark .trust-item p {
+  color: rgba(255,255,255,0.6);
+}
+
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 280px));
@@ -2181,7 +2194,7 @@ p {
   .hero-scroll { display: none; }
 
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: rgba(255,255,255,0.25);
   }
