@@ -928,6 +928,16 @@ p {
   transition: transform 0.1s linear;
 }
 
+.section-dark .about-teaser-content h2 { color: #fff; }
+.section-dark .btn-dark {
+  background: #fff;
+  color: var(--color-dark);
+}
+.section-dark .btn-dark:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
 .about-teaser-content .overline {
   color: var(--color-accent);
   font-size: 0.8rem;
