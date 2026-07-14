@@ -716,15 +716,7 @@
       slides.forEach((photo, i) => {
         const div = document.createElement('div');
         div.className = 'proj-slide' + (i === 0 ? ' is-active' : '');
-        if (i === 0) {
-          // Show first slide instantly (skip fade-in transition on category switch)
-          div.style.opacity = '1';
-          div.style.transition = 'none';
-          requestAnimationFrame(() => requestAnimationFrame(() => {
-            div.style.opacity = '';
-            div.style.transition = '';
-          }));
-        }
+        if (i === 0) div.style.transition = 'none'; // no fade-in; stage fade handles reveal
         div.setAttribute('aria-hidden', i !== 0 ? 'true' : 'false');
         const img = document.createElement('img');
         img.src    = photo.src;
@@ -856,8 +848,24 @@
         btn.setAttribute('aria-selected', 'true');
         activeCat  = btn.dataset.cat;
         currentIdx = 0;
-        buildCarousel();
-        startAutoplay();
+        isPaused   = false;
+        stopAutoplay();
+
+        // Fade out → rebuild → fade in (prevents flash / erratic jump)
+        stage.style.transition = 'opacity 0.15s ease';
+        stage.style.opacity    = '0';
+        stage.style.pointerEvents = 'none';
+        setTimeout(() => {
+          buildCarousel();
+          stage.style.opacity = '1';
+          setTimeout(() => {
+            stage.style.transition    = '';
+            stage.style.pointerEvents = '';
+            // restore slide transitions now that stage has faded in
+            stage.querySelectorAll('.proj-slide').forEach(s => { s.style.transition = ''; });
+            startAutoplay();
+          }, 150);
+        }, 150);
       });
     });
 
