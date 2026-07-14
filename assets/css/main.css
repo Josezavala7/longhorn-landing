@@ -562,8 +562,6 @@ p {
   z-index: 2;
   max-width: 560px;
   padding: 120px 0 80px;
-  border-left: 4px solid var(--color-accent);
-  padding-left: 28px;
 }
 
 /* Stagger entrance animations */
