@@ -2188,7 +2188,7 @@ p {
     min-height: 100svh;
     min-height: 100vh; /* fallback for older browsers */
     align-items: flex-end;
-    padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px));
   }
 
   .hero-scroll { display: none; }
