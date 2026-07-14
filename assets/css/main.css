@@ -1851,9 +1851,36 @@ p {
     display: block;
   }
 
-  /* Hero */
+  /* Hero — video-first mobile layout */
+  .hero {
+    min-height: 75vh;
+    align-items: flex-end;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(26,26,26,0.15) 0%,
+      rgba(26,26,26,0.30) 50%,
+      rgba(26,26,26,0.85) 100%
+    );
+  }
+
   .hero-content {
-    padding: 100px 0 80px;
+    padding: 0 0 40px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-badge,
+  .hero h2,
+  .proof-bullets {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
   }
 
   .hero-actions {
