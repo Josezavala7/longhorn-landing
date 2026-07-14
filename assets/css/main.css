@@ -508,7 +508,7 @@ p {
   bottom: 0;
   background: var(--color-dark);
   z-index: calc(var(--z-sticky) - 1);
-  padding: 100px 24px 40px;
+  padding: 100px 24px calc(90px + env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
   transform: translateX(100%);
   transition: transform var(--transition-md);
