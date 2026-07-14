@@ -227,8 +227,10 @@
       lbImg.src = src;
       lbImg.alt = alt;
       lbCaption.textContent = caption;
-      scLightbox.removeAttribute('hidden');
+      const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.paddingRight = scrollbarW + 'px';
       document.body.style.overflow = 'hidden';
+      scLightbox.removeAttribute('hidden');
     }
 
     function closeSCLightbox() {
@@ -237,6 +239,7 @@
         scLightbox.setAttribute('hidden', '');
         scLightbox.classList.remove('sc-lightbox--closing');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
       }, 260);
     }
 
