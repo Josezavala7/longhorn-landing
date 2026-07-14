@@ -213,6 +213,65 @@
     }
   });
 
+  /* ----------------------------------------------------------
+     10. SERVICE CARD LIGHTBOX
+  ---------------------------------------------------------- */
+  const scLightbox = document.getElementById('scLightbox');
+  if (scLightbox) {
+    const lbImg      = scLightbox.querySelector('.sc-lightbox__img');
+    const lbCaption  = scLightbox.querySelector('.sc-lightbox__caption');
+    const lbClose    = scLightbox.querySelector('.sc-lightbox__close');
+    const lbBackdrop = scLightbox.querySelector('.sc-lightbox__backdrop');
+
+    function openSCLightbox(src, alt, caption) {
+      lbImg.src = src;
+      lbImg.alt = alt;
+      lbCaption.textContent = caption;
+      scLightbox.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSCLightbox() {
+      scLightbox.classList.add('sc-lightbox--closing');
+      setTimeout(() => {
+        scLightbox.setAttribute('hidden', '');
+        scLightbox.classList.remove('sc-lightbox--closing');
+        document.body.style.overflow = '';
+      }, 260);
+    }
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      const img   = card.querySelector('img');
+      const title = card.querySelector('h3');
+      if (!img || !title) return;
+      const wrap  = card.querySelector('.service-card-img');
+      wrap.style.cursor = 'zoom-in';
+      wrap.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        openSCLightbox(img.src, img.alt, title.textContent);
+      });
+    });
+
+    lbClose.addEventListener('click', closeSCLightbox);
+    lbBackdrop.addEventListener('click', closeSCLightbox);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !scLightbox.hasAttribute('hidden')) closeSCLightbox();
+    });
+  }
+
+  /* ----------------------------------------------------------
+     11. ABOUT TEASER PARALLAX
+  ---------------------------------------------------------- */
+  const aboutTeaserImg = document.querySelector('.about-teaser-img img');
+  if (aboutTeaserImg) {
+    window.addEventListener('scroll', () => {
+      const rect   = aboutTeaserImg.closest('.about-teaser-img').getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      aboutTeaserImg.style.transform = `translateY(${center * 0.08}px)`;
+    }, { passive: true });
+  }
+
   // Projects filter
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card[data-category]');
