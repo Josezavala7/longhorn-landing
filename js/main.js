@@ -84,6 +84,51 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `mailto:info@longhornhctx.com?subject=${subject}&body=${body}`;
   });
 
+  // Service card lightbox
+  const scLightbox = document.getElementById('scLightbox');
+  if (scLightbox) {
+    const lbImg     = scLightbox.querySelector('.sc-lightbox__img');
+    const lbCaption = scLightbox.querySelector('.sc-lightbox__caption');
+    const lbClose   = scLightbox.querySelector('.sc-lightbox__close');
+    const lbBackdrop = scLightbox.querySelector('.sc-lightbox__backdrop');
+
+    function openLightbox(src, alt, caption) {
+      lbImg.src = src;
+      lbImg.alt = alt;
+      lbCaption.textContent = caption;
+      scLightbox.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      scLightbox.classList.add('sc-lightbox--closing');
+      setTimeout(() => {
+        scLightbox.setAttribute('hidden', '');
+        scLightbox.classList.remove('sc-lightbox--closing');
+        document.body.style.overflow = '';
+      }, 260);
+    }
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      const img = card.querySelector('img');
+      const title = card.querySelector('h3');
+      if (!img || !title) return;
+      const wrap = card.querySelector('.service-card-img');
+      wrap.style.cursor = 'zoom-in';
+      wrap.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(img.src, img.alt, title.textContent);
+      });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbBackdrop.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !scLightbox.hasAttribute('hidden')) closeLightbox();
+    });
+  }
+
   // About teaser parallax
   const aboutImg = document.querySelector('.about-teaser-img img');
   if (aboutImg) {

@@ -1848,6 +1848,91 @@ p {
 }
 
 /* ============================================================
+   SERVICE CARD LIGHTBOX
+   ============================================================ */
+.sc-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.sc-lightbox[hidden] { display: none; }
+
+.sc-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: lbFadeIn 0.3s ease forwards;
+}
+
+.sc-lightbox__panel {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  animation: lbScaleIn 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+.sc-lightbox__img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  display: block;
+}
+
+.sc-lightbox__caption {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+}
+
+.sc-lightbox__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+
+.sc-lightbox__close:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.sc-lightbox--closing .sc-lightbox__backdrop {
+  animation: lbFadeOut 0.25s ease forwards;
+}
+.sc-lightbox--closing .sc-lightbox__panel {
+  animation: lbScaleOut 0.25s ease forwards;
+}
+
+@keyframes lbFadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lbFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes lbScaleIn  { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+@keyframes lbScaleOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.92); } }
+
+/* ============================================================
    23. AREA PAGE SPECIFICS
    ============================================================ */
 .area-nap {
