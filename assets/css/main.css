@@ -451,6 +451,26 @@ p {
 /* Header CTA */
 .header-cta {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.2s;
+}
+
+.header-social-link:hover {
+  color: #fff;
+}
+
+.header-social-link svg {
+  fill: currentColor;
+  display: block;
 }
 
 /* Hamburger */
@@ -532,6 +552,30 @@ p {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.mobile-nav-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.mobile-nav-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s;
+}
+
+.mobile-nav-social a:hover {
+  color: #fff;
+}
+
+.mobile-nav-social svg {
+  fill: currentColor;
+  display: block;
 }
 
 /* ============================================================
