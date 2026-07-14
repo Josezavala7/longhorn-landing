@@ -358,4 +358,20 @@
     });
   }
 
+  /* ----------------------------------------------------------
+     MOBILE CTA BAR — keep pinned to visual viewport bottom on iOS
+     iOS Safari shifts position:fixed elements when its toolbar shows/hides.
+     visualViewport lets us reposition to the true visual bottom.
+  ---------------------------------------------------------- */
+  const mobileCta = document.querySelector('.mobile-cta-bar');
+  if (mobileCta && window.visualViewport) {
+    const repin = () => {
+      const vv = window.visualViewport;
+      const offset = window.innerHeight - vv.height - vv.offsetTop;
+      mobileCta.style.bottom = Math.max(0, offset) + 'px';
+    };
+    window.visualViewport.addEventListener('resize', repin, { passive: true });
+    window.visualViewport.addEventListener('scroll', repin, { passive: true });
+  }
+
 })();

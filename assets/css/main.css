@@ -1526,6 +1526,8 @@ p {
   z-index: var(--z-modal);
   padding: 8px 16px;
   padding-bottom: max(8px, env(safe-area-inset-bottom));
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .mobile-cta-bar-inner {
@@ -1541,35 +1543,7 @@ p {
   width: 100%;
 }
 
-.whatsapp-float,
-.whatsapp-fab {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  z-index: var(--z-modal);
-  width: 54px;
-  height: 54px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.whatsapp-float:hover,
-.whatsapp-fab:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
-}
-
-.whatsapp-float svg,
-.whatsapp-fab svg {
-  width: 28px;
-  height: 28px;
-  fill: #fff;
-}
+/* whatsapp-float removed */
 
 /* ============================================================
    18. BREADCRUMB
@@ -1724,11 +1698,14 @@ p {
   background: #fff;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  transition: box-shadow var(--transition);
+  border-top: 3px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
 }
 
 .why-card:hover {
-  box-shadow: var(--shadow);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+  border-top-color: var(--color-accent);
 }
 
 .why-card svg {
@@ -1850,6 +1827,31 @@ p {
 
 .faq-item.is-open .faq-question svg {
   transform: rotate(180deg);
+}
+
+/* Dark section overrides for service page components */
+.section-dark .faq-list {
+  border-top-color: rgba(255,255,255,0.12);
+}
+.section-dark .faq-item {
+  border-bottom-color: rgba(255,255,255,0.12);
+}
+.section-dark .faq-question {
+  color: #fff;
+}
+.section-dark .faq-question:hover {
+  color: var(--color-accent);
+}
+.section-dark .why-card {
+  background: #fff;
+}
+.section-dark .why-card h4 { color: var(--color-text); }
+.section-dark .why-card p  { color: var(--color-text-muted); }
+
+/* Override reveal's transition shorthand so why-card hover animates box-shadow + border */
+.why-card.reveal,
+.why-card.is-visible {
+  transition: opacity 0.55s ease, transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
 }
 
 .faq-answer {
