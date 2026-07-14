@@ -84,6 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `mailto:info@longhornhctx.com?subject=${subject}&body=${body}`;
   });
 
+  // About teaser parallax
+  const aboutImg = document.querySelector('.about-teaser-img img');
+  if (aboutImg) {
+    window.addEventListener('scroll', () => {
+      const rect = aboutImg.closest('.about-teaser-img').getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      aboutImg.style.transform = `translateY(${center * 0.08}px)`;
+    }, { passive: true });
+  }
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
