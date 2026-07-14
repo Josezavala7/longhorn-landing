@@ -1873,23 +1873,11 @@ p {
   }
 
   .hero-badge,
+  .hero h1,
   .hero h2,
-  .proof-bullets {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-  }
-
+  .proof-bullets,
   .hero-actions {
-    flex-direction: column;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
-    justify-content: center;
+    display: none;
   }
 
   /* Trust */
