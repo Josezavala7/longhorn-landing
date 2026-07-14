@@ -2172,7 +2172,8 @@ p {
 
   /* Hero — video-first mobile layout */
   .hero {
-    min-height: 75vh;
+    min-height: 100svh;
+    min-height: 100vh; /* fallback for older browsers */
     align-items: flex-end;
   }
 
