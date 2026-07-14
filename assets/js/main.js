@@ -253,6 +253,28 @@
       });
     });
 
+    // About teaser photo
+    const aboutTeaserWrap = document.querySelector('.about-teaser-img');
+    if (aboutTeaserWrap) {
+      const atImg = aboutTeaserWrap.querySelector('img');
+      aboutTeaserWrap.style.cursor = 'zoom-in';
+      aboutTeaserWrap.addEventListener('click', e => {
+        e.preventDefault();
+        openSCLightbox(atImg.src, atImg.alt, 'Cesar Guilfarro — Longhorn Hardscape & Construction');
+      });
+    }
+
+    // Gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      item.style.cursor = 'zoom-in';
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        openSCLightbox(img.src, img.alt, img.alt);
+      });
+    });
+
     lbClose.addEventListener('click', closeSCLightbox);
     lbBackdrop.addEventListener('click', closeSCLightbox);
     document.addEventListener('keydown', e => {
