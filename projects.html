@@ -716,6 +716,15 @@
       slides.forEach((photo, i) => {
         const div = document.createElement('div');
         div.className = 'proj-slide' + (i === 0 ? ' is-active' : '');
+        if (i === 0) {
+          // Show first slide instantly (skip fade-in transition on category switch)
+          div.style.opacity = '1';
+          div.style.transition = 'none';
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            div.style.opacity = '';
+            div.style.transition = '';
+          }));
+        }
         div.setAttribute('aria-hidden', i !== 0 ? 'true' : 'false');
         const img = document.createElement('img');
         img.src    = photo.src;
