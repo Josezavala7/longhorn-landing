@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -24,6 +24,320 @@
     "sameAs": ["https://www.facebook.com/people/Longhorn-Hardscape-Construction/61553859352846/","https://www.instagram.com/longhornhctx"]
   }
   </script>
+  <style>
+    /* ── Projects Showcase ─────────────────────────────── */
+    .proj-section {
+      background: #111;
+      padding: 60px 0 80px;
+    }
+
+    /* Filter tabs */
+    .proj-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .proj-filter-btn {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.22s;
+      letter-spacing: 0.02em;
+    }
+
+    .proj-filter-btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .proj-filter-btn.is-active {
+      background: var(--color-accent);
+      color: #000;
+      border-color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    /* Carousel */
+    .proj-carousel {
+      position: relative;
+      width: 100%;
+      background: #000;
+      user-select: none;
+    }
+
+    .proj-carousel__stage {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      min-height: 400px;
+      max-height: 760px;
+      overflow: hidden;
+    }
+
+    .proj-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.75s ease;
+      cursor: zoom-in;
+    }
+
+    .proj-slide.is-active {
+      opacity: 1;
+    }
+
+    .proj-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Gradient overlay at bottom for meta text */
+    .proj-carousel__stage::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 140px;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Arrows */
+    .proj-carousel__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .proj-carousel__arrow:hover {
+      background: rgba(0,0,0,0.75);
+      border-color: var(--color-accent);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .proj-carousel__arrow--prev { left: 16px; }
+    .proj-carousel__arrow--next { right: 16px; }
+
+    .proj-carousel__arrow svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Meta bar (counter + category label) */
+    .proj-carousel__meta {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      pointer-events: none;
+    }
+
+    .proj-carousel__cat {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(0,0,0,0.5);
+      padding: 4px 10px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+    }
+
+    .proj-carousel__counter {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Dots */
+    .proj-carousel__dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 0 4px;
+      background: #111;
+    }
+
+    .proj-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .proj-dot.is-active {
+      background: var(--color-accent);
+      transform: scale(1.4);
+    }
+
+    .proj-dot:hover {
+      background: rgba(255,255,255,0.6);
+    }
+
+    /* Autoplay progress bar */
+    .proj-carousel__progress {
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .proj-carousel__progress-bar {
+      height: 100%;
+      background: var(--color-accent);
+      width: 0%;
+      transition: none;
+    }
+
+    .proj-carousel__progress-bar.is-running {
+      width: 100%;
+      transition: width 3.5s linear;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      .proj-carousel__stage {
+        height: 55vw;
+        min-height: 240px;
+        max-height: 420px;
+      }
+
+      .proj-carousel__arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .proj-carousel__arrow--prev { left: 8px; }
+      .proj-carousel__arrow--next { right: 8px; }
+
+      .proj-filter-btn {
+        font-size: 0.8rem;
+        padding: 7px 14px;
+      }
+    }
+
+    /* Lightbox (reused from index) */
+    .sc-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sc-lightbox[hidden] { display: none; }
+
+    .sc-lightbox__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .sc-lightbox__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 92vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: lbScaleIn 0.28s ease forwards;
+    }
+
+    .sc-lightbox--closing .sc-lightbox__inner {
+      animation: lbScaleOut 0.26s ease forwards;
+    }
+
+    @keyframes lbScaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes lbScaleOut {
+      from { opacity: 1; transform: scale(1); }
+      to   { opacity: 0; transform: scale(0.92); }
+    }
+
+    .sc-lightbox__img {
+      max-width: 92vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+    }
+
+    .sc-lightbox__caption {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
+      margin-top: 12px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .sc-lightbox__close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+      transition: background 0.2s;
+    }
+
+    .sc-lightbox__close:hover { background: rgba(255,255,255,0.25); }
+  </style>
 </head>
 <body>
 
@@ -32,7 +346,6 @@
       <div class="header-inner">
         <a href="index.html" class="header-logo" aria-label="Longhorn Hardscape — Home">
           <img src="assets/logo.png" alt="Longhorn Hardscape &amp; Construction logo" width="80" height="80">
-          
         </a>
         <nav class="main-nav" aria-label="Main navigation">
           <a href="index.html" class="nav-link">Home</a>
@@ -50,7 +363,7 @@
               <a href="painting-houston.html" role="menuitem">Painting &amp; More</a>
             </div>
           </div>
-          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="projects.html" class="nav-link is-active">Projects</a>
           <div class="nav-item">
             <a href="#" class="nav-link" aria-haspopup="true">Areas <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></a>
             <div class="nav-dropdown" role="menu">
@@ -69,7 +382,15 @@
           <a href="about.html" class="nav-link">About</a>
           <a href="blog.html" class="nav-link">Blog</a>
         </nav>
-        <div class="header-cta"><a href="contact.html" class="btn btn-primary">Get Free Quote</a></div>
+        <div class="header-cta">
+          <a href="https://www.facebook.com/people/Longhorn-Hardscape-Construction/61553859352846/" target="_blank" rel="noopener noreferrer" aria-label="Longhorn Hardscape on Facebook" class="header-social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/longhornhctx" target="_blank" rel="noopener noreferrer" aria-label="Longhorn Hardscape on Instagram" class="header-social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+        </div>
         <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -106,11 +427,20 @@
     <div class="mobile-nav-cta">
       <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
       <a href="tel:+13465518340" class="btn btn-secondary btn-lg">Call (346) 551-8340</a>
+      <div class="mobile-nav-social">
+        <a href="https://www.facebook.com/people/Longhorn-Hardscape-Construction/61553859352846/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/longhornhctx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
 
   <main id="main-content">
 
+    <!-- Hero -->
     <section class="page-hero page-hero--short" aria-labelledby="page-h1">
       <div class="container">
         <h1 id="page-h1">Our Completed Projects</h1>
@@ -118,545 +448,51 @@
       </div>
     </section>
 
-    <section class="section" aria-label="Project filter">
+    <!-- Projects Showcase -->
+    <section class="proj-section" aria-label="Projects gallery">
+
+      <!-- Filter tabs -->
       <div class="container">
-        <div class="projects-filter reveal" role="tablist" aria-label="Filter projects by type">
-          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
-          <button class="filter-btn" data-filter="patio-covers" role="tab" aria-selected="false">Patio Covers</button>
-          <button class="filter-btn" data-filter="pergolas" role="tab" aria-selected="false">Pergolas</button>
-          <button class="filter-btn" data-filter="fire" role="tab" aria-selected="false">Fire Features</button>
-          <button class="filter-btn" data-filter="kitchen" role="tab" aria-selected="false">Outdoor Kitchens</button>
-          <button class="filter-btn" data-filter="turf" role="tab" aria-selected="false">Artificial Turf</button>
-          <button class="filter-btn" data-filter="living" role="tab" aria-selected="false">Outdoor Living</button>
-          <button class="filter-btn" data-filter="stonework" role="tab" aria-selected="false">Custom Stonework</button>
-          <button class="filter-btn" data-filter="driveways" role="tab" aria-selected="false">Driveways</button>
-          <button class="filter-btn" data-filter="painting" role="tab" aria-selected="false">Painting</button>
+        <div class="proj-filters" id="projFilters" role="tablist" aria-label="Filter projects by category">
+          <button class="proj-filter-btn is-active" data-cat="all"    role="tab" aria-selected="true">All Projects</button>
+          <button class="proj-filter-btn" data-cat="living"          role="tab" aria-selected="false">Outdoor Living</button>
+          <button class="proj-filter-btn" data-cat="patio-covers"    role="tab" aria-selected="false">Patio Covers</button>
+          <button class="proj-filter-btn" data-cat="pergolas"        role="tab" aria-selected="false">Pergolas</button>
+          <button class="proj-filter-btn" data-cat="fire"            role="tab" aria-selected="false">Fire Features</button>
+          <button class="proj-filter-btn" data-cat="kitchen"         role="tab" aria-selected="false">Outdoor Kitchens</button>
+          <button class="proj-filter-btn" data-cat="turf"            role="tab" aria-selected="false">Artificial Turf</button>
+          <button class="proj-filter-btn" data-cat="stonework"       role="tab" aria-selected="false">Custom Stonework</button>
+          <button class="proj-filter-btn" data-cat="driveways"       role="tab" aria-selected="false">Driveways</button>
+          <button class="proj-filter-btn" data-cat="painting"        role="tab" aria-selected="false">Painting</button>
         </div>
       </div>
-    </section>
 
-    <section class="section" style="padding-top:0" aria-labelledby="gallery-heading">
-      <div class="container">
-        <h2 id="gallery-heading" class="sr-only">Projects Gallery</h2>
-        <div class="projects-grid" id="projects-grid">
+      <!-- Carousel -->
+      <div class="proj-carousel" id="projCarousel">
+        <div class="proj-carousel__progress"><div class="proj-carousel__progress-bar" id="projProgressBar"></div></div>
 
-          <!-- ===== OUTDOOR LIVING (4) ===== -->
-          <article class="project-card reveal" data-category="living">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/cesar-project-pool-outdoor-living-houston.webp" type="image/webp">
-                <img src="assets/images/projects/cesar-project-pool-outdoor-living-houston.webp" alt="luxury Houston backyard at night with pool fire bowls pergola and outdoor seating" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Living</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Luxury Estate Backyard — Night</h3>
-              <p>Pool-side fire bowls, pergola with string lights, outdoor seating, and travertine deck — a complete luxury backyard transformation.</p>
-              <a href="outdoor-living-spaces-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="living">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/patio-covers/IMG_9380.webp" type="image/webp">
-                <img src="assets/images/patio-covers/IMG_9380.webp" alt="covered outdoor living space with patio cover lounge and travertine in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Living</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Covered Outdoor Living Space</h3>
-              <p>Complete covered outdoor living area with lounge seating, ceiling fan, and premium travertine flooring — built for entertaining year-round.</p>
-              <a href="outdoor-living-spaces-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="living">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/patio-covers/IMG_7459.webp" type="image/webp">
-                <img src="assets/images/patio-covers/IMG_7459.webp" alt="outdoor living space with covered patio and outdoor dining in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Living</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Outdoor Dining & Lounge Area</h3>
-              <p>Custom outdoor living build with covered patio, dining area, and lounge space — a true extension of the home's living space.</p>
-              <a href="outdoor-living-spaces-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="living">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/patio-covers/IMG_0704.webp" type="image/webp">
-                <img src="assets/images/patio-covers/IMG_0704.webp" alt="backyard outdoor living transformation with covered patio and outdoor furniture in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Living</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Backyard Living Transformation</h3>
-              <p>Full backyard makeover: covered patio structure, premium outdoor furniture, and hardscape finishes — a relaxing outdoor retreat.</p>
-              <a href="outdoor-living-spaces-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== PATIO COVERS (4) ===== -->
-          <article class="project-card reveal" data-category="patio-covers">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/patio-covers/DSC07837-Edit.webp" type="image/webp">
-                <img src="assets/images/patio-covers/DSC07837-Edit.webp" alt="gable patio cover with fireplace TV outdoor kitchen and travertine patio at night in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Patio Covers</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Gable Cover with Fireplace</h3>
-              <p>Gable-roof patio cover with built-in brick fireplace, ceiling fan, TV, and outdoor kitchen — travertine flooring throughout.</p>
-              <a href="patio-covers-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="patio-covers">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/patio-covers/IMG_8685.webp" type="image/webp">
-                <img src="assets/images/patio-covers/IMG_8685.webp" alt="covered patio with cedar wood ceiling ceiling fans TV and outdoor dining in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Patio Covers</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Cedar Ceiling Covered Patio</h3>
-              <p>Beautiful covered patio with tongue-and-groove cedar ceiling, two large ceiling fans, outdoor TV, and full dining set — made for Texas summers.</p>
-              <a href="patio-covers-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="patio-covers">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/patio-covers/IMG_5114.webp" type="image/webp">
-                <img src="assets/images/patio-covers/IMG_5114.webp" alt="gable patio cover with ceiling fan wicker furniture and travertine patio in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Patio Covers</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Gable Cover with Outdoor Lounge</h3>
-              <p>Clean gable patio cover with tongue-and-groove ceiling, ceiling fan, and wicker lounge furniture — a comfortable covered retreat.</p>
-              <a href="patio-covers-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="patio-covers">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/pool-spa-travertine-patio-aerial-houston.webp" type="image/webp">
-                <img src="assets/gallery/pool-spa-travertine-patio-aerial-houston.webp" alt="aerial view of luxury backyard with lattice patio cover pool spa and travertine in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Patio Covers</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Lattice Cover, Pool & Spa — Aerial</h3>
-              <p>Aerial view of a complete luxury backyard: lattice patio cover, pool with spa, travertine decking, fire pit, and outdoor kitchen.</p>
-              <a href="patio-covers-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== PERGOLAS (4) ===== -->
-          <article class="project-card reveal" data-category="pergolas">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/pergolas/DJI_20260610203303_0204_D-Edit-2.webp" type="image/webp">
-                <img src="assets/images/pergolas/DJI_20260610203303_0204_D-Edit-2.webp" alt="modern pergola with string lights and outdoor dining in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Pergolas</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Modern Pergola with String Lights</h3>
-              <p>Open-beam pergola with overhead string lights — a defined outdoor dining and lounge space with beautiful evening ambiance.</p>
-              <a href="pergolas-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="pergolas">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/pergolas/IMG_5593.webp" type="image/webp">
-                <img src="assets/images/pergolas/IMG_5593.webp" alt="lattice pergola with polycarbonate roof fire table and swing bed over travertine patio in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Pergolas</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Lattice Pergola with Fire Table</h3>
-              <p>Polycarbonate-roofed lattice pergola with ceiling fan, hanging swing bed, and built-in fire table over a travertine patio.</p>
-              <a href="pergolas-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="pergolas">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/pergolas/IMG_6434.webp" type="image/webp">
-                <img src="assets/images/pergolas/IMG_6434.webp" alt="tiki palapa pergola with outdoor dining table and pool view in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Pergolas</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Tiki Palapa Pergola</h3>
-              <p>Custom tiki palapa structure with natural palm thatch, outdoor dining, and poolside location — a tropical outdoor escape.</p>
-              <a href="pergolas-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="pergolas">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/pergolas/IMG_6325.webp" type="image/webp">
-                <img src="assets/images/pergolas/IMG_6325.webp" alt="pergola with outdoor seating area and shade structure in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Pergolas</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Pergola with Outdoor Seating</h3>
-              <p>Custom pergola structure with comfortable outdoor seating — a shaded retreat perfect for Houston's backyard entertaining.</p>
-              <a href="pergolas-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== FIRE FEATURES (4) ===== -->
-          <article class="project-card reveal" data-category="fire">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/fire-features/IMG_5862.webp" type="image/webp">
-                <img src="assets/images/fire-features/IMG_5862.webp" alt="modern rectangular fire feature with stone surround and outdoor seating" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Fire Features</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Modern Rectangular Fire Feature</h3>
-              <p>Sleek linear gas fire feature with custom stone surround — the centerpiece of an outdoor entertaining area.</p>
-              <a href="fire-features-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="fire">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/outdoor-kitchen-houston-tx.webp" type="image/webp">
-                <img src="assets/images/projects/outdoor-kitchen-houston-tx.webp" alt="circular fire pit with stone seating wall and paver patio in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Fire Features</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Circular Fire Pit & Seating Wall</h3>
-              <p>Custom circular paver patio centered on a built-in stone fire pit with surrounding curved seating wall — a true gathering space.</p>
-              <a href="fire-features-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="fire">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/outdoor-living-space-missouri-city-tx.webp" type="image/webp">
-                <img src="assets/images/projects/outdoor-living-space-missouri-city-tx.webp" alt="fire pit with lit stone seating wall and stamped concrete patio at dusk in Missouri City TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Fire Features</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Fire Pit with Lit Seating Wall</h3>
-              <p>Dramatic evening ambiance: roaring fire pit beside a stone seating wall with built-in LED lighting on a stamped concrete patio.</p>
-              <a href="fire-features-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="fire">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/fire-features/IMG_0145.webp" type="image/webp">
-                <img src="assets/images/fire-features/IMG_0145.webp" alt="custom outdoor fire feature with stone surround and seating in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Fire Features</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Custom Fire Feature Install</h3>
-              <p>Custom built fire feature with natural stone surround — a warm focal point that turns any backyard into an evening destination.</p>
-              <a href="fire-features-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== OUTDOOR KITCHENS (4) ===== -->
-          <article class="project-card reveal" data-category="kitchen">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/outdoor-kitchen-grill-pergola-houston.webp" type="image/webp">
-                <img src="assets/gallery/outdoor-kitchen-grill-pergola-houston.webp" alt="outdoor kitchen with built-in grill stone counters and pergola in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Kitchens</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Built-In Grill & Outdoor Kitchen</h3>
-              <p>Full outdoor kitchen with built-in stainless grill, stone countertops, and pergola overhead — designed for year-round entertaining.</p>
-              <a href="outdoor-kitchen-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="kitchen">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/pergolas/IMG_6324.webp" type="image/webp">
-                <img src="assets/images/pergolas/IMG_6324.webp" alt="tiki palapa outdoor bar and kitchen with pool and TV by pool in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Kitchens</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Tiki Bar & Outdoor Kitchen</h3>
-              <p>Pool-side tiki palapa with built-in bar counter, outdoor TV, and kitchen prep area — a resort-style entertaining space at home.</p>
-              <a href="outdoor-kitchen-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="kitchen">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/backyard-pool-outdoor-kitchen-aerial-houston.webp" type="image/webp">
-                <img src="assets/gallery/backyard-pool-outdoor-kitchen-aerial-houston.webp" alt="aerial view of luxury backyard with outdoor kitchen pool and covered patio in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Kitchens</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Outdoor Kitchen + Pool — Aerial</h3>
-              <p>Aerial view showing a fully integrated outdoor kitchen and bar beside a custom pool and covered patio area.</p>
-              <a href="outdoor-kitchen-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="kitchen">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/outdoor-living-pool-firepit-houston.webp" type="image/webp">
-                <img src="assets/gallery/outdoor-living-pool-firepit-houston.webp" alt="outdoor living space with kitchen fire pit and pool in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Outdoor Kitchens</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Outdoor Living & Kitchen Area</h3>
-              <p>Complete outdoor living build with kitchen, fire pit seating wall, pool access, and hardscape patio — everything in one space.</p>
-              <a href="outdoor-kitchen-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== ARTIFICIAL TURF (4) ===== -->
-          <article class="project-card reveal" data-category="turf">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/driveway-pavers-project-pearland-tx.webp" type="image/webp">
-                <img src="assets/images/projects/driveway-pavers-project-pearland-tx.webp" alt="paver patio with artificial turf and white gravel backyard in Pearland TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Artificial Turf</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Paver Patio + Turf Backyard</h3>
-              <p>Complete backyard with brick paver patio, artificial turf lawn, and white gravel borders — low-maintenance and always green.</p>
-              <a href="artificial-turf-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="turf">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/turf-project-missouri-city-backyard.webp" type="image/webp">
-                <img src="assets/images/projects/turf-project-missouri-city-backyard.webp" alt="artificial turf with concrete stepping stones and landscape lighting in Missouri City TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Artificial Turf</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Turf & Stepping Stone Design</h3>
-              <p>Custom backyard with premium artificial turf, large-format concrete stepping stones, and integrated landscape lighting.</p>
-              <a href="artificial-turf-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="turf">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/covered-patio-houston-tx.webp" type="image/webp">
-                <img src="assets/images/projects/covered-patio-houston-tx.webp" alt="pool-side artificial turf and putting green backyard in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Artificial Turf</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Pool-Side Putting Green & Turf</h3>
-              <p>Luxury backyard with artificial turf, custom putting green with flag, and concrete pool deck — elevated outdoor living.</p>
-              <a href="artificial-turf-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="turf">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/putting-green-sugar-land-tx.webp" type="image/webp">
-                <img src="assets/images/projects/putting-green-sugar-land-tx.webp" alt="finished two-hole backyard putting green next to pool in Sugar Land TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Artificial Turf</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Backyard Putting Green</h3>
-              <p>Two-hole backyard putting green with fringe area — tour-grade turf surface installed next to pool deck.</p>
-              <a href="artificial-turf-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== CUSTOM STONEWORK (4) ===== -->
-          <article class="project-card reveal" data-category="stonework">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/concrete-patio-fort-bend-tx.webp" type="image/webp">
-                <img src="assets/images/projects/concrete-patio-fort-bend-tx.webp" alt="travertine herringbone patio with stepping stones and gravel in Fort Bend TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Custom Stonework</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Travertine Herringbone Patio</h3>
-              <p>Natural travertine pavers in a herringbone pattern with gravel border and large-format stepping stones into the turf area.</p>
-              <a href="custom-stonework-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="stonework">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/gallery-turf-pavers-clean.webp" type="image/webp">
-                <img src="assets/gallery/gallery-turf-pavers-clean.webp" alt="clean paver patio with artificial turf border in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Custom Stonework</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Clean Paver & Turf Layout</h3>
-              <p>Precision-laid paver patio with crisp turf border — a clean, modern hardscape finish that frames the outdoor space beautifully.</p>
-              <a href="custom-stonework-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="stonework">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/gallery-herringbone-patio.webp" type="image/webp">
-                <img src="assets/gallery/gallery-herringbone-patio.webp" alt="charcoal herringbone paver patio with artificial turf in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Custom Stonework</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Charcoal Herringbone Pavers</h3>
-              <p>Dark charcoal pavers laid in a bold herringbone pattern alongside artificial turf — a striking geometric contrast.</p>
-              <a href="custom-stonework-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="stonework">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/pool-deck-travertine-fire-pit-houston.webp" type="image/webp">
-                <img src="assets/gallery/pool-deck-travertine-fire-pit-houston.webp" alt="travertine pool deck with built-in fire pit seating wall in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Custom Stonework</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Travertine Pool Deck</h3>
-              <p>Travertine stone pool deck with built-in fire pit and seating wall — cool underfoot, beautiful year-round, and built to last.</p>
-              <a href="custom-stonework-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== DRIVEWAYS (4) ===== -->
-          <article class="project-card reveal" data-category="driveways">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/concrete-driveway-landscape-lighting-houston.webp" type="image/webp">
-                <img src="assets/gallery/concrete-driveway-landscape-lighting-houston.webp" alt="concrete driveway with landscape lighting in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Driveways</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Concrete Driveway with Lighting</h3>
-              <p>Finished concrete driveway with integrated landscape lighting — clean curb appeal that looks sharp day and night.</p>
-              <a href="driveway-contractor-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="driveways">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/luxury-home-driveway-sunset-aerial-houston.webp" type="image/webp">
-                <img src="assets/gallery/luxury-home-driveway-sunset-aerial-houston.webp" alt="aerial view of luxury Houston home with circular concrete driveway at sunset" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Driveways</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Luxury Circular Driveway — Aerial</h3>
-              <p>Aerial drone shot at sunset: circular concrete driveway with professional landscaping framing a stunning luxury home entrance.</p>
-              <a href="driveway-contractor-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="driveways">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/luxury-landscaping-driveway-night-houston.webp" type="image/webp">
-                <img src="assets/gallery/luxury-landscaping-driveway-night-houston.webp" alt="luxury home driveway with landscape lighting at night in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Driveways</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Driveway with Landscape Lighting</h3>
-              <p>Nighttime shot of a luxury home driveway with warm landscape lighting throughout — dramatic curb appeal after dark.</p>
-              <a href="driveway-contractor-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="driveways">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/luxury-hardscape-landscaping-aerial-houston.webp" type="image/webp">
-                <img src="assets/gallery/luxury-hardscape-landscaping-aerial-houston.webp" alt="aerial view of luxury hardscape driveway and landscaping in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Driveways</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Luxury Hardscape Driveway — Aerial</h3>
-              <p>Aerial view of a complete driveway and hardscape project — sweeping concrete drive with professional landscaping and lighting.</p>
-              <a href="driveway-contractor-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <!-- ===== PAINTING (4) ===== -->
-          <article class="project-card reveal" data-category="painting">
-            <div class="project-card-img">
-              <picture><source srcset="assets/images/projects/pergola-outdoor-living-katy-tx.webp" type="image/webp">
-                <img src="assets/images/projects/pergola-outdoor-living-katy-tx.webp" alt="commercial exterior painting project white stucco with dark trim arches in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Painting</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Commercial Exterior — Full Repaint</h3>
-              <p>Complete exterior repaint: crisp white stucco with bold dark trim and arch accents — a polished transformation for a commercial property.</p>
-              <a href="painting-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="painting">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/gallery-commercial-painting-apartments.webp" type="image/webp">
-                <img src="assets/gallery/gallery-commercial-painting-apartments.webp" alt="commercial apartment building exterior painting with boom lift in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Painting</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Multi-Story Apartment Painting</h3>
-              <p>Large-scale commercial painting of a multi-story apartment complex using a boom lift — professional exterior coating from ground to roofline.</p>
-              <a href="painting-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="painting">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/gallery-commercial-painting-arches.webp" type="image/webp">
-                <img src="assets/gallery/gallery-commercial-painting-arches.webp" alt="painted arch corridor detail with white stucco and dark trim commercial building in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Painting</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Arch Corridor — Precision Detail</h3>
-              <p>Arch walkway corridor with two-tone white and charcoal stucco finish — precision trim work on a commercial repaint project.</p>
-              <a href="painting-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="painting">
-            <div class="project-card-img">
-              <picture><source srcset="assets/gallery/gallery-process-install.webp" type="image/webp">
-                <img src="assets/gallery/gallery-process-install.webp" alt="commercial exterior painting project in progress in Houston TX" width="600" height="400" loading="lazy">
-              </picture>
-              <span class="project-card-tag">Painting</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Commercial Painting in Progress</h3>
-              <p>Mid-project view showing our process — proper surface prep and professional application ensure a finish that lasts for years.</p>
-              <a href="painting-houston.html" class="btn btn-outline btn-sm">View Service</a>
-            </div>
-          </article>
-
+        <div class="proj-carousel__stage" id="projStage">
+          <!-- slides injected by JS -->
         </div>
+
+        <button class="proj-carousel__arrow proj-carousel__arrow--prev" id="projPrev" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="proj-carousel__arrow proj-carousel__arrow--next" id="projNext" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div class="proj-carousel__meta">
+          <span class="proj-carousel__cat" id="projCatLabel"></span>
+          <span class="proj-carousel__counter" id="projCounter"></span>
+        </div>
+
+        <div class="proj-carousel__dots" id="projDots" role="tablist" aria-label="Go to photo"></div>
       </div>
+
     </section>
 
+    <!-- CTA Banner -->
     <section class="cta-banner" aria-labelledby="cta-heading">
       <div class="container"><div class="reveal">
         <h2 id="cta-heading">Want results like these for your backyard?</h2>
@@ -687,14 +523,23 @@
             <a href="https://www.instagram.com/longhornhctx" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
           </div>
         </div>
-        <div class="footer-col"><h4>Services</h4><ul>
-            <li><a href="patio-installation-houston.html">Patio Installation</a></li>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="patio-covers-houston.html">Patio Covers</a></li>
+            <li><a href="pergolas-houston.html">Pérgolas</a></li>
+            <li><a href="fire-features-houston.html">Fire Features</a></li>
             <li><a href="outdoor-kitchen-houston.html">Outdoor Kitchens</a></li>
             <li><a href="artificial-turf-houston.html">Artificial Turf</a></li>
-            <li><a href="outdoor-living-spaces-houston.html">Outdoor Living</a></li>
+            <li><a href="outdoor-living-spaces-houston.html">Outdoor Living Spaces</a></li>
+            <li><a href="custom-stonework-houston.html">Custom Stonework</a></li>
             <li><a href="driveway-contractor-houston.html">Driveways &amp; Concrete</a></li>
-          </ul></div>
-        <div class="footer-col"><h4>Service Areas</h4><ul>
+            <li><a href="painting-houston.html">Painting &amp; More</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Service Areas</h4>
+          <ul>
             <li><a href="landscaping-missouri-city.html">Missouri City</a></li>
             <li><a href="landscaping-sienna.html">Sienna</a></li>
             <li><a href="landscaping-sugar-land.html">Sugar Land</a></li>
@@ -705,15 +550,311 @@
             <li><a href="landscaping-katy.html">Katy</a></li>
             <li><a href="landscaping-rosenberg.html">Rosenberg</a></li>
             <li><a href="landscaping-houston.html">Houston</a></li>
-          </ul></div>
-        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Our Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><span>&copy; 2025 Longhorn Hardscape &amp; Construction. All rights reserved.</span><span>Insured in Texas</span></div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Longhorn Hardscape &amp; Construction. All rights reserved.</span>
+        <span>Insured in Texas</span>
+      </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/13465518340?text=Hi%2C%20I'd%20like%20a%20free%20quote%20for%20my%20outdoor%20project." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-  <div class="mobile-cta-bar" aria-label="Quick contact"><div class="mobile-cta-bar-inner"><a href="tel:+13465518340" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Call Now</a><a href="contact.html" class="btn btn-dark">Get Free Quote</a></div></div>
+  <!-- Mobile CTA bar -->
+  <div class="mobile-cta-bar" aria-label="Quick contact">
+    <div class="mobile-cta-bar-inner">
+      <a href="tel:+13465518340" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Call Now
+      </a>
+      <a href="contact.html" class="btn btn-dark">Get Free Quote</a>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="sc-lightbox" id="scLightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="sc-lightbox__backdrop" id="lbBackdrop"></div>
+    <div class="sc-lightbox__inner">
+      <button class="sc-lightbox__close" id="lbClose" aria-label="Close photo">&times;</button>
+      <img class="sc-lightbox__img" id="lbImg" src="" alt="">
+      <p class="sc-lightbox__caption" id="lbCaption"></p>
+    </div>
+  </div>
+
   <script src="assets/js/main.js" defer></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Photo data ──────────────────────────────────────── */
+    const ALL_PHOTOS = [
+      // Outdoor Living
+      { src: 'assets/images/projects/cesar-project-pool-outdoor-living-houston.webp',  alt: 'Luxury Houston backyard at night with pool fire bowls pergola and outdoor seating', cat: 'living',       label: 'Outdoor Living' },
+      { src: 'assets/images/patio-covers/IMG_9380.webp',                                alt: 'Covered outdoor living space with patio cover lounge and travertine in Houston TX', cat: 'living',       label: 'Outdoor Living' },
+      { src: 'assets/images/patio-covers/IMG_7459.webp',                                alt: 'Outdoor living space with covered patio and outdoor dining in Houston TX',           cat: 'living',       label: 'Outdoor Living' },
+      { src: 'assets/images/patio-covers/IMG_0704.webp',                                alt: 'Backyard outdoor living transformation with covered patio in Houston TX',            cat: 'living',       label: 'Outdoor Living' },
+      // Patio Covers
+      { src: 'assets/images/patio-covers/DSC07837-Edit.webp',                           alt: 'Gable patio cover with fireplace TV outdoor kitchen and travertine at night',       cat: 'patio-covers', label: 'Patio Covers' },
+      { src: 'assets/images/patio-covers/IMG_8685.webp',                                alt: 'Covered patio with cedar wood ceiling fans TV and outdoor dining in Houston TX',    cat: 'patio-covers', label: 'Patio Covers' },
+      { src: 'assets/images/patio-covers/IMG_5114.webp',                                alt: 'Gable patio cover with ceiling fan wicker furniture and travertine in Houston TX',  cat: 'patio-covers', label: 'Patio Covers' },
+      { src: 'assets/gallery/pool-spa-travertine-patio-aerial-houston.webp',             alt: 'Aerial view of luxury backyard with lattice patio cover pool spa and travertine',   cat: 'patio-covers', label: 'Patio Covers' },
+      // Pergolas
+      { src: 'assets/images/pergolas/DJI_20260610203303_0204_D-Edit-2.webp',            alt: 'Modern pergola with string lights and outdoor dining in Houston TX',                cat: 'pergolas',     label: 'Pergolas' },
+      { src: 'assets/images/pergolas/IMG_5593.webp',                                    alt: 'Lattice pergola with polycarbonate roof fire table and swing bed in Houston TX',    cat: 'pergolas',     label: 'Pergolas' },
+      { src: 'assets/images/pergolas/IMG_6434.webp',                                    alt: 'Tiki palapa pergola with outdoor dining table and pool view in Houston TX',         cat: 'pergolas',     label: 'Pergolas' },
+      { src: 'assets/images/pergolas/IMG_6325.webp',                                    alt: 'Pergola with outdoor seating area and shade structure in Houston TX',               cat: 'pergolas',     label: 'Pergolas' },
+      // Fire Features
+      { src: 'assets/images/fire-features/IMG_5862.webp',                               alt: 'Modern rectangular fire feature with stone surround and outdoor seating',          cat: 'fire',         label: 'Fire Features' },
+      { src: 'assets/images/projects/outdoor-kitchen-houston-tx.webp',                  alt: 'Circular fire pit with stone seating wall and paver patio in Houston TX',          cat: 'fire',         label: 'Fire Features' },
+      { src: 'assets/images/projects/outdoor-living-space-missouri-city-tx.webp',       alt: 'Fire pit with lit stone seating wall and stamped concrete patio at dusk',          cat: 'fire',         label: 'Fire Features' },
+      { src: 'assets/images/fire-features/IMG_0145.webp',                               alt: 'Custom outdoor fire feature with stone surround and seating in Houston TX',        cat: 'fire',         label: 'Fire Features' },
+      // Outdoor Kitchens
+      { src: 'assets/gallery/outdoor-kitchen-grill-pergola-houston.webp',               alt: 'Outdoor kitchen with built-in grill stone counters and pergola in Houston TX',     cat: 'kitchen',      label: 'Outdoor Kitchens' },
+      { src: 'assets/images/pergolas/IMG_6324.webp',                                    alt: 'Tiki palapa outdoor bar and kitchen with pool and TV in Houston TX',               cat: 'kitchen',      label: 'Outdoor Kitchens' },
+      { src: 'assets/gallery/backyard-pool-outdoor-kitchen-aerial-houston.webp',        alt: 'Aerial view of luxury backyard with outdoor kitchen pool and covered patio',       cat: 'kitchen',      label: 'Outdoor Kitchens' },
+      { src: 'assets/gallery/outdoor-living-pool-firepit-houston.webp',                 alt: 'Outdoor living space with kitchen fire pit and pool in Houston TX',                cat: 'kitchen',      label: 'Outdoor Kitchens' },
+      // Artificial Turf
+      { src: 'assets/images/projects/driveway-pavers-project-pearland-tx.webp',         alt: 'Paver patio with artificial turf and white gravel backyard in Pearland TX',       cat: 'turf',         label: 'Artificial Turf' },
+      { src: 'assets/images/projects/turf-project-missouri-city-backyard.webp',         alt: 'Artificial turf with concrete stepping stones and landscape lighting',             cat: 'turf',         label: 'Artificial Turf' },
+      { src: 'assets/images/projects/covered-patio-houston-tx.webp',                    alt: 'Pool-side artificial turf and putting green backyard in Houston TX',               cat: 'turf',         label: 'Artificial Turf' },
+      { src: 'assets/images/projects/putting-green-sugar-land-tx.webp',                 alt: 'Finished two-hole backyard putting green next to pool in Sugar Land TX',           cat: 'turf',         label: 'Artificial Turf' },
+      // Custom Stonework
+      { src: 'assets/images/projects/concrete-patio-fort-bend-tx.webp',                 alt: 'Travertine herringbone patio with stepping stones and gravel in Fort Bend TX',    cat: 'stonework',    label: 'Custom Stonework' },
+      { src: 'assets/gallery/gallery-turf-pavers-clean.webp',                           alt: 'Clean paver patio with artificial turf border in Houston TX',                     cat: 'stonework',    label: 'Custom Stonework' },
+      { src: 'assets/gallery/gallery-herringbone-patio.webp',                           alt: 'Charcoal herringbone paver patio with artificial turf in Houston TX',             cat: 'stonework',    label: 'Custom Stonework' },
+      { src: 'assets/gallery/pool-deck-travertine-fire-pit-houston.webp',               alt: 'Travertine pool deck with built-in fire pit seating wall in Houston TX',          cat: 'stonework',    label: 'Custom Stonework' },
+      // Driveways
+      { src: 'assets/gallery/concrete-driveway-landscape-lighting-houston.webp',        alt: 'Concrete driveway with landscape lighting in Houston TX',                         cat: 'driveways',    label: 'Driveways' },
+      { src: 'assets/gallery/luxury-home-driveway-sunset-aerial-houston.webp',          alt: 'Aerial view of luxury Houston home with circular concrete driveway at sunset',    cat: 'driveways',    label: 'Driveways' },
+      { src: 'assets/gallery/luxury-landscaping-driveway-night-houston.webp',           alt: 'Luxury home driveway with landscape lighting at night in Houston TX',             cat: 'driveways',    label: 'Driveways' },
+      { src: 'assets/gallery/luxury-hardscape-landscaping-aerial-houston.webp',         alt: 'Aerial view of luxury hardscape driveway and landscaping in Houston TX',          cat: 'driveways',    label: 'Driveways' },
+      // Painting
+      { src: 'assets/images/projects/pergola-outdoor-living-katy-tx.webp',              alt: 'Commercial exterior painting white stucco with dark trim arches in Houston TX',   cat: 'painting',     label: 'Painting & More' },
+      { src: 'assets/gallery/gallery-commercial-painting-apartments.webp',              alt: 'Commercial apartment building exterior painting with boom lift in Houston TX',     cat: 'painting',     label: 'Painting & More' },
+      { src: 'assets/gallery/gallery-commercial-painting-arches.webp',                  alt: 'Painted arch corridor detail white stucco and dark trim commercial building',      cat: 'painting',     label: 'Painting & More' },
+      { src: 'assets/gallery/gallery-process-install.webp',                             alt: 'Commercial exterior painting project in progress in Houston TX',                  cat: 'painting',     label: 'Painting & More' },
+    ];
+
+    const AUTOPLAY_MS = 3500;
+
+    /* ── State ───────────────────────────────────────────── */
+    let activeCat    = 'all';
+    let slides       = [];
+    let currentIdx   = 0;
+    let autoplayTimer = null;
+    let isPaused     = false;
+    let touchStartX  = 0;
+
+    /* ── DOM refs ────────────────────────────────────────── */
+    const stage      = document.getElementById('projStage');
+    const dotsWrap   = document.getElementById('projDots');
+    const counter    = document.getElementById('projCounter');
+    const catLabel   = document.getElementById('projCatLabel');
+    const prevBtn    = document.getElementById('projPrev');
+    const nextBtn    = document.getElementById('projNext');
+    const progressBar = document.getElementById('projProgressBar');
+    const filterBtns = document.querySelectorAll('.proj-filter-btn');
+
+    /* ── Lightbox ────────────────────────────────────────── */
+    const lightbox   = document.getElementById('scLightbox');
+    const lbImg      = document.getElementById('lbImg');
+    const lbCaption  = document.getElementById('lbCaption');
+    const lbClose    = document.getElementById('lbClose');
+    const lbBackdrop = document.getElementById('lbBackdrop');
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt;
+      lbCaption.textContent = alt;
+      const sw = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.paddingRight = sw + 'px';
+      document.body.style.overflow = 'hidden';
+      lightbox.removeAttribute('hidden');
+      pauseAutoplay();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('sc-lightbox--closing');
+      setTimeout(() => {
+        lightbox.setAttribute('hidden', '');
+        lightbox.classList.remove('sc-lightbox--closing');
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+        resumeAutoplay();
+      }, 260);
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbBackdrop.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) closeLightbox();
+    });
+
+    /* ── Build slides ────────────────────────────────────── */
+    function buildCarousel() {
+      slides = activeCat === 'all'
+        ? ALL_PHOTOS.slice()
+        : ALL_PHOTOS.filter(p => p.cat === activeCat);
+
+      stage.innerHTML = '';
+      slides.forEach((photo, i) => {
+        const div = document.createElement('div');
+        div.className = 'proj-slide' + (i === 0 ? ' is-active' : '');
+        div.setAttribute('aria-hidden', i !== 0 ? 'true' : 'false');
+        const img = document.createElement('img');
+        img.src    = photo.src;
+        img.alt    = photo.alt;
+        img.width  = 1200;
+        img.height = 800;
+        img.loading = i === 0 ? 'eager' : 'lazy';
+        div.appendChild(img);
+        div.addEventListener('click', () => openLightbox(photo.src, photo.alt));
+        stage.appendChild(div);
+      });
+
+      buildDots();
+      updateMeta();
+    }
+
+    /* ── Dots ────────────────────────────────────────────── */
+    const MAX_DOTS = 12;
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      if (slides.length <= 1) return;
+      const count = Math.min(slides.length, MAX_DOTS);
+      for (let i = 0; i < count; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'proj-dot' + (i === 0 ? ' is-active' : '');
+        btn.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+        btn.dataset.idx = i;
+        btn.addEventListener('click', () => {
+          goTo(Number(btn.dataset.idx));
+          resetProgress();
+        });
+        dotsWrap.appendChild(btn);
+      }
+    }
+
+    function updateDots() {
+      const dotBtns = dotsWrap.querySelectorAll('.proj-dot');
+      const dotIdx  = Math.min(currentIdx, MAX_DOTS - 1);
+      dotBtns.forEach((d, i) => d.classList.toggle('is-active', i === dotIdx));
+    }
+
+    /* ── Navigate ────────────────────────────────────────── */
+    function goTo(idx) {
+      const slideEls = stage.querySelectorAll('.proj-slide');
+      slideEls[currentIdx].classList.remove('is-active');
+      slideEls[currentIdx].setAttribute('aria-hidden', 'true');
+      currentIdx = (idx + slides.length) % slides.length;
+      slideEls[currentIdx].classList.add('is-active');
+      slideEls[currentIdx].setAttribute('aria-hidden', 'false');
+      updateMeta();
+      updateDots();
+    }
+
+    function next() { goTo(currentIdx + 1); }
+    function prev() { goTo(currentIdx - 1); }
+
+    /* ── Meta ────────────────────────────────────────────── */
+    function updateMeta() {
+      catLabel.textContent = slides[currentIdx]?.label || '';
+      counter.textContent  = slides.length > 1
+        ? (currentIdx + 1) + ' / ' + slides.length
+        : '';
+    }
+
+    /* ── Autoplay + progress bar ─────────────────────────── */
+    function resetProgress() {
+      progressBar.classList.remove('is-running');
+      void progressBar.offsetWidth; // reflow to restart animation
+      if (!isPaused) progressBar.classList.add('is-running');
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(() => {
+        if (!isPaused) { next(); resetProgress(); }
+      }, AUTOPLAY_MS);
+      resetProgress();
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+
+    function pauseAutoplay() {
+      isPaused = true;
+      progressBar.classList.remove('is-running');
+    }
+
+    function resumeAutoplay() {
+      isPaused = false;
+      resetProgress();
+    }
+
+    /* ── Arrow buttons ───────────────────────────────────── */
+    prevBtn.addEventListener('click', () => { prev(); resetProgress(); });
+    nextBtn.addEventListener('click', () => { next(); resetProgress(); });
+
+    /* ── Touch / swipe ───────────────────────────────────── */
+    stage.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      pauseAutoplay();
+    }, { passive: true });
+
+    stage.addEventListener('touchend', e => {
+      const delta = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(delta) > 44) {
+        delta > 0 ? next() : prev();
+        resetProgress();
+      }
+      resumeAutoplay();
+    }, { passive: true });
+
+    /* ── Hover pause ─────────────────────────────────────── */
+    stage.addEventListener('mouseenter', pauseAutoplay);
+    stage.addEventListener('mouseleave', resumeAutoplay);
+
+    /* ── Filter buttons ──────────────────────────────────── */
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        activeCat  = btn.dataset.cat;
+        currentIdx = 0;
+        buildCarousel();
+        startAutoplay();
+      });
+    });
+
+    /* ── Keyboard navigation ─────────────────────────────── */
+    document.addEventListener('keydown', e => {
+      if (lightbox.hasAttribute('hidden')) {
+        if (e.key === 'ArrowRight') { next(); resetProgress(); }
+        if (e.key === 'ArrowLeft')  { prev(); resetProgress(); }
+      }
+    });
+
+    /* ── Init ────────────────────────────────────────────── */
+    buildCarousel();
+    startAutoplay();
+
+  }());
+  </script>
+
 </body>
 </html>
