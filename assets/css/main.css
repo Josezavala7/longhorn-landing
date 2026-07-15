@@ -3197,3 +3197,124 @@ p {
   opacity: 0.85;
 }
 
+
+/* ============================================================
+   SERVICE PAGE — SPLIT INTRO (B) + PHOTO BREAK (C)
+   ============================================================ */
+
+/* B — Split intro: text left, full-bleed photo right */
+.svc-intro-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+
+.svc-intro-split__text {
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.svc-intro-split__text h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.svc-intro-split__text p {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+.svc-intro-split__photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.svc-intro-split__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 6s ease;
+}
+
+.svc-intro-split__photo:hover img {
+  transform: scale(1.04);
+}
+
+/* C — Photo break: 1 large + 2 stacked, full bleed */
+.svc-photo-break {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 460px;
+  gap: 3px;
+  background: #111;
+}
+
+.svc-photo-break__main {
+  grid-row: span 2;
+  overflow: hidden;
+  position: relative;
+}
+
+.svc-photo-break__side {
+  overflow: hidden;
+  position: relative;
+}
+
+.svc-photo-break__main img,
+.svc-photo-break__side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.svc-photo-break__main:hover img,
+.svc-photo-break__side:hover img {
+  transform: scale(1.05);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .svc-intro-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .svc-intro-split__photo {
+    height: 260px;
+    position: relative;
+  }
+
+  .svc-intro-split__photo img {
+    position: absolute;
+  }
+
+  .svc-intro-split__text {
+    padding: 44px 24px;
+  }
+
+  .svc-photo-break {
+    height: 320px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .svc-photo-break__main {
+    grid-row: span 1;
+  }
+
+  .svc-photo-break__side:last-child {
+    display: none;
+  }
+}
