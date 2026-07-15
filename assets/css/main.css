@@ -3206,7 +3206,7 @@ p {
 .svc-intro-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 480px;
+  min-height: 560px;
 }
 
 .svc-intro-split__text {
@@ -3241,7 +3241,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   transition: transform 6s ease;
 }
 
@@ -3254,7 +3254,7 @@ p {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 460px;
+  height: 540px;
   gap: 3px;
   background: #111;
 }
