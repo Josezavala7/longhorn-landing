@@ -92,6 +92,13 @@
     var fEl = document.getElementById('site-footer-placeholder');
     if (fEl) fEl.outerHTML = footerHTML;
 
+    /* Inject lightbox if not already present */
+    if (!document.getElementById('scLightbox')) {
+      var lb = document.createElement('div');
+      lb.innerHTML = '<div class="sc-lightbox" id="scLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><div class="sc-lightbox__backdrop"></div><div class="sc-lightbox__panel"><button class="sc-lightbox__close" aria-label="Close">&times;</button><img class="sc-lightbox__img" src="" alt=""><p class="sc-lightbox__caption"></p></div></div>';
+      document.body.appendChild(lb.firstElementChild);
+    }
+
     initHeader();
   }).catch(function (err) {
     console.warn('Partials failed to load:', err);

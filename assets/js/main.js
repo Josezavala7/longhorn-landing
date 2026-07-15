@@ -322,6 +322,14 @@
       });
     });
 
+    // Service page split-intro + photo-break images
+    document.querySelectorAll('.svc-intro-split__photo, .svc-photo-break__main, .svc-photo-break__side').forEach(wrap => {
+      const img = wrap.querySelector('img');
+      if (!img) return;
+      wrap.style.cursor = 'zoom-in';
+      wrap.addEventListener('click', () => openSCLightbox(img.src, img.alt, img.alt));
+    });
+
     lbClose.addEventListener('click', closeSCLightbox);
     lbBackdrop.addEventListener('click', closeSCLightbox);
     document.addEventListener('keydown', e => {

@@ -294,12 +294,12 @@ p {
 
 .btn-outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
 }
 
 .btn-outline:hover {
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: #fff;
 }
 
