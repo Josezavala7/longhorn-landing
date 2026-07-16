@@ -40,19 +40,37 @@
   /* ── 2. Horizontal scroll — services section (index only) ── */
   var hTrack = document.querySelector('.services-hscroll-track');
   if (hTrack && window.innerWidth > 768) {
-    gsap.to(hTrack, {
-      x: function () { return -(hTrack.scrollWidth - window.innerWidth + 80); },
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#services',
-        start: 'top 80px',
-        end: function () { return '+=' + (hTrack.scrollWidth - window.innerWidth + 80); },
-        pin: true,
-        pinSpacing: true,
-        scrub: 1.2,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      }
+    var hST = ScrollTrigger.create({
+      trigger: '#services',
+      start: 'top 80px',
+      end: function () { return '+=' + (hTrack.scrollWidth - window.innerWidth + 80); },
+      pin: true,
+      pinSpacing: true,
+      scrub: 1.2,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      animation: gsap.to(hTrack, {
+        x: function () { return -(hTrack.scrollWidth - window.innerWidth + 80); },
+        ease: 'none',
+      }),
+    });
+
+    /* Zoom in each card image as it enters the horizontal viewport */
+    hTrack.querySelectorAll('.service-card-img img').forEach(function (img) {
+      gsap.fromTo(img,
+        { scale: 1.12 },
+        {
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: img.closest('.service-card'),
+            containerAnimation: hST,
+            start: 'left right',
+            end: 'right left',
+            scrub: true,
+          }
+        }
+      );
     });
   }
 
