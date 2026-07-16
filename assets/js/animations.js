@@ -19,6 +19,31 @@
     return;
   }
 
+  /* ── 0. Hero curtain reveal (index only) ────────────────── */
+  var curtainL = document.querySelector('.curtain-left');
+  var curtainR = document.querySelector('.curtain-right');
+  if (curtainL && curtainR) {
+    var heroContent = document.querySelector('.hero-content');
+    var tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+
+    /* Start: curtains closed, hero content invisible */
+    gsap.set([curtainL, curtainR], { x: '0%' });
+    if (heroContent) gsap.set(heroContent, { opacity: 0, y: 20 });
+
+    tl.to(curtainL, { x: '-100%', duration: 1.15 }, 0)
+      .to(curtainR, { x:  '100%', duration: 1.15 }, 0);
+
+    if (heroContent) {
+      tl.to(heroContent, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.45');
+    }
+
+    /* Remove from DOM after animation so they don't block interactions */
+    tl.call(function () {
+      curtainL.remove();
+      curtainR.remove();
+    });
+  }
+
   /* ── 1. Section headers — title then subtitle in sequence ── */
   gsap.utils.toArray('.section-header').forEach(function (header) {
     var h = header.querySelector('h2, h3');

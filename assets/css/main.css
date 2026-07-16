@@ -679,6 +679,19 @@ p {
   .hero-video        { display: block; }
 }
 
+/* ── Curtain reveal (index hero) ─────────────────────────── */
+.curtain {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: #0a0a0a;
+  z-index: 9999;
+  pointer-events: none;
+}
+.curtain-left  { left: 0; transform-origin: left center; }
+.curtain-right { right: 0; transform-origin: right center; }
+
 .hero-overlay {
   position: absolute;
   inset: 0;
