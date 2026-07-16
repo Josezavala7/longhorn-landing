@@ -150,7 +150,24 @@
     start: 'top 85%'
   });
 
-  /* ── 5. CTA banner — slight scale-up entrance ────────────── */
+  /* ── 5. FAQ items — staggered entrance from bottom ─────── */
+  gsap.utils.toArray('.faq-list').forEach(function (list) {
+    var items = list.querySelectorAll('.faq-item');
+    if (!items.length) return;
+    gsap.fromTo(items,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1, y: 0,
+        stagger: 0.06,
+        duration: 0.55,
+        ease: 'power3.out',
+        clearProps: 'transform',
+        scrollTrigger: { trigger: list, start: 'top 88%', once: true }
+      }
+    );
+  });
+
+  /* ── 6. CTA banner — slight scale-up entrance ────────────── */
   gsap.utils.toArray('.cta-banner').forEach(function (el) {
     gsap.fromTo(el,
       { opacity: 0, scale: 0.97 },

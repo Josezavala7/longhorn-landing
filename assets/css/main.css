@@ -1886,16 +1886,44 @@ p {
   max-width: 56ch;
 }
 
-/* FAQ */
+/* FAQ — Premium */
 .faq-list {
   display: flex;
   flex-direction: column;
   gap: 0;
   border-top: 1px solid var(--color-border);
+  counter-reset: faq-counter;
 }
 
 .faq-item {
   border-bottom: 1px solid var(--color-border);
+  position: relative;
+  padding-left: 0;
+  transition:
+    padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+.faq-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.is-open {
+  padding-left: 20px;
+}
+
+.faq-item.is-open::before {
+  transform: scaleY(1);
 }
 
 .faq-question {
@@ -1903,16 +1931,16 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 0;
+  padding: 22px 0;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-text);
   font-family: var(--font-heading);
   background: transparent;
   width: 100%;
   text-align: left;
-  transition: color var(--transition);
+  transition: color 0.3s ease;
 }
 
 .faq-question:hover {
@@ -1924,14 +1952,20 @@ p {
   width: 20px;
   height: 20px;
   color: var(--color-accent);
-  transition: transform var(--transition);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
+  opacity: 0.7;
+}
+
+.faq-item.is-open .faq-question {
+  color: var(--color-accent);
 }
 
 .faq-item.is-open .faq-question svg {
   transform: rotate(180deg);
+  opacity: 1;
 }
 
 /* Dark section overrides for service page components */
@@ -1942,9 +1976,10 @@ p {
   border-bottom-color: rgba(255,255,255,0.12);
 }
 .section-dark .faq-question {
-  color: #fff;
+  color: rgba(255,255,255,0.85);
 }
-.section-dark .faq-question:hover {
+.section-dark .faq-question:hover,
+.section-dark .faq-item.is-open .faq-question {
   color: var(--color-accent);
 }
 .section-dark .why-card {
@@ -1962,11 +1997,11 @@ p {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-answer p {
-  padding: 0 0 20px;
+  padding: 0 0 22px;
   font-size: 0.9rem;
   color: var(--color-text-light);
   max-width: 70ch;
