@@ -132,7 +132,7 @@
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.55);
       border: 1px solid rgba(255,255,255,0.2);
       color: #fff;
       display: flex;
@@ -140,7 +140,16 @@
       justify-content: center;
       cursor: pointer;
       transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
+    }
+
+    @media (max-width: 768px) {
+      .proj-carousel__arrow {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        background: rgba(0,0,0,0.65);
+      }
     }
 
     .proj-carousel__arrow:hover {
@@ -983,12 +992,12 @@
       });
     });
 
-    /* ── Masonry grid — lazy batch loading ───────────────── */
-    (function buildMasonry() {
+    /* ── Masonry grid — deferred + lazy batch loading ───── */
+    function buildMasonry() {
       const grid = document.getElementById('projMasonryGrid');
       if (!grid) return;
 
-      const BATCH = 24;
+      const BATCH = window.innerWidth < 768 ? 12 : 24;
       let offset = 0;
 
       function makeItem(p) {
@@ -1028,42 +1037,92 @@
             io.disconnect();
             sentinel.remove();
           }
-        }, { rootMargin: '500px' }); // start loading 500px before sentinel enters view
+        }, { rootMargin: '300px' });
 
         io.observe(sentinel);
       }
-    })();
+    }
 
-    /* ── Build slides ────────────────────────────────────── */
+    // Defer masonry build until after first paint — carousel loads first
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(buildMasonry, { timeout: 2000 });
+    } else {
+      setTimeout(buildMasonry, 200);
+    }
+
+    /* ── Virtual carousel — only 1 slide in DOM at a time ── */
+    const preloadCache = new Set();
+
+    function preloadImg(src) {
+      if (!src || preloadCache.has(src)) return;
+      preloadCache.add(src);
+      const img = new Image();
+      img.src = src;
+    }
+
+    function makeSlideEl(photo) {
+      const div = document.createElement('div');
+      div.className = 'proj-slide';
+      const img = document.createElement('img');
+      img.src    = photo.src;
+      img.alt    = photo.alt;
+      img.width  = 1200;
+      img.height = 800;
+      img.decoding = 'async';
+      div.appendChild(img);
+      return div;
+    }
+
+    function showSlide(idx, instant) {
+      currentIdx = (idx + slides.length) % slides.length;
+      const photo = slides[currentIdx];
+
+      // Preload adjacent images into browser cache (no DOM overhead)
+      preloadImg(slides[(currentIdx + 1) % slides.length]?.src);
+      preloadImg(slides[(currentIdx - 1 + slides.length) % slides.length]?.src);
+
+      const incoming = makeSlideEl(photo);
+      // .proj-slide CSS already has opacity:0 — no inline style needed
+
+      if (instant) {
+        stage.innerHTML = '';
+        // Disable transition so first render appears immediately (no fade-in flash)
+        incoming.style.transition = 'none';
+        incoming.classList.add('is-active');
+        stage.appendChild(incoming);
+        // Re-enable CSS transitions after first paint
+        requestAnimationFrame(() => { incoming.style.transition = ''; });
+      } else {
+        // Cross-fade: incoming starts opacity:0 (from CSS), outgoing fades out
+        stage.appendChild(incoming);
+        const outgoing = stage.querySelector('.proj-slide.is-active');
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            incoming.classList.add('is-active');   // CSS: opacity 0→1 with transition
+            if (outgoing) {
+              outgoing.classList.remove('is-active'); // CSS: opacity 1→0 with transition
+              setTimeout(() => {
+                if (outgoing.parentNode === stage) outgoing.remove();
+              }, 850);
+            }
+          });
+        });
+      }
+
+      stage.onclick = () => openLightbox(photo.src, photo.alt);
+      updateMeta();
+      updateDots();
+    }
+
     function buildCarousel() {
       slides = activeCat === 'all'
         ? ALL_PHOTOS.slice()
         : ALL_PHOTOS.filter(p => p.cat === activeCat);
 
       stage.innerHTML = '';
-      slides.forEach((photo, i) => {
-        const div = document.createElement('div');
-        div.className = 'proj-slide' + (i === 0 ? ' is-active' : '');
-        if (i === 0) div.style.transition = 'none'; // no fade-in; stage fade handles reveal
-        div.setAttribute('aria-hidden', i !== 0 ? 'true' : 'false');
-        const img = document.createElement('img');
-        img.src    = photo.src;
-        img.alt    = photo.alt;
-        img.width  = 1200;
-        img.height = 800;
-        img.loading = i === 0 ? 'eager' : 'lazy';
-        div.appendChild(img);
-        stage.appendChild(div);
-      });
-
-      // Single click handler on stage using currentIdx
-      stage.onclick = () => {
-        const photo = slides[currentIdx];
-        if (photo) openLightbox(photo.src, photo.alt);
-      };
-
+      showSlide(currentIdx, true);
       buildDots();
-      updateMeta();
     }
 
     /* ── Dots ────────────────────────────────────────────── */
@@ -1094,14 +1153,7 @@
 
     /* ── Navigate ────────────────────────────────────────── */
     function goTo(idx) {
-      const slideEls = stage.querySelectorAll('.proj-slide');
-      slideEls[currentIdx].classList.remove('is-active');
-      slideEls[currentIdx].setAttribute('aria-hidden', 'true');
-      currentIdx = (idx + slides.length) % slides.length;
-      slideEls[currentIdx].classList.add('is-active');
-      slideEls[currentIdx].setAttribute('aria-hidden', 'false');
-      updateMeta();
-      updateDots();
+      showSlide(idx, false);
     }
 
     function next() { goTo(currentIdx + 1); }
