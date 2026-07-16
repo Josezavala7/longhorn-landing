@@ -479,21 +479,32 @@
       columns: 4;
       column-gap: 6px;
     }
+    @keyframes shimmer {
+      0%   { background-position: -400px 0; }
+      100% { background-position:  400px 0; }
+    }
     .proj-masonry-item {
       break-inside: avoid;
       margin-bottom: 6px;
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      background: #1a1a1a;
       aspect-ratio: 4 / 3;
+      background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s infinite linear;
+    }
+    .proj-masonry-item.is-loaded {
+      background: #1a1a1a;
+      animation: none;
     }
     .proj-masonry-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.45s ease;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.45s ease;
     }
     .proj-masonry-item:hover img { transform: scale(1.04); }
     .proj-masonry-overlay {
@@ -1005,12 +1016,26 @@
       function makeItem(p) {
         const wrap = document.createElement('div');
         wrap.className = 'proj-masonry-item';
-        wrap.innerHTML =
-          '<img src="' + p.src + '" alt="' + p.alt.replace(/"/g, '&quot;') + '" loading="lazy">' +
-          '<div class="proj-masonry-overlay">' +
-            '<span class="proj-masonry-label">' + p.label + '</span>' +
-            '<svg class="proj-masonry-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>' +
-          '</div>';
+        const img = document.createElement('img');
+        img.src     = p.src;
+        img.alt     = p.alt;
+        img.loading = 'lazy';
+        img.addEventListener('load', function() {
+          img.style.opacity = '1';
+          wrap.classList.add('is-loaded');
+        });
+        // If already cached (instant load), fire immediately
+        if (img.complete && img.naturalWidth) {
+          img.style.opacity = '1';
+          wrap.classList.add('is-loaded');
+        }
+        const overlay = document.createElement('div');
+        overlay.className = 'proj-masonry-overlay';
+        overlay.innerHTML =
+          '<span class="proj-masonry-label">' + p.label + '</span>' +
+          '<svg class="proj-masonry-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+        wrap.appendChild(img);
+        wrap.appendChild(overlay);
         wrap.addEventListener('click', () => openLightbox(p.src, p.alt));
         return wrap;
       }
