@@ -2205,10 +2205,10 @@ p {
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  /* transform and transition handled by GSAP — no CSS transition here */
 }
 
+/* Fallback if GSAP fails to load */
 .reveal.is-visible {
   opacity: 1;
   transform: none;

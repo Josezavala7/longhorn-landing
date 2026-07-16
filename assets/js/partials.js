@@ -103,4 +103,5 @@
   }).catch(function (err) {
     console.warn('Partials failed to load:', err);
   });
+
 }());

@@ -116,13 +116,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  // Reveal animations handled by GSAP ScrollTrigger in assets/js/animations.js
 });
