@@ -37,9 +37,27 @@
     );
   });
 
-  /* ── 2. Cards — staggered batch entrance ─────────────────── */
+  /* ── 2. Horizontal scroll — services section (index only) ── */
+  var hTrack = document.querySelector('.services-hscroll-track');
+  if (hTrack && window.innerWidth > 768) {
+    gsap.to(hTrack, {
+      x: function () { return -(hTrack.scrollWidth - window.innerWidth + 80); },
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#services',
+        start: 'top 80px',
+        end: function () { return '+=' + (hTrack.scrollWidth - window.innerWidth + 80); },
+        pin: true,
+        pinSpacing: true,
+        scrub: 1.2,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      }
+    });
+  }
+
+  /* ── 3. Cards — staggered batch entrance ─────────────────── */
   var batchSelectors = [
-    '.services-grid .service-card',
     '.gallery-grid .gallery-item',
     '.why-grid .why-card',
     '.trust-grid .trust-item',
