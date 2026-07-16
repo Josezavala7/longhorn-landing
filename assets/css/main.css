@@ -667,6 +667,16 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+/* Desktop: photo. Tablet/mobile: video */
+.hero-desktop-img { display: block; }
+.hero-video        { display: none; }
+
+@media (max-width: 1024px) {
+  .hero-desktop-img { display: none; }
+  .hero-video        { display: block; }
 }
 
 .hero-overlay {
