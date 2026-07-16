@@ -679,18 +679,6 @@ p {
   .hero-video        { display: block; }
 }
 
-/* ── Curtain reveal (index hero) ─────────────────────────── */
-.curtain {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: #0a0a0a;
-  z-index: 9999;
-  pointer-events: none;
-}
-.curtain-left  { left: 0; transform-origin: left center; }
-.curtain-right { right: 0; transform-origin: right center; }
 
 .hero-overlay {
   position: absolute;
@@ -719,8 +707,9 @@ p {
   padding: 120px 0 80px;
 }
 
-/* Stagger entrance animations — h1 excluded (handled by GSAP curtain) */
+/* Stagger entrance animations */
 .hero-badge,
+.hero h1,
 .hero h2,
 .proof-bullets,
 .hero-actions {
@@ -729,6 +718,7 @@ p {
   animation: heroFadeUp 0.6s ease forwards;
 }
 .hero-badge   { animation-delay: 0.1s; }
+.hero h1      { animation-delay: 0.3s; }
 .hero h2      { animation-delay: 0.5s; }
 .proof-bullets{ animation-delay: 0.65s; }
 .hero-actions { animation-delay: 0.8s; }
