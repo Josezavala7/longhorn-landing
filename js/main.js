@@ -106,15 +106,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // About teaser parallax
-  const aboutImg = document.querySelector('.about-teaser-img img');
-  if (aboutImg) {
-    window.addEventListener('scroll', () => {
-      const rect = aboutImg.closest('.about-teaser-img').getBoundingClientRect();
-      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      aboutImg.style.transform = `translateY(${center * 0.08}px)`;
-    }, { passive: true });
-  }
-
   // Reveal animations handled by GSAP ScrollTrigger in assets/js/animations.js
 });
