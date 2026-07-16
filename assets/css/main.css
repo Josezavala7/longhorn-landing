@@ -737,15 +737,6 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 3D depth on hero h1 */
-.hero h1 {
-  text-shadow:
-    1px 1px 0 rgba(0,0,0,0.55),
-    2px 2px 0 rgba(0,0,0,0.45),
-    3px 3px 0 rgba(0,0,0,0.35),
-    4px 4px 0 rgba(0,0,0,0.22),
-    5px 5px 8px rgba(0,0,0,0.30);
-}
 
 /* Scroll indicator */
 .hero-scroll {
