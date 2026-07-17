@@ -353,7 +353,7 @@
   /* ----------------------------------------------------------
      11. ABOUT TEASER PARALLAX
   ---------------------------------------------------------- */
-  const aboutTeaserImg = document.querySelector('.about-teaser-img img');
+  const aboutTeaserImg = document.querySelector('.about-teaser-img:not(.no-parallax) img');
   if (aboutTeaserImg) {
     window.addEventListener('scroll', () => {
       const rect   = aboutTeaserImg.closest('.about-teaser-img').getBoundingClientRect();
