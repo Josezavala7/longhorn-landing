@@ -259,9 +259,12 @@
 
   /* ----------------------------------------------------------
      11. SERVICE CARD LIGHTBOX
+     Runs after partials:ready so #scLightbox is guaranteed in DOM
   ---------------------------------------------------------- */
-  const scLightbox = document.getElementById('scLightbox');
-  if (scLightbox) {
+  function initLightbox() {
+    const scLightbox = document.getElementById('scLightbox');
+    if (!scLightbox) return;
+
     const lbImg      = scLightbox.querySelector('.sc-lightbox__img');
     const lbCaption  = scLightbox.querySelector('.sc-lightbox__caption');
     const lbClose    = scLightbox.querySelector('.sc-lightbox__close');
@@ -344,6 +347,33 @@
       if (e.key === 'Escape' && !scLightbox.hasAttribute('hidden')) closeSCLightbox();
     });
   }
+
+  // Run immediately if lightbox exists, otherwise wait for it
+  if (document.getElementById('scLightbox')) {
+    initLightbox();
+  } else {
+    document.addEventListener('partials:ready', initLightbox, { once: true });
+  }
+
+  // Delegated handler for .lb-trigger — works regardless of init timing
+  document.addEventListener('click', function (e) {
+    const trigger = e.target.closest('.lb-trigger');
+    if (!trigger) return;
+    const img = trigger.querySelector('img');
+    if (!img) return;
+    const lb = document.getElementById('scLightbox');
+    if (!lb) return;
+    const lbImg     = lb.querySelector('.sc-lightbox__img');
+    const lbCaption = lb.querySelector('.sc-lightbox__caption');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = img.alt;
+    const sw = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.paddingRight = sw + 'px';
+    document.body.style.overflow = 'hidden';
+    lb.removeAttribute('hidden');
+    trigger.style.cursor = 'zoom-in';
+  });
 
   /* ----------------------------------------------------------
      11. ABOUT TEASER PARALLAX
