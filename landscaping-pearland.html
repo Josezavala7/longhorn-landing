@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,74 +19,36 @@
     .project-block.reverse { direction: rtl; }
     .project-block.reverse > * { direction: ltr; }
     .project-block-img { overflow: hidden; position: relative; }
-    .project-block-img img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .project-block-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
     .project-block:hover .project-block-img img { transform: scale(1.04); }
-    .project-block-content {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 3.5rem 3rem; gap: 1.25rem;
-    }
-    .project-block-content .eyebrow {
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);
-    }
+    .project-block-content { display: flex; flex-direction: column; justify-content: center; padding: 3.5rem 3rem; gap: 1.25rem; }
+    .project-block-content .eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); }
     .project-block-content h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; margin: 0; }
     .project-block-content p { opacity: 0.82; line-height: 1.7; margin: 0; }
     .project-block-content .feature-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.25rem; }
-    .feature-tag {
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.3rem 0.75rem; border-radius: 99px; border: 1px solid currentColor; opacity: 0.7;
-    }
-    .project-block.light .project-block-content {
-      background: var(--color-surface-light, #f8f7f4); color: var(--color-text-light, #1a1a1a);
-    }
+    .feature-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 99px; border: 1px solid currentColor; opacity: 0.7; }
+    .project-block.light .project-block-content { background: var(--color-surface-light, #f8f7f4); color: var(--color-text-light, #1a1a1a); }
     .project-block.light .project-block-content p { opacity: 0.7; }
     .project-block.dark .project-block-content { background: var(--color-bg, #0e1117); color: #fff; }
     .kitchen-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     .kitchen-duo-img { overflow: hidden; height: 460px; }
-    .kitchen-duo-img img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .kitchen-duo-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
     .kitchen-duo:hover .kitchen-duo-img img { transform: scale(1.04); }
     .photo-strip { height: 520px; overflow: hidden; position: relative; }
     .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .photo-strip-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.18) 60%, transparent 100%);
-      display: flex; align-items: center;
-    }
-    .photo-strip-caption { padding: 2.5rem 3rem; color: #fff; max-width: 520px; }
-    .photo-strip-caption .eyebrow {
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--color-accent); margin-bottom: 0.75rem; display: block;
-    }
-    .photo-strip-caption h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.15; margin: 0 0 1rem; }
-    .photo-strip-caption p { font-size: 1.05rem; opacity: 0.88; line-height: 1.65; margin: 0; }
-    .services-icon-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem; margin-top: 2rem;
-    }
-    .service-icon-card {
-      padding: 1.75rem 1.5rem; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03);
-      text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 0.75rem;
-      transition: border-color 0.25s, background 0.25s, transform 0.25s; cursor: pointer;
-    }
-    .service-icon-card:hover {
-      border-color: var(--color-accent); background: rgba(255,255,255,0.06); transform: translateY(-3px);
-    }
-    .service-icon-card svg { width: 28px; height: 28px; color: var(--color-accent); }
-    .service-icon-card strong { font-size: 0.95rem; font-weight: 700; }
-    .service-icon-card span { font-size: 0.82rem; opacity: 0.65; line-height: 1.4; }
+    .photo-strip-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.78) 50%, rgba(0,0,0,0.35) 100%); display: flex; align-items: center; }
+    .photo-strip-caption { padding: 2.5rem 3rem; color: #fff; max-width: 560px; }
+    .photo-strip-caption .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; display: block; }
+    .photo-strip-caption h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.15; margin: 0 0 1rem; color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,1); }
+    .photo-strip-caption p { font-size: 1.05rem; line-height: 1.65; margin: 0; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1); }
+    .services-icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.1rem; margin-top: 2rem; }
+    .service-icon-card { padding: 1.5rem 1.25rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.65rem; transition: border-color 0.25s, background 0.25s, transform 0.25s; cursor: pointer; }
+    .service-icon-card:hover { border-color: var(--color-accent); background: rgba(255,255,255,0.06); transform: translateY(-3px); }
+    .service-icon-card svg { width: 26px; height: 26px; color: var(--color-accent); }
+    .service-icon-card strong { font-size: 0.92rem; font-weight: 700; }
+    .service-icon-card span { font-size: 0.8rem; opacity: 0.6; line-height: 1.4; }
     .neighborhood-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-    .neighborhood-pill {
-      font-size: 0.82rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 99px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
-    }
+    .neighborhood-pill { font-size: 0.82rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 99px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); }
     @media (max-width: 900px) {
       .project-block { grid-template-columns: 1fr; min-height: auto; }
       .project-block.reverse { direction: ltr; }
@@ -94,81 +56,22 @@
       .project-block-content { padding: 2rem 1.5rem; }
       .kitchen-duo { grid-template-columns: 1fr; }
       .kitchen-duo-img { height: 260px; }
-      .photo-strip { height: 360px; }
-      .photo-strip-caption { padding: 1.5rem; }
+      .photo-strip { height: 400px; }
+      .photo-strip-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.68) 100%); align-items: flex-end; }
+      .photo-strip-caption { padding: 1.5rem; max-width: 100%; }
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Longhorn Hardscape & Construction",
-    "description": "Pearland TX hardscape contractor specializing in outdoor kitchens, artificial turf putting greens, paver patios, driveways, and full outdoor living transformations.",
-    "url": "https://longhornhctexas.com",
-    "telephone": "+13465518340",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6140 Highway 6 #3116",
-      "addressLocality": "Missouri City",
-      "addressRegion": "TX",
-      "postalCode": "77459",
-      "addressCountry": "US"
-    },
-    "areaServed": {"@type": "City", "name": "Pearland"},
-    "sameAs": [
-      "https://www.facebook.com/people/Longhorn-Hardscape-Construction/61553859352846/",
-      "https://www.instagram.com/longhornhctx"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you build outdoor kitchens in Pearland TX?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes. We have built multiple outdoor kitchens in Pearland, from classic brick-and-granite setups to modern stucco designs with L-shaped islands, bar seating, built-in grills, refrigerators, and outdoor TVs."}
-      },
-      {
-        "@type": "Question",
-        "name": "Can you install an artificial turf putting green in Pearland?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. We design and install custom putting greens in Pearland with professional-grade synthetic turf, multiple holes, rock or paver borders, and proper drainage built for Pearland heavy rain events."}
-      },
-      {
-        "@type": "Question",
-        "name": "What neighborhoods in Pearland do you serve?",
-        "acceptedAnswer": {"@type": "Answer", "text": "We serve all Pearland neighborhoods including Shadow Creek Ranch, Southdown, Silverlake, Pearland Town Center, Massey Ranch, and surrounding zip codes 77581, 77584, and 77588."}
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a paver driveway take in Pearland?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Most paver driveway projects in Pearland take 3-7 days depending on size and design complexity. We handle everything from excavation and base prep to final installation and sealing."}
-      },
-      {
-        "@type": "Question",
-        "name": "Are you licensed and insured for hardscape work in Pearland TX?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Longhorn Hardscape and Construction is fully licensed and insured. We provide free, no-pressure consultations and same-day estimates at your Pearland home."}
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Longhorn Hardscape & Construction","url":"https://longhornhctexas.com","telephone":"+13465518340","address":{"@type":"PostalAddress","streetAddress":"6140 Highway 6 #3116","addressLocality":"Missouri City","addressRegion":"TX","postalCode":"77459","addressCountry":"US"},"areaServed":{"@type":"City","name":"Pearland"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you build outdoor kitchens in Pearland TX?","acceptedAnswer":{"@type":"Answer","text":"Yes. We have built multiple outdoor kitchens in Pearland, from classic brick-and-granite setups to modern stucco designs with L-shaped islands, bar seating, built-in grills, refrigerators, and outdoor TVs."}},{"@type":"Question","name":"Can you install an artificial turf putting green in Pearland?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We design and install custom putting greens in Pearland with professional-grade synthetic turf, multiple holes, rock or paver borders, and proper drainage built for Pearland heavy rain events."}},{"@type":"Question","name":"What neighborhoods in Pearland do you serve?","acceptedAnswer":{"@type":"Answer","text":"We serve all Pearland neighborhoods including Shadow Creek Ranch, Southdown, Silverlake, Pearland Town Center, Massey Ranch, and surrounding zip codes 77581, 77584, and 77588."}},{"@type":"Question","name":"How long does a paver driveway take in Pearland?","acceptedAnswer":{"@type":"Answer","text":"Timeline depends on project scope and complexity. We give you a realistic timeline during your free consultation before any work begins."}},{"@type":"Question","name":"Are you licensed and insured for hardscape work in Pearland TX?","acceptedAnswer":{"@type":"Answer","text":"Yes. Longhorn Hardscape and Construction is fully licensed and insured. We provide free, no-pressure consultations and estimates at your Pearland home as soon as possible."}}]}</script>
 </head>
 <body>
   <div id="site-header-placeholder"></div>
-
   <main id="main-content">
 
+    <!-- HERO -->
     <section class="page-hero" aria-labelledby="page-h1" style="--hero-bg-image:url('assets/images/pearland/outdoor-living-pool-pergola-paver-patio-fire-pit-pearland-tx.webp')">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#areas">Service Areas</a></li>
-            <li><span aria-current="page">Pearland</span></li>
-          </ol>
-        </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="index.html#areas">Service Areas</a></li><li><span aria-current="page">Pearland</span></li></ol></nav>
         <h1 id="page-h1">Hardscape Contractor in Pearland, TX</h1>
         <h2>Outdoor Kitchens &middot; Turf Putting Greens &middot; Paver Patios &amp; Driveways</h2>
         <ul class="proof-bullets proof-bullets--light">
@@ -183,6 +86,7 @@
       </div>
     </section>
 
+    <!-- INTRO dark -->
     <section class="section" aria-labelledby="intro-heading">
       <div class="container">
         <div class="section-header reveal">
@@ -200,12 +104,11 @@
       </div>
     </section>
 
-    <div class="project-spotlight" aria-label="Outdoor kitchen project Pearland TX">
+    <!-- PROJECT 1: Classic Kitchen (light) -->
+    <div class="project-spotlight">
       <div class="project-block light">
-        <div class="project-block-img">
-          <img src="assets/images/pearland/outdoor-kitchen-brick-granite-string-lights-pearland-tx.webp"
-            alt="Outdoor kitchen with brick base, granite countertop, built-in grill and string lights in Pearland TX"
-            width="700" height="520" loading="lazy">
+        <div class="project-block-img lb-trigger">
+          <img src="assets/images/pearland/outdoor-kitchen-brick-granite-string-lights-pearland-tx.webp" alt="Outdoor kitchen with brick base, granite countertop, built-in grill and string lights in Pearland TX" width="700" height="520" loading="lazy">
         </div>
         <div class="project-block-content reveal">
           <span class="eyebrow">Pearland Project &middot; Outdoor Kitchen</span>
@@ -222,23 +125,20 @@
       </div>
     </div>
 
-    <section class="section" style="padding:0;" aria-label="Modern outdoor kitchen Pearland TX">
+    <!-- PROJECT 2: Modern Kitchen dark, dual photos -->
+    <section class="section" style="padding:0;">
       <div class="kitchen-duo">
-        <div class="kitchen-duo-img">
-          <img src="assets/images/pearland/modern-outdoor-kitchen-island-bar-seating-tv-pearland-tx.webp"
-            alt="Modern outdoor kitchen with marble island, bar stools and outdoor TV in Pearland TX"
-            width="700" height="460" loading="lazy">
+        <div class="kitchen-duo-img lb-trigger">
+          <img src="assets/images/pearland/modern-outdoor-kitchen-island-bar-seating-tv-pearland-tx.webp" alt="Modern outdoor kitchen with marble island, bar stools and outdoor TV in Pearland TX" width="700" height="460" loading="lazy">
         </div>
-        <div class="kitchen-duo-img">
-          <img src="assets/images/pearland/outdoor-kitchen-l-shape-porcelain-tile-refrigerator-pearland-tx.webp"
-            alt="L-shaped outdoor kitchen with porcelain tile floor and stainless refrigerator in Pearland TX"
-            width="700" height="460" loading="lazy">
+        <div class="kitchen-duo-img lb-trigger">
+          <img src="assets/images/pearland/outdoor-kitchen-l-shape-porcelain-tile-refrigerator-pearland-tx.webp" alt="L-shaped outdoor kitchen with porcelain tile floor and stainless refrigerator in Pearland TX" width="700" height="460" loading="lazy">
         </div>
       </div>
       <div class="container" style="padding-top:2.5rem;padding-bottom:3rem;">
         <div class="section-header reveal">
           <h2>Modern L-Shape Kitchen &mdash; Porcelain, Marble &amp; Dark Steel</h2>
-          <p>Two angles of the same stunning build: a full L-shape outdoor kitchen with porcelain tile floors, marble island with bar seating for four, dark quartz countertops, mounted outdoor TV, built-in refrigerator, and a 6-burner built-in grill. Premium finishes from ceiling to floor.</p>
+          <p>Two angles of the same stunning build: a full L-shape outdoor kitchen with porcelain tile floors, marble island with bar seating for four, dark quartz countertops, mounted outdoor TV, built-in refrigerator, and a 6-burner built-in grill.</p>
         </div>
         <div class="feature-tags reveal" style="margin-top:1rem;">
           <span class="feature-tag" style="border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.8);">L-Shape Layout</span>
@@ -251,11 +151,10 @@
       </div>
     </section>
 
-    <section aria-label="Artificial turf putting green Pearland TX">
-      <div class="photo-strip">
-        <img src="assets/images/pearland/artificial-turf-putting-green-rock-border-pearland-tx.webp"
-          alt="Custom artificial turf putting green with rock border and multiple holes in Pearland TX backyard"
-          width="1400" height="520" loading="lazy">
+    <!-- PROJECT 3: Putting Green full-width strip -->
+    <section class="section" style="padding:0;">
+      <div class="photo-strip lb-trigger">
+        <img src="assets/images/pearland/artificial-turf-putting-green-rock-border-pearland-tx.webp" alt="Custom artificial turf putting green with rock border and multiple holes in Pearland TX backyard" width="1400" height="520" loading="lazy">
         <div class="photo-strip-overlay">
           <div class="photo-strip-caption reveal">
             <span class="eyebrow">Pearland Project &middot; Artificial Turf</span>
@@ -277,12 +176,11 @@
       </div>
     </section>
 
-    <div class="project-spotlight" aria-label="Complete outdoor living space Pearland TX">
+    <!-- PROJECT 4: Full Outdoor Living dark reverse -->
+    <div class="project-spotlight">
       <div class="project-block dark reverse">
-        <div class="project-block-img">
-          <img src="assets/images/pearland/outdoor-living-pool-pergola-paver-patio-fire-pit-pearland-tx.webp"
-            alt="Aerial view of complete outdoor living space with pool, pergolas, paver patio and fire pit in Pearland TX"
-            width="700" height="520" loading="lazy">
+        <div class="project-block-img lb-trigger">
+          <img src="assets/images/pearland/outdoor-living-pool-pergola-paver-patio-fire-pit-pearland-tx.webp" alt="Aerial view of complete outdoor living space with pool, pergolas, paver patio and fire pit in Pearland TX" width="700" height="520" loading="lazy">
         </div>
         <div class="project-block-content reveal">
           <span class="eyebrow">Pearland Project &middot; Complete Transformation</span>
@@ -300,17 +198,16 @@
       </div>
     </div>
 
-    <div class="project-spotlight" aria-label="Paver driveway Pearland TX">
+    <!-- PROJECT 5: Paver Driveway (light) -->
+    <div class="project-spotlight">
       <div class="project-block light">
-        <div class="project-block-img">
-          <img src="assets/images/pearland/paver-driveway-landscaped-flower-beds-pearland-tx.webp"
-            alt="Paver driveway with curved landscaped flower beds and river rock borders in Pearland TX"
-            width="700" height="520" loading="lazy">
+        <div class="project-block-img lb-trigger">
+          <img src="assets/images/pearland/paver-driveway-landscaped-flower-beds-pearland-tx.webp" alt="Paver driveway with curved landscaped flower beds and river rock borders in Pearland TX" width="700" height="520" loading="lazy">
         </div>
         <div class="project-block-content reveal">
           <span class="eyebrow">Pearland Project &middot; Driveway &amp; Curb Appeal</span>
           <h2>Paver Driveway with Landscaped Flower Beds &amp; Rock Borders</h2>
-          <p>Curb appeal starts at the street. This Pearland driveway features a sweeping paver layout with curved, professionally landscaped flower beds bordered in natural river rock &mdash; a home that stands out in the neighborhood before you even step inside.</p>
+          <p>Curb appeal starts at the street. This Pearland driveway features a sweeping paver layout with curved, professionally landscaped flower beds bordered in natural river rock &mdash; a home that stands out before you even step inside.</p>
           <div class="feature-tags">
             <span class="feature-tag">Paver Driveway</span>
             <span class="feature-tag">Curved Design</span>
@@ -322,6 +219,7 @@
       </div>
     </div>
 
+    <!-- ALL SERVICES dark -->
     <section class="section" aria-labelledby="services-heading">
       <div class="container">
         <div class="section-header reveal">
@@ -352,17 +250,38 @@
           <a href="outdoor-living-spaces-houston.html" class="service-icon-card">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             <strong>Outdoor Living</strong>
-            <span>Full backyard transformations, pools &amp; fire features</span>
+            <span>Full backyard transformations &amp; fire features</span>
           </a>
           <a href="patio-covers-houston.html" class="service-icon-card">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12l10-8 10 8M4 12v8h16v-8"/></svg>
             <strong>Patio Covers</strong>
-            <span>Pergolas, shade structures &amp; covered patios</span>
+            <span>Covered patios &amp; shade structures</span>
+          </a>
+          <a href="pergolas-houston.html" class="service-icon-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 6v12M20 6v12M4 18h16M8 6v12M16 6v12M4 10h4M16 10h4"/></svg>
+            <strong>Pergolas</strong>
+            <span>Wood &amp; aluminum pergola structures</span>
+          </a>
+          <a href="fire-features-houston.html" class="service-icon-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2c0 4-4 6-4 10a4 4 0 008 0c0-4-4-6-4-10z"/><path d="M12 12c0 2-1.5 3-1.5 4.5a1.5 1.5 0 003 0C13.5 15 12 14 12 12z"/></svg>
+            <strong>Fire Features</strong>
+            <span>Fire pits, fire bowls &amp; outdoor fireplaces</span>
+          </a>
+          <a href="custom-stonework-houston.html" class="service-icon-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            <strong>Custom Stonework</strong>
+            <span>Natural stone walls, columns &amp; veneers</span>
+          </a>
+          <a href="painting-houston.html" class="service-icon-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 16.5A2.5 2.5 0 004.5 19H8v-8H4.5A2.5 2.5 0 002 13.5v3zM8 19h8M16 19h.5a2.5 2.5 0 002.5-2.5v-3a2.5 2.5 0 00-2.5-2.5H16v8zM8 11V7a4 4 0 018 0v4"/></svg>
+            <strong>Painting</strong>
+            <span>Interior &amp; exterior residential painting</span>
           </a>
         </div>
       </div>
     </section>
 
+    <!-- WHY LONGHORN light -->
     <section class="section section-light" aria-labelledby="why-heading">
       <div class="container">
         <div class="section-header reveal">
@@ -387,54 +306,46 @@
           </div>
           <div class="why-card reveal">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-            <h3>No-Pressure Estimate</h3>
-            <p>Free consultation at your home. Same-day estimate. Zero obligation. You decide if we are the right fit.</p>
+            <h3>No-Pressure Consultation</h3>
+            <p>We visit your home, assess the project, and provide your estimate as soon as possible. Zero obligation.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- FAQ dark -->
     <section class="section" aria-labelledby="faq-heading">
       <div class="container">
         <div class="section-header reveal">
           <h2 id="faq-heading">Pearland Hardscape &mdash; Frequently Asked Questions</h2>
           <p>Common questions from Pearland homeowners before their project starts.</p>
         </div>
-        <ul class="faq-list" role="list">
-          <li class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do you build outdoor kitchens in Pearland TX?</button>
-            <div class="faq-a">
-              <p>Yes. We have built multiple outdoor kitchens in Pearland &mdash; from classic brick-and-granite setups to modern stucco designs with L-shaped islands, bar seating, built-in grills, refrigerators, and outdoor TVs. We bring photos of past Pearland builds to your consultation.</p>
-            </div>
-          </li>
-          <li class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can you install an artificial turf putting green in Pearland?</button>
-            <div class="faq-a">
-              <p>Absolutely. We design and install custom putting greens with professional-grade synthetic turf, multiple holes and flag pins, fringe chipping areas, and rock or paver borders. Built with proper drainage for Pearland heavy rain events &mdash; no puddling, no soggy spots.</p>
-            </div>
-          </li>
-          <li class="faq-item">
-            <button class="faq-q" aria-expanded="false">What neighborhoods in Pearland do you serve?</button>
-            <div class="faq-a">
-              <p>We serve all of Pearland including Shadow Creek Ranch, Southdown, Silverlake, Massey Ranch, Pearland Town Center, and zip codes 77581, 77584, and 77588. We also cover nearby Friendswood, Alvin, and League City.</p>
-            </div>
-          </li>
-          <li class="faq-item">
-            <button class="faq-q" aria-expanded="false">How long does a paver driveway or patio take in Pearland?</button>
-            <div class="faq-a">
-              <p>Most paver projects take 3&ndash;7 days depending on size and design. We handle everything: excavation, base compaction, paver layout, cutting, jointing, and final sealing. We work efficiently to minimize disruption to your household.</p>
-            </div>
-          </li>
-          <li class="faq-item">
-            <button class="faq-q" aria-expanded="false">Are you licensed and insured for hardscape work in Pearland TX?</button>
-            <div class="faq-a">
-              <p>Yes. Longhorn Hardscape &amp; Construction is fully licensed and insured. Consultations are free and no-pressure &mdash; we come to your Pearland home, walk the yard with you, and deliver a same-day estimate.</p>
-            </div>
-          </li>
-        </ul>
+        <div class="faq-list" style="max-width:800px;margin:0 auto;">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Do you build outdoor kitchens in Pearland TX? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>Yes. We have built multiple outdoor kitchens in Pearland &mdash; from classic brick-and-granite setups to modern stucco designs with L-shaped islands, bar seating, built-in grills, refrigerators, and outdoor TVs. We bring photos of past Pearland builds to your consultation.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can you install an artificial turf putting green in Pearland? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>Absolutely. We design and install custom putting greens with professional-grade synthetic turf, multiple holes and flag pins, fringe chipping areas, and rock or paver borders. Built with proper drainage for Pearland heavy rain events &mdash; no puddling, no soggy spots.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What neighborhoods in Pearland do you serve? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>We serve all of Pearland including Shadow Creek Ranch, Southdown, Silverlake, Massey Ranch, Pearland Town Center, and zip codes 77581, 77584, and 77588. We also cover nearby Friendswood, Alvin, and League City.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How long does a paver driveway or patio take in Pearland? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>Timeline depends on the size and complexity of the project. We provide a clear, realistic schedule during your free consultation before any work begins. We always work efficiently to minimize disruption to your household.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Are you licensed and insured for hardscape work in Pearland TX? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>Yes. Longhorn Hardscape &amp; Construction is fully licensed and insured. Consultations are free and no-pressure &mdash; we come to your Pearland home, walk the yard with you, and provide your estimate as soon as possible.</p></div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- LOCATION + MAP light -->
     <section class="section section-light" aria-labelledby="location-heading">
       <div class="container">
         <div class="section-header reveal">
@@ -442,20 +353,16 @@
           <p>6140 Highway 6 #3116, Missouri City, TX 77459 &mdash; minutes from Pearland via Hwy 6 and Hwy 288. <a href="tel:+13465518340" style="color:var(--color-accent);font-weight:600;">(346) 551-8340</a></p>
         </div>
         <div class="map-embed reveal" style="margin-top:1.5rem;">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.0!2d-95.5388!3d29.6185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640eed67f03f0a5%3A0x4a1d11e3d5d7e34!2s6140+Highway+6+%23+3116%2C+Missouri+City%2C+TX+77459!5e0!3m2!1sen!2sus!4v1700000000000"
-            title="Longhorn Hardscape and Construction near Pearland TX"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            aria-label="Google Maps showing Longhorn Hardscape location serving Pearland TX">
-          </iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.0!2d-95.5388!3d29.6185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640eed67f03f0a5%3A0x4a1d11e3d5d7e34!2s6140+Highway+6+%23+3116%2C+Missouri+City%2C+TX+77459!5e0!3m2!1sen!2sus!4v1700000000000" title="Longhorn Hardscape and Construction near Pearland TX" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Maps showing Longhorn Hardscape location serving Pearland TX"></iframe>
         </div>
       </div>
     </section>
 
+    <!-- CTA BANNER -->
     <section class="cta-banner" aria-labelledby="cta-heading">
       <div class="container"><div class="reveal">
         <h2 id="cta-heading">Ready to transform your Pearland backyard?</h2>
-        <p>Free consultation &mdash; we come to you, same-day estimate, no pressure.</p>
+        <p>Free consultation &mdash; we come to you and provide your estimate as soon as possible. No pressure, no obligation.</p>
         <div class="cta-banner-actions">
           <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
           <a href="tel:+13465518340" class="btn btn-secondary btn-lg">(346) 551-8340</a>
