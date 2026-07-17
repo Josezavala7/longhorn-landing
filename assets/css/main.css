@@ -2222,9 +2222,7 @@ p {
 .sc-lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(10,10,10,0.92);
   animation: lbFadeIn 0.3s ease forwards;
 }
 
