@@ -1,141 +1,633 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hardscape & Landscaping Houston TX | Longhorn</title>
-  <meta name="description" content="Longhorn Hardscape serves Houston TX with expert patio, turf, and outdoor living construction. insured. Free consultation.">
+  <title>Hardscape Contractor Houston TX | Pergolas, Turf & Outdoor Kitchens | Longhorn</title>
+  <meta name="description" content="Houston's premier hardscape contractor. We build louvered pergolas, outdoor kitchens, artificial turf, paver patios & full backyard transformations. Free quote — (346) 551-8340.">
   <link rel="canonical" href="https://longhornhctexas.com/landscaping-houston.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Hardscape & Landscaping Houston TX | Patio, Turf & Outdoor Living">
-  <meta property="og:description" content="Longhorn Hardscape serves Houston TX with expert patio, turf, and outdoor living construction. insured. Free consultation.">
-  <meta property="og:image" content="https://longhornhctexas.com/assets/images/og-default.jpg">
-  <meta property="og:url" content="https://longhornhctexas.com/landscaping-houston.html">
-  <meta property="og:locale" content="en_US">
-  <link rel="icon" href="assets/favicon-32.png" type="image/png">
+  <meta property="og:title" content="Hardscape Contractor Houston TX | Longhorn Hardscape & Construction">
+  <meta property="og:description" content="Louvered pergolas, outdoor kitchens, artificial turf & paver patios in Houston TX. See real completed projects. Call (346) 551-8340.">
+  <meta property="og:image" content="https://longhornhctexas.com/assets/images/houston/backyard-transformation-louvered-pergola-paver-patio-turf-houston-tx.webp">
   <link rel="stylesheet" href="assets/css/main.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Longhorn Hardscape & Construction",
-    "description": "Houston TX hardscape and landscaping contractor — patios, artificial turf, driveways, outdoor kitchens, and outdoor living spaces.",
-    "url": "https://longhornhctexas.com",
-    "telephone": "+13465518340",
-    "address": {"@type": "PostalAddress", "streetAddress": "6140 Highway 6, Suite 3116", "addressLocality": "Missouri City", "addressRegion": "TX", "postalCode": "77459", "addressCountry": "US"},
-    "geo": {"@type": "GeoCoordinates", "latitude": "29.7604", "longitude": "-95.3698"},
-    "areaServed": {"@type": "City", "name": "Houston"},
-    "sameAs": ["https://www.facebook.com/people/Longhorn-Hardscape-Construction/61553859352846/","https://www.instagram.com/longhornhctx"]
-  }
-  </script>
+  <style>
+    /* ── Houston Page — Cinematic Editorial Layout ── */
+    .hou-hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background: #0a0a0a;
+    }
+    .hou-hero__bg {
+      position: absolute;
+      inset: -8% 0;
+      background-image: var(--hero-bg);
+      background-size: cover;
+      background-position: center 30%;
+      will-change: transform;
+    }
+    .hou-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.15) 100%);
+    }
+    .hou-hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 0 2rem 4rem;
+      max-width: 900px;
+    }
+    .hou-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .hou-hero__eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
+    .hou-hero__h1 {
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      font-weight: 900;
+      line-height: 1.0;
+      color: #fff;
+      margin: 0 0 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hou-hero__h1 .word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
+    .hou-hero__h1 .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+    }
+    .hou-hero__sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      line-height: 1.6;
+      margin: 0 0 2.25rem;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .hou-hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .hou-hero__scroll {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+    }
+    .hou-hero__scroll-line {
+      width: 1px;
+      height: 48px;
+      background: rgba(255,255,255,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .hou-hero__scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-accent);
+      animation: scrollLine 1.8s ease-in-out infinite 1.2s;
+    }
+    @keyframes scrollLine { 0%{top:-100%} 100%{top:100%} }
+
+    /* STATS BAR */
+    .hou-stats { background: var(--color-accent); padding: 2.5rem 0; }
+    .hou-stats__grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .hou-stats__item {
+      text-align: center;
+      padding: 0.5rem 1rem;
+      border-right: 1px solid rgba(0,0,0,0.15);
+    }
+    .hou-stats__item:last-child { border-right: none; }
+    .hou-stats__num {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #000;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .hou-stats__label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.6);
+      margin-top: 0.3rem;
+    }
+
+    /* CINEMATIC DUO */
+    .hou-duo { display: grid; grid-template-columns: 1fr 1fr; height: 80vh; min-height: 500px; }
+    .hou-duo__panel { position: relative; overflow: hidden; cursor: zoom-in; }
+    .hou-duo__panel img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+    .hou-duo__panel:hover img { transform: scale(1.06); }
+    .hou-duo__label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transform: translateY(8px);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+    .hou-duo__panel:hover .hou-duo__label { transform: translateY(0); opacity: 1; }
+
+    /* FEATURE dark editorial */
+    .hou-feature {
+      background: #080808;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hou-feature::before {
+      content: 'HOUSTON';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-size: clamp(6rem, 18vw, 16rem);
+      font-weight: 900;
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .hou-feature__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .hou-feature__kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 2rem;
+      display: block;
+    }
+    .hou-feature__quote {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin: 0 0 2rem;
+      letter-spacing: -0.01em;
+    }
+    .hou-feature__quote em { font-style: normal; color: var(--color-accent); }
+    .hou-feature__body {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* EVENING CINEMA */
+    .hou-cinema { position: relative; height: 70vh; min-height: 480px; overflow: hidden; cursor: zoom-in; }
+    .hou-cinema img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+    .hou-cinema:hover img { transform: scale(1.04); }
+    .hou-cinema__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+    .hou-cinema__text { padding: 3rem; max-width: 520px; }
+    .hou-cinema__text .eyebrow {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+    .hou-cinema__text h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin: 0 0 1rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+    .hou-cinema__text p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1rem;
+      line-height: 1.65;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+
+    /* PUTTING GREEN */
+    .hou-green { position: relative; height: 60vh; min-height: 400px; overflow: hidden; cursor: zoom-in; }
+    .hou-green img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; transition: transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+    .hou-green:hover img { transform: scale(1.04); }
+    .hou-green__badge {
+      position: absolute;
+      top: 50%;
+      right: 4rem;
+      transform: translateY(-50%);
+      background: var(--color-accent);
+      color: #000;
+      padding: 2rem 2.5rem;
+      max-width: 280px;
+      border-radius: 4px;
+    }
+    .hou-green__badge strong { display: block; font-size: 1.1rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.5rem; }
+    .hou-green__badge p { font-size: 0.85rem; line-height: 1.5; opacity: 0.75; margin: 0 0 1rem; }
+
+    /* SERVICES */
+    .hou-services { padding: 5rem 0; background: #111; }
+    .hou-services__grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hou-svc-card {
+      background: #111;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.25s ease;
+    }
+    .hou-svc-card:hover { background: #1c1c1c; }
+    .hou-svc-card svg { width: 28px; height: 28px; stroke: var(--color-accent); flex-shrink: 0; }
+    .hou-svc-card strong { font-size: 0.9rem; font-weight: 700; }
+    .hou-svc-card span { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.4; }
+
+    /* WHY */
+    .hou-why { background: #f8f6f2; padding: 5rem 0; }
+    .hou-why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .hou-why__heading { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: #0e1117; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 1.5rem; }
+    .hou-why__heading em { font-style: normal; color: var(--color-accent); }
+    .hou-why__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem; }
+    .hou-why__list li { display: flex; gap: 0.9rem; align-items: flex-start; font-size: 0.97rem; color: #333; line-height: 1.55; }
+    .hou-why__check { width: 20px; height: 20px; border-radius: 50%; background: var(--color-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .hou-why__check svg { width: 11px; height: 11px; stroke: #000; stroke-width: 2.5; }
+    .hou-area-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .hou-area-pill { background: #e8e4dd; color: #333; font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 100px; }
+
+    /* FAQ */
+    .hou-faq { background: #0e1117; padding: 5rem 0; }
+
+    /* MAP */
+    .hou-map-wrap { width: 100%; height: 360px; }
+    .hou-map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hou-duo { grid-template-columns: 1fr; height: auto; }
+      .hou-duo__panel { height: 60vw; min-height: 260px; }
+      .hou-duo__label { opacity: 1; transform: translateY(0); }
+      .hou-services__grid { grid-template-columns: repeat(2, 1fr); }
+      .hou-why__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hou-green__badge { right: 1rem; left: 1rem; top: auto; bottom: 1.5rem; transform: none; max-width: 100%; }
+      .hou-cinema__text { padding: 2rem 1.5rem; }
+      .hou-hero__content { padding: 0 1.5rem 3rem; }
+      .hou-hero__scroll { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hou-services__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you build louvered pergolas in Houston TX?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design and install aluminum louvered pergolas in Houston that are motorized, waterproof, and built to handle Texas heat and rain. We also build wood-ceiling covered patios with custom staining."}},{"@type":"Question","name":"Can you install artificial turf and a putting green in Houston?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We install professional-grade synthetic turf across Houston — from full backyard coverage to custom putting greens with multiple holes, gravel borders, and proper drainage for Houston heavy rain seasons."}},{"@type":"Question","name":"What Houston neighborhoods do you serve?","acceptedAnswer":{"@type":"Answer","text":"We serve all of Greater Houston including The Woodlands, Katy, Sugar Land, Missouri City, Pearland, Cypress, Spring, Friendswood, Stafford, and all Houston zip codes."}},{"@type":"Question","name":"Do you build outdoor kitchens in Houston?","acceptedAnswer":{"@type":"Answer","text":"Yes. From brick-base kitchens with granite countertops to full covered patio builds with stainless appliances, wine coolers, and outdoor TVs — we do complete outdoor kitchen builds across Houston."}},{"@type":"Question","name":"How do I get a free quote in Houston?","acceptedAnswer":{"@type":"Answer","text":"Call us at (346) 551-8340 or use our online form. We schedule a free on-site consultation and provide a no-pressure estimate as soon as possible."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Longhorn Hardscape & Construction","telephone":"+13465518340","url":"https://longhornhctexas.com","address":{"@type":"PostalAddress","addressLocality":"Missouri City","addressRegion":"TX","postalCode":"77459","addressCountry":"US"},"areaServed":{"@type":"City","name":"Houston"},"description":"Houston's premier hardscape contractor specializing in louvered pergolas, outdoor kitchens, artificial turf, paver patios, and full backyard transformations.","priceRange":"$$"}</script>
 </head>
 <body>
-
   <div id="site-header-placeholder"></div>
 
   <main id="main-content">
 
-    <section class="page-hero" aria-labelledby="page-h1" style="--hero-bg-image:url('assets/images/hero/hero-landscaping-houston.webp')">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"> <ol> <li><a href="index.html">Home</a></li> <li><a href="index.html#areas">Service Areas</a></li> <li><span aria-current="page">Houston</span></li> </ol> </nav>
-        <h1 id="page-h1">Hardscape &amp; Landscaping Services in Houston</h1>
-        <h2>Patio, Turf &amp; Outdoor Living Contractors Near Houston TX</h2>
-        <ul class="proof-bullets proof-bullets--light">
-          
-          <li>Insured</li>
-          <li>Houston Based</li>
-          <li>Free Consultation</li>
-        </ul>
-        <div class="page-hero-actions">
+    <!-- HERO -->
+    <section class="hou-hero" style="--hero-bg:url('assets/images/houston/backyard-transformation-louvered-pergola-paver-patio-turf-houston-tx.webp');" aria-labelledby="hou-h1">
+      <div class="hou-hero__bg" id="houHeroBg"></div>
+      <div class="hou-hero__overlay"></div>
+      <div class="hou-hero__content">
+        <div class="hou-hero__eyebrow" id="houEyebrow">
+          <span class="dot"></span>Greater Houston TX<span class="dot"></span>Hardscape &amp; Construction
+        </div>
+        <h1 class="hou-hero__h1" id="hou-h1">
+          <span class="word"><span class="word-inner">Your</span></span>&#32;<span class="word"><span class="word-inner">Backyard.</span></span><br>
+          <span class="word"><span class="word-inner">Reimagined.</span></span>
+        </h1>
+        <p class="hou-hero__sub">Pergolas &middot; Outdoor Kitchens &middot; Artificial Turf &middot; Paver Patios &mdash; fully built across Greater Houston.</p>
+        <div class="hou-hero__actions">
           <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
           <a href="tel:+13465518340" class="btn btn-secondary btn-lg">(346) 551-8340</a>
         </div>
       </div>
+      <div class="hou-hero__scroll" id="houScroll">
+        <span>Scroll</span>
+        <div class="hou-hero__scroll-line"></div>
+      </div>
     </section>
 
-    <section class="section" aria-labelledby="intro-heading">
+    <!-- STATS BAR -->
+    <div class="hou-stats" aria-hidden="true">
       <div class="container">
-        <div class="reveal">
-          <h2 id="intro-heading">Your Houston Hardscape Contractor</h2>
-          <p>Longhorn Hardscape &amp; Construction is Houston's trusted hardscape and outdoor living contractor. We serve all of Greater Houston — from the Heights and Midtown to Memorial, Bellaire, Meyerland, and everything in between. Houston homeowners count on us for custom patio installation, artificial turf, driveway concrete, outdoor kitchens, and full outdoor living space transformations that are built specifically for Houston's heat, humidity, and heavy rain seasons.</p>
-          <p>We understand the clay soil challenges, the drainage requirements, and the materials that perform long-term in Houston's climate. Every project starts with a free consultation at your home. We're insured, and committed to finishing on time.</p>
+        <div class="hou-stats__grid">
+          <div class="hou-stats__item">
+            <div class="hou-stats__num" data-hou-count="200" data-suffix="+">0+</div>
+            <div class="hou-stats__label">Projects in Greater Houston</div>
+          </div>
+          <div class="hou-stats__item">
+            <div class="hou-stats__num" data-hou-count="8" data-suffix="yr">0yr</div>
+            <div class="hou-stats__label">Years of Experience</div>
+          </div>
+          <div class="hou-stats__item">
+            <div class="hou-stats__num" data-hou-count="100" data-suffix="%">0%</div>
+            <div class="hou-stats__label">Licensed &amp; Insured</div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="area-nap" aria-label="Business contact information">
-          <p>
-            <strong>Longhorn Hardscape &amp; Construction</strong><br>
-            Serving Houston, TX and all surrounding areas<br>
-            Phone: <a href="tel:+13465518340">(346) 551-8340</a><br>
-            Web: <a href="https://longhornhctexas.com">longhornhctexas.com</a>
-          </p>
+    <!-- CINEMATIC DUO — Covered Patio + Kitchen -->
+    <div class="hou-duo">
+      <div class="hou-duo__panel lb-trigger">
+        <img src="assets/images/houston/covered-patio-wood-ceiling-steel-frame-outdoor-dining-houston-tx.webp"
+             alt="Covered patio with tongue-and-groove wood ceiling, steel frame, ceiling fans and outdoor dining in Houston TX"
+             width="700" height="933" loading="lazy">
+        <div class="hou-duo__label">Covered Patio &mdash; Wood Ceiling &amp; Steel Frame</div>
+      </div>
+      <div class="hou-duo__panel lb-trigger">
+        <img src="assets/images/houston/outdoor-kitchen-brick-stainless-grill-wine-cooler-covered-patio-houston-tx.webp"
+             alt="Outdoor kitchen with brick base, stainless grill, wine cooler under wood-ceiling covered patio in Houston TX"
+             width="700" height="933" loading="lazy">
+        <div class="hou-duo__label">Outdoor Kitchen &mdash; Brick, Grill &amp; Wine Cooler</div>
+      </div>
+    </div>
+
+    <!-- FEATURE — dark editorial -->
+    <section class="hou-feature" aria-labelledby="hou-feature-heading">
+      <div class="hou-feature__inner reveal">
+        <span class="hou-feature__kicker">Longhorn Hardscape &amp; Construction &mdash; Houston TX</span>
+        <h2 class="hou-feature__quote" id="hou-feature-heading">
+          We don&rsquo;t just build patios.<br>
+          We build the place where <em>Houston families live.</em>
+        </h2>
+        <p class="hou-feature__body">From Saturday morning coffee on the covered patio to Friday nights around the grill &mdash; we design and build outdoor spaces that become the center of your home. Every project gets the same obsessive attention to drainage, materials, and long-term durability that Houston&rsquo;s climate demands.</p>
+      </div>
+    </section>
+
+    <!-- EVENING CINEMA — Pergola at dusk -->
+    <div class="hou-cinema lb-trigger">
+      <img src="assets/images/houston/louvered-pergola-artificial-turf-string-lights-evening-houston-tx.webp"
+           alt="Modern aluminum louvered pergola with artificial turf, gravel path and string lights at dusk in Houston TX"
+           width="1400" height="933" loading="lazy">
+      <div class="hou-cinema__overlay">
+        <div class="hou-cinema__text">
+          <span class="eyebrow">Houston Project &middot; Louvered Pergola</span>
+          <h2>An Aluminum Louvered Pergola That Changes Everything</h2>
+          <p>Motorized louvers that open for sun and close for rain &mdash; with built-in lighting, artificial turf, and a gravel path lined with string lights. The Houston backyard upgrade homeowners talk about for years.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PUTTING GREEN STRIP -->
+    <div class="hou-green lb-trigger">
+      <img src="assets/images/houston/artificial-turf-putting-green-multi-hole-houston-tx.webp"
+           alt="Custom artificial turf putting green with 3 holes and flags in Houston TX backyard"
+           width="1400" height="933" loading="lazy">
+      <div class="hou-green__badge reveal">
+        <strong>Custom Putting Greens in Houston</strong>
+        <p>3, 4, or 5 holes &mdash; any shape, any size. Professional synthetic turf built for year-round Texas use.</p>
+        <a href="artificial-turf-houston.html" class="btn btn-primary" style="font-size:0.85rem;padding:0.6rem 1.25rem;">See All Turf Projects</a>
+      </div>
+    </div>
+
+    <!-- SERVICES GRID -->
+    <section class="hou-services" aria-labelledby="hou-svc-heading">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom:2.5rem;">
+          <h2 id="hou-svc-heading">Everything We Build in Houston</h2>
+          <p>One crew. One call. Complete outdoor transformation.</p>
+        </div>
+        <div class="hou-services__grid">
+          <a href="patio-covers-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <strong>Patio Covers</strong><span>Wood &amp; aluminum pergolas, full covers</span>
+          </a>
+          <a href="outdoor-kitchen-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            <strong>Outdoor Kitchens</strong><span>Brick, stucco &amp; stone builds</span>
+          </a>
+          <a href="artificial-turf-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="10"/><path d="M12 6v6l3 3"/></svg>
+            <strong>Artificial Turf</strong><span>Lawns, putting greens &amp; play areas</span>
+          </a>
+          <a href="paver-driveway-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <strong>Paver Driveways</strong><span>Concrete &amp; natural stone pavers</span>
+          </a>
+          <a href="retaining-walls-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="7" width="20" height="4" rx="1"/><rect x="2" y="13" width="20" height="4" rx="1"/><rect x="2" y="19" width="20" height="2" rx="1"/></svg>
+            <strong>Retaining Walls</strong><span>Block, stone &amp; timber walls</span>
+          </a>
+          <a href="patio-covers-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            <strong>Pergolas</strong><span>Louvered, wood &amp; aluminum</span>
+          </a>
+          <a href="fire-features-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2c0 4-4 6-4 10a4 4 0 008 0c0-4-4-6-4-10z"/><path d="M12 12c0 2-1.5 3-1.5 4.5a1.5 1.5 0 003 0C13.5 15 12 14 12 12z"/></svg>
+            <strong>Fire Features</strong><span>Fire pits, bowls &amp; fireplaces</span>
+          </a>
+          <a href="custom-stonework-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            <strong>Custom Stonework</strong><span>Natural stone walls &amp; veneers</span>
+          </a>
+          <a href="painting-houston.html" class="hou-svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 16.5A2.5 2.5 0 004.5 19H8v-8H4.5A2.5 2.5 0 002 13.5v3zM8 19h8M16 19h.5a2.5 2.5 0 002.5-2.5v-3a2.5 2.5 0 00-2.5-2.5H16v8zM8 11V7a4 4 0 018 0v4"/></svg>
+            <strong>Painting</strong><span>Interior &amp; exterior painting</span>
+          </a>
+          <a href="contact.html" class="hou-svc-card" style="background:#1a1a1a;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <strong>More Services</strong><span>Ask about your project</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section section-light" aria-labelledby="services-heading">
+    <!-- WHY — light -->
+    <section class="hou-why" aria-labelledby="hou-why-heading">
       <div class="container">
-        <div class="section-header reveal">
-          <h2 id="services-heading">Services We Offer in Houston</h2>
-          <p>Every service, built right — for Houston homeowners who want quality that lasts.</p>
-        </div>
-        <div class="services-list-links">
-          <a href="patio-installation-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Patio Installation in Houston</a>
-          <a href="artificial-turf-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Artificial Turf in Houston</a>
-          <a href="driveway-contractor-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Driveways &amp; Concrete in Houston</a>
-          <a href="outdoor-kitchen-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Outdoor Kitchens in Houston</a>
-          <a href="outdoor-living-spaces-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Outdoor Living Spaces in Houston</a>
-          <a href="projects.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>View Houston Projects</a>
+        <div class="hou-why__grid">
+          <div class="reveal">
+            <h2 class="hou-why__heading" id="hou-why-heading">
+              Why Houston homeowners<br>choose <em>Longhorn</em>
+            </h2>
+            <ul class="hou-why__list">
+              <li>
+                <span class="hou-why__check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>We show up when we say we will &mdash; no ghosting, no missed appointments</span>
+              </li>
+              <li>
+                <span class="hou-why__check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>Materials chosen for Houston clay soil, drainage requirements, and extreme heat</span>
+              </li>
+              <li>
+                <span class="hou-why__check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>One crew handles everything &mdash; design, materials, and installation</span>
+              </li>
+              <li>
+                <span class="hou-why__check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>Fully licensed and insured &mdash; protected from first shovel to final walk-through</span>
+              </li>
+              <li>
+                <span class="hou-why__check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>Free, no-pressure consultation at your Houston home &mdash; estimate as soon as possible</span>
+              </li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <div style="margin-bottom:1.5rem;">
+              <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#888;margin-bottom:0.75rem;">Houston service areas</div>
+              <div class="hou-area-pills">
+                <span class="hou-area-pill">Houston</span>
+                <span class="hou-area-pill">Missouri City</span>
+                <span class="hou-area-pill">Sugar Land</span>
+                <span class="hou-area-pill">Katy</span>
+                <span class="hou-area-pill">Pearland</span>
+                <span class="hou-area-pill">Cypress</span>
+                <span class="hou-area-pill">The Woodlands</span>
+                <span class="hou-area-pill">Spring</span>
+                <span class="hou-area-pill">Friendswood</span>
+                <span class="hou-area-pill">Stafford</span>
+                <span class="hou-area-pill">Richmond</span>
+                <span class="hou-area-pill">Rosenberg</span>
+                <span class="hou-area-pill">Fort Bend County</span>
+                <span class="hou-area-pill">Harris County</span>
+              </div>
+            </div>
+            <div style="padding:2rem;background:#ece8e0;border-radius:8px;">
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-bottom:0.75rem;">Contact</div>
+              <div style="font-weight:700;font-size:1rem;color:#0e1117;margin-bottom:0.25rem;">Longhorn Hardscape &amp; Construction</div>
+              <div style="color:#555;font-size:0.92rem;line-height:1.7;">
+                Missouri City, TX &mdash; serving all of Greater Houston<br>
+                <a href="tel:+13465518340" style="color:#0e1117;font-weight:600;">(346) 551-8340</a><br>
+                <a href="mailto:longhornhctexas@gmail.com" style="color:#0e1117;">longhornhctexas@gmail.com</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="why-houston-heading">
-      <div class="container">
-        <div class="reveal">
-          <h2 id="why-houston-heading">Why We Love Working in Houston</h2>
-          <p>Houston is one of the most dynamic cities in Texas — and its homeowners take real pride in their properties. We've built outdoor spaces in the Heights, Montrose, Bellaire, Memorial, Meyerland, Sugar Land corridor, Katy, and all across Harris County. Houston's neighborhoods each have their own character, and we design every project to complement the home it belongs to.</p>
-          <p>Houston's climate also demands a contractor who understands the soil and weather. The clay-heavy soil in much of Houston expands and contracts dramatically with moisture changes — meaning base preparation and drainage aren't optional, they're the foundation of every great hardscape job. We've built in this environment long enough to do it right every time.</p>
-          <p>We proudly serve Houston and surrounding areas including: Memorial, Bellaire, Meyerland, Sugar Land, Missouri City, Pearland, Katy, Cypress, The Woodlands, Spring, Humble, League City, and all of Harris and Fort Bend Counties.</p>
+    <!-- FAQ — dark -->
+    <section class="hou-faq" aria-labelledby="hou-faq-heading">
+      <div class="container" style="max-width:760px;">
+        <div class="section-header reveal" style="margin-bottom:3rem;">
+          <h2 id="hou-faq-heading">Frequently Asked Questions</h2>
+          <p>Houston homeowners ask us these all the time.</p>
+        </div>
+        <ul class="faq-list" style="list-style:none;padding:0;margin:0;">
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you build louvered pergolas in Houston TX?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer"><p>Yes. We design and install aluminum louvered pergolas in Houston that are motorized, waterproof, and built to handle Texas heat and rain. We also build wood-ceiling covered patios with custom staining &mdash; the kind you see in the photos above.</p></div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can you install artificial turf and a putting green in Houston?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer"><p>Absolutely. We install professional-grade synthetic turf across Houston &mdash; from full backyard coverage to custom putting greens with multiple holes, gravel borders, and proper drainage for Houston&rsquo;s heavy rain seasons.</p></div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What Houston neighborhoods do you serve?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer"><p>We serve all of Greater Houston including The Woodlands, Katy, Sugar Land, Missouri City, Pearland, Cypress, Spring, Friendswood, Stafford, Richmond, Rosenberg, and all Houston zip codes in Harris and Fort Bend Counties.</p></div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you build outdoor kitchens in Houston?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer"><p>Yes. From brick-base kitchens with granite countertops to full covered patio builds with stainless appliances, wine coolers, and outdoor TVs &mdash; we do complete outdoor kitchen builds across Houston. Our work is all in the photos above.</p></div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I get a free quote in Houston?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer"><p>Call us at <a href="tel:+13465518340">(346) 551-8340</a> or use our online contact form. We schedule a free on-site consultation and give you a no-pressure estimate as soon as possible.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="section section-light" aria-labelledby="hou-map-heading">
+      <div class="container" style="max-width:900px;">
+        <div class="section-header reveal" style="margin-bottom:2rem;">
+          <h2 id="hou-map-heading">Based in Missouri City &mdash; Serving All of Greater Houston</h2>
+        </div>
+        <div class="hou-map-wrap reveal">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221965.77!2d-95.6152!3d29.6197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e3f5e4c5e2b3%3A0x1!2sMissouri+City%2C+TX!5e0!3m2!1sen!2sus!4v1" loading="lazy" title="Longhorn Hardscape office in Missouri City TX"></iframe>
         </div>
       </div>
     </section>
 
-    <section class="section section-light" aria-labelledby="gallery-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 id="gallery-heading">Recent Projects in Houston, TX</h2>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-item reveal"><picture><source srcset="assets/images/areas/hardscape-project-houston-tx.webp" type="image/webp"><img src="assets/images/areas/hardscape-project-houston-tx.webp" alt="hardscape project completed in Houston TX backyard" width="800" height="450" loading="lazy"></picture></div>
-          <div class="gallery-item reveal"><picture><source srcset="assets/images/projects/patio-project-houston-tx-pavers.webp" type="image/webp"><img src="assets/images/projects/patio-project-houston-tx-pavers.webp" alt="paver patio project in Houston TX" width="400" height="300" loading="lazy"></picture></div>
-          <div class="gallery-item reveal"><picture><source srcset="assets/images/turf/artificial-turf-installation-houston-backyard.webp" type="image/webp"><img src="assets/images/turf/artificial-turf-installation-houston-backyard.webp" alt="artificial turf installation in Houston TX" width="400" height="300" loading="lazy"></picture></div>
-        </div>
-        <div class="gallery-cta reveal"><a href="projects.html" class="btn btn-outline btn-lg">View All Houston Projects</a></div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="map-heading">
-      <div class="container">
-        <div class="reveal">
-          <h2 id="map-heading">Find Us — Based in Missouri City, Serving Greater Houston</h2>
-          <p>We serve all of Greater Houston including Harris County, Fort Bend County, and surrounding areas. Call us or get a free quote online.</p>
-        </div>
-        <div class="map-embed reveal" style="margin-top:24px;">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.0!2d-95.5388!3d29.6185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640eed67f03f0a5%3A0x4a1d11e3d5d7e34!2s6140+Highway+6+%23+3116%2C+Missouri+City%2C+TX+77459!5e0!3m2!1sen!2sus!4v1700000000000"
-            title="Longhorn Hardscape service area — Houston TX"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            aria-label="Google Maps showing Longhorn Hardscape office in Missouri City TX">
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-banner" aria-labelledby="cta-heading">
+    <!-- CTA -->
+    <section class="cta-banner" aria-labelledby="hou-cta-heading">
       <div class="container"><div class="reveal">
-        <h2 id="cta-heading">Ready to transform your Houston backyard?</h2>
-        <p>Free consultation at your home — we provide estimates as soon as possible, no pressure.</p>
+        <h2 id="hou-cta-heading">Ready to transform your Houston backyard?</h2>
+        <p>Free consultation &mdash; no pressure, no commitment. We come to you.</p>
         <div class="cta-banner-actions">
           <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
           <a href="tel:+13465518340" class="btn btn-secondary btn-lg">(346) 551-8340</a>
@@ -146,7 +638,79 @@
   </main>
 
   <div id="site-footer-placeholder"></div>
-  <div class="mobile-cta-bar" aria-label="Quick contact"><div class="mobile-cta-bar-inner"><a href="tel:+13465518340" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Call Now</a><a href="contact.html" class="btn btn-dark">Get Free Quote</a></div></div>
-  <script src="assets/js/partials.js" defer></script><script src="assets/js/gsap.min.js" defer></script><script src="assets/js/ScrollTrigger.min.js" defer></script><script src="assets/js/animations.js" defer></script><script src="assets/js/main.js" defer></script>
+
+  <!-- Houston hero animations (runs before defer scripts) -->
+  <script>
+  (function() {
+    function runHeroAnim() {
+      var eyebrow = document.getElementById('houEyebrow');
+      var words = document.querySelectorAll('.hou-hero__h1 .word-inner');
+      var sub = document.querySelector('.hou-hero__sub');
+      var actions = document.querySelector('.hou-hero__actions');
+      var scroll = document.getElementById('houScroll');
+      setTimeout(function() {
+        if (eyebrow) { eyebrow.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; eyebrow.style.opacity = '1'; eyebrow.style.transform = 'translateY(0)'; }
+      }, 200);
+      words.forEach(function(w, i) {
+        setTimeout(function() {
+          w.style.transition = 'transform 0.7s cubic-bezier(0.16,1,0.3,1)';
+          w.style.transform = 'translateY(0)';
+        }, 400 + i * 140);
+      });
+      var delay = 400 + words.length * 140;
+      setTimeout(function() {
+        if (sub) { sub.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; sub.style.opacity = '1'; sub.style.transform = 'translateY(0)'; }
+      }, delay + 100);
+      setTimeout(function() {
+        if (actions) { actions.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; actions.style.opacity = '1'; actions.style.transform = 'translateY(0)'; }
+        if (scroll) { scroll.style.transition = 'opacity 0.8s ease'; scroll.style.opacity = '1'; }
+      }, delay + 300);
+    }
+
+    // Hero parallax
+    var heroBg = document.getElementById('houHeroBg');
+    if (heroBg) {
+      window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y < window.innerHeight * 1.5) heroBg.style.transform = 'translateY(' + (y * 0.3) + 'px)';
+      }, { passive: true });
+    }
+
+    // Stats counter
+    function initStats() {
+      var els = document.querySelectorAll('[data-hou-count]');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (!e.isIntersecting) return;
+          var el = e.target;
+          var target = parseInt(el.dataset.houCount);
+          var suffix = el.dataset.suffix || '';
+          var start = performance.now();
+          var dur = 1600;
+          (function tick(now) {
+            var p = Math.min((now - start) / dur, 1);
+            var ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(ease * target) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          })(start);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      els.forEach(function(el) { io.observe(el); });
+    }
+
+    runHeroAnim();
+    initStats();
+  })();
+  </script>
+
+  <script src="assets/js/partials.js?v=2" defer></script>
+  <script src="assets/js/gsap.min.js" defer></script>
+  <script src="assets/js/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/animations.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=2" defer></script>
+
+  <div class="sc-lightbox" id="scLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><div class="sc-lightbox__backdrop"></div><div class="sc-lightbox__panel"><button class="sc-lightbox__close" aria-label="Close">&times;</button><img class="sc-lightbox__img" src="" alt=""><p class="sc-lightbox__caption"></p></div></div>
 </body>
 </html>
