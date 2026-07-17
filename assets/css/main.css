@@ -1982,6 +1982,9 @@ p {
 .section-dark .faq-item.is-open .faq-question {
   color: var(--color-accent);
 }
+.section-dark .faq-answer p {
+  color: rgba(255,255,255,0.8);
+}
 .section-dark .why-card {
   background: #fff;
 }
