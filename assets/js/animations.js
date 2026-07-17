@@ -37,7 +37,24 @@
     );
   });
 
-  /* ── 2. Horizontal scroll — services section (index only) ── */
+  /* ── 2a. Mobile service cards — zigzag left/right entrance ── */
+  var hTrackMobile = document.querySelector('.services-hscroll-track');
+  if (hTrackMobile && window.innerWidth <= 768) {
+    hTrackMobile.querySelectorAll('.service-card').forEach(function (card, i) {
+      gsap.fromTo(card,
+        { opacity: 0, x: i % 2 === 0 ? -75 : 75 },
+        {
+          opacity: 1, x: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          clearProps: 'transform',
+          scrollTrigger: { trigger: card, start: 'top 90%', once: true }
+        }
+      );
+    });
+  }
+
+  /* ── 2b. Horizontal scroll — services section (desktop only) ── */
   var hTrack = document.querySelector('.services-hscroll-track');
   if (hTrack && window.innerWidth > 768) {
     /* Create the horizontal tween — .scrollTrigger gives us the ST instance */
