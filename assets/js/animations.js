@@ -42,11 +42,11 @@
   if (hTrackMobile && window.innerWidth <= 768) {
     hTrackMobile.querySelectorAll('.service-card').forEach(function (card, i) {
       gsap.fromTo(card,
-        { opacity: 0, x: i % 2 === 0 ? -38 : 38 },
+        { opacity: 0, x: i % 2 === 0 ? -24 : 24 },
         {
           opacity: 1, x: 0,
-          duration: 1.1,
-          ease: 'sine.inOut',
+          duration: 0.85,
+          ease: 'power1.out',
           clearProps: 'transform',
           scrollTrigger: { trigger: card, start: 'top 95%', once: true }
         }
