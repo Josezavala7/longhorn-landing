@@ -100,6 +100,7 @@
     }
 
     initHeader();
+    if (typeof window.__lbInit === 'function') window.__lbInit();
     document.dispatchEvent(new CustomEvent('partials:ready'));
   }).catch(function (err) {
     console.warn('Partials failed to load:', err);
