@@ -42,13 +42,13 @@
   if (hTrackMobile && window.innerWidth <= 768) {
     hTrackMobile.querySelectorAll('.service-card').forEach(function (card, i) {
       gsap.fromTo(card,
-        { opacity: 0, x: i % 2 === 0 ? -42 : 42 },
+        { opacity: 0, x: i % 2 === 0 ? -38 : 38 },
         {
           opacity: 1, x: 0,
-          duration: 1.0,
-          ease: 'power2.out',
+          duration: 1.1,
+          ease: 'sine.inOut',
           clearProps: 'transform',
-          scrollTrigger: { trigger: card, start: 'top 93%', once: true }
+          scrollTrigger: { trigger: card, start: 'top 95%', once: true }
         }
       );
     });
