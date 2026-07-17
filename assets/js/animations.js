@@ -45,10 +45,10 @@
         { opacity: 0, x: i % 2 === 0 ? -24 : 24 },
         {
           opacity: 1, x: 0,
-          duration: 0.85,
+          duration: 1.3,
           ease: 'power1.out',
           clearProps: 'transform',
-          scrollTrigger: { trigger: card, start: 'top 95%', once: true }
+          scrollTrigger: { trigger: card, start: 'top 88%', once: true }
         }
       );
     });
