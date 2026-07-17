@@ -1186,8 +1186,10 @@ p {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .stat-item {
@@ -2451,7 +2453,7 @@ p {
   .hero-scroll { display: none; }
 
   .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: rgba(255,255,255,0.25);
   }
