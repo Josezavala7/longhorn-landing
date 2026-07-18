@@ -283,6 +283,15 @@
     .mnv-cta__btn--ghost { border: 1.5px solid rgba(248,246,242,.35); color: var(--mnv-white); }
     .mnv-cta__btn:hover { filter: brightness(1.1); }
 
+    /* ── LIGHTBOX ── */
+    #scLightbox { display: none; position: fixed; inset: 0; z-index: 9000; align-items: center; justify-content: center; }
+    #scLightbox.is-open { display: flex; }
+    .sc-lightbox__backdrop { position: absolute; inset: 0; background: rgba(10,10,10,.93); }
+    .sc-lightbox__panel { position: relative; z-index: 1; max-width: 92vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
+    .sc-lightbox__close { position: absolute; top: -2.5rem; right: 0; background: none; border: none; color: rgba(255,255,255,.7); font-size: 2rem; cursor: pointer; line-height: 1; }
+    .sc-lightbox__img { max-width: 100%; max-height: 85vh; object-fit: contain; }
+    .sc-lightbox__caption { margin-top: .75rem; font-size: .78rem; color: rgba(255,255,255,.45); text-align: center; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .mnv-zones__grid { grid-template-columns: 1fr 1fr; }
@@ -586,13 +595,12 @@
 
   <div id="site-footer-placeholder"></div>
 
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" style="display:none;">
-    <button class="lightbox__close" aria-label="Close">&times;</button>
-    <button class="lightbox__prev" aria-label="Previous">&#8249;</button>
-    <button class="lightbox__next" aria-label="Next">&#8250;</button>
-    <div class="lightbox__inner">
-      <img class="lightbox__img" src="" alt="" />
-      <p class="lightbox__caption"></p>
+  <div id="scLightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <div class="sc-lightbox__backdrop" id="lbBackdrop"></div>
+    <div class="sc-lightbox__panel">
+      <button class="sc-lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+      <img class="sc-lightbox__img" id="lbImg" src="" alt="">
+      <p class="sc-lightbox__caption" id="lbCaption"></p>
     </div>
   </div>
 
@@ -652,6 +660,24 @@
         gsap.to('#mnvAerialBadge', { opacity: 1, scale: 1, duration: .6, delay: .9, ease: 'back.out(1.2)' });
       }
       isBelowFold(aerialPhoto) ? ScrollTrigger.create({ trigger: '.mnv-aerial', start: 'top 80%', onEnter: animateAerial }) : animateAerial();
+
+      /* Lightbox */
+      var lb      = document.getElementById('scLightbox');
+      var lbImg   = document.getElementById('lbImg');
+      var lbCap   = document.getElementById('lbCaption');
+      function closeLb() { lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+      document.querySelectorAll('.lb-trigger').forEach(function(el) {
+        el.style.cursor = 'zoom-in';
+        el.addEventListener('click', function() {
+          var src = el.dataset.full; if (!src) return;
+          lbImg.src = src; lbImg.alt = el.dataset.caption || '';
+          lbCap.textContent = el.dataset.caption || '';
+          lb.classList.add('is-open'); document.body.style.overflow = 'hidden';
+        });
+      });
+      document.getElementById('lbClose').addEventListener('click', closeLb);
+      document.getElementById('lbBackdrop').addEventListener('click', closeLb);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
 
       /* FAQ accordion */
       document.querySelectorAll('.mnv-faq__q').forEach(btn => {
