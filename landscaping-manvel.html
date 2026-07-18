@@ -1,114 +1,673 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Manvel TX Hardscape &amp; Landscaping | Longhorn Hardscape</title>
-  <meta name="description" content="Longhorn Hardscape serves Manvel TX with expert patio, turf, outdoor kitchen &amp; outdoor living construction. Free consultation.">
-  <link rel="canonical" href="https://longhornhctexas.com/landscaping-manvel.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Hardscape &amp; Landscaping Manvel TX | Patio, Turf &amp; Outdoor Living">
-  <meta property="og:description" content="Longhorn Hardscape serves Manvel TX with expert patio, turf, outdoor kitchen &amp; outdoor living construction. Free consultation.">
-  <meta property="og:image" content="https://longhornhctexas.com/assets/images/og-default.jpg">
-  <meta property="og:url" content="https://longhornhctexas.com/landscaping-manvel.html">
-  <link rel="icon" href="assets/favicon-32.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Longhorn Hardscape & Construction",
-    "description": "Manvel TX hardscape and landscaping contractor.",
-    "url": "https://longhornhctexas.com",
-    "telephone": "+13465518340",
-    "address": {"@type": "PostalAddress", "streetAddress": "6140 Highway 6, Suite 3116", "addressLocality": "Missouri City", "addressRegion": "TX", "postalCode": "77459", "addressCountry": "US"},
-    "areaServed": {"@type": "City", "name": "Manvel"},
-    "sameAs": ["https://www.facebook.com/share/1EnUUwfy7s/?mibextid=wwXIfr","https://www.instagram.com/longhorn_hardscape?utm_source=qr"]
-  }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardscape & Landscaping Manvel TX | Longhorn Hardscape & Construction</title>
+  <meta name="description" content="Premium hardscape contractor in Manvel, TX. Paver patios, outdoor kitchens, seating walls, patio covers & landscape lighting. Serving Manvel and Brazoria County." />
+  <link rel="canonical" href="https://longhornhardscapeandconstruction.com/landscaping-manvel.html" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    :root {
+      --mnv-amber: #e8a020;
+      --mnv-cream: #f5f0e8;
+      --mnv-dark:  #0d0d0d;
+      --mnv-mid:   #1a1a1a;
+      --mnv-stone: #2a2520;
+      --mnv-white: #f8f6f2;
+    }
+
+    .mnv-page { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--mnv-dark); color: var(--mnv-white); }
+
+    /* ── HERO ── */
+    .mnv-hero {
+      position: relative;
+      height: 100svh; min-height: 600px;
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+      padding-bottom: 7vh;
+    }
+    .mnv-hero__bg {
+      position: absolute; inset: 0;
+      background: url('assets/images/manvel/curved-seating-wall-step-lights-paver-driveway-night-manvel-tx.webp') center center / cover no-repeat;
+      transform: scale(1.06);
+      transition: transform 12s ease-out;
+    }
+    .mnv-hero__bg.is-loaded { transform: scale(1); }
+    .mnv-hero__vignette {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,6,.92) 0%, rgba(10,8,6,.55) 45%, rgba(10,8,6,.15) 100%);
+    }
+    .mnv-hero__content {
+      position: relative; z-index: 2;
+      width: 100%; padding: 0 6vw;
+    }
+    .mnv-hero__eyebrow {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mnv-amber);
+      margin-bottom: 1.4rem;
+      opacity: 0; transform: translateY(20px);
+    }
+    .mnv-hero__eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--mnv-amber);
+    }
+    .mnv-hero__h1 {
+      font-size: clamp(2.6rem, 8vw, 7rem);
+      font-weight: 900; line-height: .95; letter-spacing: -.03em;
+      margin: 0 0 1.5rem;
+    }
+    .mnv-hero__h1 .line { display: block; overflow: hidden; }
+    .mnv-hero__h1 .line span { display: block; transform: translateY(110%); }
+    .mnv-hero__h1 .line--outline span { color: transparent; -webkit-text-stroke: 2px var(--mnv-white); }
+    .mnv-hero__h1 .line--amber  span  { color: var(--mnv-amber); }
+    .mnv-hero__sub {
+      font-size: clamp(.9rem, 2vw, 1.1rem);
+      color: rgba(248,246,242,.7); max-width: 440px; line-height: 1.6;
+      opacity: 0; transform: translateY(16px);
+    }
+    .mnv-hero__cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      margin-top: 2.2rem; padding: .9rem 2rem;
+      background: var(--mnv-amber); color: #000;
+      font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0; transform: translateY(16px);
+    }
+    .mnv-hero__cta svg { width: 16px; height: 16px; }
+    .mnv-scroll-hint {
+      position: absolute; bottom: 2rem; right: 6vw; z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(248,246,242,.4);
+      opacity: 0;
+    }
+    .mnv-scroll-hint__line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--mnv-amber), transparent); }
+
+    /* ── MARQUEE ── */
+    .mnv-marquee { background: var(--mnv-amber); overflow: hidden; padding: .9rem 0; white-space: nowrap; }
+    .mnv-marquee__track { display: inline-flex; gap: 0; animation: mnvMarquee 22s linear infinite; }
+    .mnv-marquee__item {
+      display: inline-flex; align-items: center; gap: 1.5rem;
+      font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+      color: #000; padding: 0 2.5rem;
+    }
+    .mnv-marquee__dot { width: 5px; height: 5px; background: rgba(0,0,0,.35); border-radius: 50%; flex-shrink: 0; }
+    @keyframes mnvMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── PATIO COVER ── */
+    .mnv-cover { position: relative; height: 80vh; min-height: 480px; overflow: hidden; }
+    .mnv-cover__photo {
+      position: absolute; inset: 0;
+      background: url('assets/images/manvel/insulated-patio-cover-recessed-lighting-ceiling-fan-brick-columns-manvel-tx.webp') center center / cover no-repeat;
+      clip-path: inset(0 100% 0 0);
+    }
+    .mnv-cover__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(10,8,6,.75) 0%, rgba(10,8,6,.1) 60%);
+    }
+    .mnv-cover__text { position: absolute; bottom: 0; left: 0; width: 100%; padding: 3rem 6vw; z-index: 2; }
+    .mnv-cover__label {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mnv-amber); margin-bottom: .6rem;
+      opacity: 0; transform: translateX(-20px);
+    }
+    .mnv-cover__heading {
+      font-size: clamp(1.8rem, 4.5vw, 3.5rem); font-weight: 900; line-height: 1.05;
+      max-width: 520px; opacity: 0; transform: translateX(-24px);
+    }
+    .mnv-cover__heading em { font-style: normal; color: var(--mnv-amber); }
+
+    /* ── ZONE CARDS ── */
+    .mnv-zones { padding: 5rem 6vw; background: var(--mnv-mid); }
+    .mnv-zones__intro {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap;
+    }
+    .mnv-zones__title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; max-width: 420px; }
+    .mnv-zones__title em { font-style: normal; color: var(--mnv-amber); }
+    .mnv-zones__copy { font-size: .95rem; color: rgba(248,246,242,.6); max-width: 340px; line-height: 1.65; }
+    .mnv-zones__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1rem; }
+    .mnv-zone-card { position: relative; overflow: hidden; cursor: pointer; }
+    .mnv-zone-card__photo {
+      width: 100%; height: 0; padding-bottom: 130%;
+      background-size: cover; background-position: center;
+      transform: scale(1); transition: transform .7s cubic-bezier(.23,1,.32,1);
+      clip-path: inset(0 0 100% 0);
+    }
+    .mnv-zone-card:nth-child(2) .mnv-zone-card__photo { padding-bottom: 65%; }
+    .mnv-zone-card:nth-child(3) .mnv-zone-card__photo { padding-bottom: 65%; }
+    .mnv-zone-card:hover .mnv-zone-card__photo { transform: scale(1.05); }
+    .mnv-zone-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,6,.75) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .mnv-zone-card__info { position: absolute; bottom: 0; left: 0; padding: 1.5rem 1.4rem; }
+    .mnv-zone-card__num {
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mnv-amber); margin-bottom: .3rem;
+      opacity: 0; transform: translateY(12px);
+    }
+    .mnv-zone-card__label { font-size: 1.1rem; font-weight: 800; line-height: 1.2; opacity: 0; transform: translateY(14px); }
+
+    /* ── STATEMENT ── */
+    .mnv-statement { padding: 7rem 6vw; background: var(--mnv-cream); overflow: hidden; }
+    .mnv-statement__inner { max-width: 900px; margin: 0 auto; }
+    .mnv-statement__label {
+      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--mnv-amber); margin-bottom: 2.5rem;
+      opacity: 0; transform: translateY(16px);
+    }
+    .mnv-statement__big {
+      font-size: clamp(2rem, 5.5vw, 4.5rem);
+      font-weight: 900; line-height: 1.05; color: #0d0d0d; margin: 0 0 2.5rem;
+    }
+    .mnv-statement__big .line { display: block; overflow: hidden; }
+    .mnv-statement__big .line span { display: block; transform: translateY(105%); }
+    .mnv-statement__big .line--accent span { color: var(--mnv-amber); }
+    .mnv-statement__divider { width: 60px; height: 3px; background: var(--mnv-amber); margin-bottom: 2rem; transform: scaleX(0); transform-origin: left; }
+    .mnv-statement__body { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .mnv-statement__p { font-size: 1rem; line-height: 1.7; color: #3a3530; opacity: 0; transform: translateY(16px); }
+
+    /* ── AERIAL ── */
+    .mnv-aerial { position: relative; height: 70vh; min-height: 420px; overflow: hidden; }
+    .mnv-aerial__photo {
+      position: absolute; inset: 0;
+      background: url('assets/images/manvel/paver-patio-white-gravel-turf-backyard-transformation-manvel-tx.webp') center 40% / cover no-repeat;
+      clip-path: inset(0 0 100% 0);
+    }
+    .mnv-aerial__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,8,6,.05) 0%, rgba(10,8,6,.5) 100%);
+    }
+    .mnv-aerial__badge {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      background: var(--mnv-amber); color: #000;
+      font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      padding: .7rem 1.5rem; opacity: 0; scale: .8;
+      white-space: nowrap; z-index: 2;
+    }
+
+    /* ── SERVICES CAROUSEL ── */
+    .mnv-services { padding: 5rem 0; background: var(--mnv-dark); overflow: hidden; }
+    .mnv-services__header {
+      padding: 0 6vw; margin-bottom: 3rem;
+      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .mnv-services__title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; }
+    .mnv-services__title em { font-style: normal; color: var(--mnv-amber); }
+    .mnv-services__sub { font-size: .9rem; color: rgba(248,246,242,.5); max-width: 280px; line-height: 1.5; }
+    .mnv-services__scroll { overflow: hidden; }
+    .mnv-carousel__track {
+      display: flex; gap: 1rem; width: max-content; padding: 0 6vw;
+      animation: mnvCarousel 38s linear infinite;
+    }
+    .mnv-carousel__track:hover { animation-play-state: paused; }
+    @keyframes mnvCarousel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .mnv-svc-card {
+      flex: none; width: 240px; background: var(--mnv-stone); padding: 1.8rem 1.5rem;
+      border-top: 2px solid transparent; transition: border-color .3s;
+    }
+    .mnv-svc-card:hover { border-top-color: var(--mnv-amber); }
+    .mnv-svc-card__icon { width: 32px; height: 32px; margin-bottom: 1.1rem; color: var(--mnv-amber); }
+    .mnv-svc-card__icon svg { width: 100%; height: 100%; }
+    .mnv-svc-card__name { font-size: .9rem; font-weight: 700; margin-bottom: .5rem; }
+    .mnv-svc-card__desc { font-size: .8rem; color: rgba(248,246,242,.5); line-height: 1.55; }
+    @media (max-width: 700px) {
+      .mnv-services__scroll { overflow: visible; }
+      .mnv-carousel__track { display: grid; grid-template-columns: 1fr 1fr; width: auto; animation: none; gap: .8rem; }
+      .mnv-svc-card { width: auto; }
+      .mnv-carousel__track .mnv-svc-card.mnv-clone { display: none; }
+    }
+    @media (max-width: 440px) { .mnv-carousel__track { grid-template-columns: 1fr; } }
+
+    /* ── FAQ ── */
+    .mnv-faq { padding: 5rem 6vw; background: var(--mnv-white); color: #0d0d0d; }
+    .mnv-faq__header { margin-bottom: 3rem; }
+    .mnv-faq__title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; margin-bottom: .5rem; }
+    .mnv-faq__sub { font-size: .95rem; color: #666; }
+    .mnv-faq__list { max-width: 780px; }
+    .mnv-faq__item { border-bottom: 1px solid #e0dbd0; }
+    .mnv-faq__q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 0; font-size: 1rem; font-weight: 700;
+      cursor: pointer; background: none; border: none; text-align: left; color: inherit; gap: 1rem;
+    }
+    .mnv-faq__q-icon {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 1.5px solid currentColor; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .3s, background .3s, color .3s;
+    }
+    .mnv-faq__item.open .mnv-faq__q-icon { transform: rotate(45deg); background: var(--mnv-amber); border-color: var(--mnv-amber); color: #000; }
+    .mnv-faq__a {
+      font-size: .93rem; line-height: 1.7; color: #444;
+      max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; padding: 0;
+    }
+    .mnv-faq__item.open .mnv-faq__a { max-height: 400px; padding-bottom: 1.4rem; }
+
+    /* ── AREAS ── */
+    .mnv-areas { padding: 4rem 6vw; background: var(--mnv-mid); text-align: center; }
+    .mnv-areas__title { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mnv-amber); margin-bottom: 1.2rem; }
+    .mnv-areas__heading { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin-bottom: 2rem; }
+    .mnv-areas__chips { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; max-width: 700px; margin: 0 auto; }
+    .mnv-area-chip {
+      padding: .45rem 1.1rem; background: var(--mnv-stone);
+      font-size: .8rem; font-weight: 600;
+      border: 1px solid rgba(232,160,32,.25); transition: background .25s, border-color .25s;
+    }
+    .mnv-area-chip:hover { background: rgba(232,160,32,.12); border-color: var(--mnv-amber); }
+
+    /* ── CTA ── */
+    .mnv-cta { position: relative; padding: 7rem 6vw; background: var(--mnv-dark); overflow: hidden; text-align: center; }
+    .mnv-cta__ghost {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-size: clamp(5rem, 18vw, 14rem); font-weight: 900; letter-spacing: -.04em;
+      color: transparent; -webkit-text-stroke: 1px rgba(232,160,32,.1);
+      white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+    }
+    .mnv-cta__content { position: relative; z-index: 2; }
+    .mnv-cta__label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mnv-amber); margin-bottom: 1.2rem; }
+    .mnv-cta__heading { font-size: clamp(2rem, 5.5vw, 4rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.5rem; }
+    .mnv-cta__heading em { font-style: normal; color: var(--mnv-amber); }
+    .mnv-cta__sub { font-size: 1rem; color: rgba(248,246,242,.6); max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .mnv-cta__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .mnv-cta__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: 1rem 2.2rem; font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; transition: filter .25s;
+    }
+    .mnv-cta__btn--primary { background: var(--mnv-amber); color: #000; }
+    .mnv-cta__btn--ghost { border: 1.5px solid rgba(248,246,242,.35); color: var(--mnv-white); }
+    .mnv-cta__btn:hover { filter: brightness(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .mnv-zones__grid { grid-template-columns: 1fr 1fr; }
+      .mnv-zone-card:first-child { grid-column: span 2; }
+      .mnv-zone-card__photo { padding-bottom: 55% !important; }
+      .mnv-statement__body { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .mnv-zones__grid { grid-template-columns: 1fr; }
+      .mnv-zone-card:first-child { grid-column: span 1; }
+      .mnv-hero__h1 .line--outline span { -webkit-text-stroke-width: 1px; }
+    }
+  </style>
 </head>
-<body>
+<body class="mnv-page">
+
   <div id="site-header-placeholder"></div>
 
-  <main id="main-content">
-    <section class="page-hero" aria-labelledby="page-h1" style="--hero-bg-image:url('assets/images/hero/hero-outdoor-living-houston.webp')">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="index.html#areas">Service Areas</a></li><li><span aria-current="page">Manvel</span></li></ol></nav>
-        <h1 id="page-h1">Hardscape &amp; Landscaping Services in Manvel, TX</h1>
-        <h2>Patio, Turf &amp; Outdoor Living Contractors Near Manvel TX</h2>
-        <ul class="proof-bullets proof-bullets--light"><li>Brazoria County</li><li>Free Consultation</li></ul>
-        <div class="page-hero-actions">
-          <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
-          <a href="tel:+13465518340" class="btn btn-secondary btn-lg">(346) 551-8340</a>
+  <!-- HERO -->
+  <section class="mnv-hero" id="hero">
+    <div class="mnv-hero__bg" id="mnvHeroBg"></div>
+    <div class="mnv-hero__vignette"></div>
+    <div class="mnv-hero__content">
+      <p class="mnv-hero__eyebrow" id="mnvEyebrow">Manvel, TX — Brazoria County</p>
+      <h1 class="mnv-hero__h1">
+        <span class="line"><span>Outdoor Living</span></span>
+        <span class="line line--outline"><span>Elevated.</span></span>
+        <span class="line line--amber"><span>Manvel.</span></span>
+      </h1>
+      <p class="mnv-hero__sub" id="mnvSub">Premium hardscape design built for how you actually live — from curbside curb appeal to the backyard you never want to leave.</p>
+      <a href="tel:+13465518340" class="mnv-hero__cta" id="mnvCta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 7.63 19.79 19.79 0 01.88 2.18 2 2 0 012.86.01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (346) 551-8340
+      </a>
+    </div>
+    <div class="mnv-scroll-hint" id="mnvScrollHint">
+      <div class="mnv-scroll-hint__line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="mnv-marquee" aria-hidden="true">
+    <div class="mnv-marquee__track">
+      <span class="mnv-marquee__item">Manvel TX<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Paver Patios<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Seating Walls<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Patio Covers<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Step Lighting<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Outdoor Living<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Brazoria County<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Custom Masonry<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Manvel TX<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Paver Patios<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Seating Walls<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Patio Covers<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Step Lighting<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Outdoor Living<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Brazoria County<span class="mnv-marquee__dot"></span></span>
+      <span class="mnv-marquee__item">Custom Masonry<span class="mnv-marquee__dot"></span></span>
+    </div>
+  </div>
+
+  <!-- PATIO COVER -->
+  <section class="mnv-cover">
+    <div class="mnv-cover__photo" id="mnvCoverPhoto"></div>
+    <div class="mnv-cover__overlay"></div>
+    <div class="mnv-cover__text">
+      <p class="mnv-cover__label" id="mnvCoverLabel">Patio Covers &amp; Outdoor Rooms</p>
+      <h2 class="mnv-cover__heading" id="mnvCoverHead">Your backyard deserves a <em>roof over it.</em></h2>
+    </div>
+  </section>
+
+  <!-- ZONE CARDS -->
+  <section class="mnv-zones">
+    <div class="mnv-zones__intro">
+      <h2 class="mnv-zones__title">Three zones.<br><em>One crew.</em></h2>
+      <p class="mnv-zones__copy">From covered outdoor rooms to geometric paver patios and curb-appeal stonework — we design every zone of your property to work together.</p>
+    </div>
+    <div class="mnv-zones__grid">
+
+      <div class="mnv-zone-card lb-trigger"
+           data-full="assets/images/manvel/artificial-turf-play-area-paver-patio-white-gravel-manvel-tx.webp"
+           data-caption="Paver Patio + Turf + Gravel — Manvel TX">
+        <div class="mnv-zone-card__photo" style="background-image:url('assets/images/manvel/artificial-turf-play-area-paver-patio-white-gravel-manvel-tx.webp');"></div>
+        <div class="mnv-zone-card__overlay"></div>
+        <div class="mnv-zone-card__info">
+          <p class="mnv-zone-card__num">Zone 01</p>
+          <p class="mnv-zone-card__label">Backyard<br>Transformation</p>
         </div>
       </div>
-    </section>
 
-    <section class="section" aria-labelledby="intro-heading">
-      <div class="container">
-        <div class="reveal">
-          <h2 id="intro-heading">Your Manvel Hardscape Contractor</h2>
-          <p>Manvel is a growing community in Brazoria County with homeowners who are investing in their properties. Longhorn Hardscape &amp; Construction serves Manvel with the same quality craftsmanship we bring to every Greater Houston project. From custom patio installation to artificial turf and outdoor kitchens, we build outdoor spaces in Manvel that families enjoy for years.</p>
-          <p>Manvel expanding neighborhoods offer large lots perfect for ambitious outdoor projects. We handle everything from design to final walkthrough with a free consultation at your Manvel home and prompt estimate.</p>
-        </div>
-        <div class="area-nap" aria-label="Business contact information">
-          <p><strong>Longhorn Hardscape &amp; Construction</strong><br>6140 Highway 6, Suite 3116<br>Missouri City, TX 77459<br>Phone: <a href="tel:+13465518340">(346) 551-8340</a><br>Web: <a href="https://longhornhctexas.com">longhornhctexas.com</a></p>
+      <div class="mnv-zone-card lb-trigger"
+           data-full="assets/images/manvel/insulated-patio-cover-recessed-lighting-ceiling-fan-brick-columns-manvel-tx.webp"
+           data-caption="Insulated Patio Cover — Manvel TX">
+        <div class="mnv-zone-card__photo" style="background-image:url('assets/images/manvel/insulated-patio-cover-recessed-lighting-ceiling-fan-brick-columns-manvel-tx.webp');"></div>
+        <div class="mnv-zone-card__overlay"></div>
+        <div class="mnv-zone-card__info">
+          <p class="mnv-zone-card__num">Zone 02</p>
+          <p class="mnv-zone-card__label">Covered<br>Outdoor Room</p>
         </div>
       </div>
-    </section>
 
-    <section class="section section-light" aria-labelledby="services-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 id="services-heading">Services We Offer in Manvel</h2>
-          <p>Professional hardscape and outdoor living construction near Manvel TX.</p>
-        </div>
-        <div class="services-list-links">
-          <a href="patio-installation-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Patio Installation in Manvel</a>
-          <a href="artificial-turf-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Artificial Turf in Manvel</a>
-          <a href="outdoor-kitchen-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Outdoor Kitchens in Manvel</a>
-          <a href="outdoor-living-spaces-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Outdoor Living Spaces in Manvel</a>
-          <a href="driveway-contractor-houston.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Driveways &amp; Concrete in Manvel</a>
+      <div class="mnv-zone-card lb-trigger"
+           data-full="assets/images/manvel/curved-seating-wall-step-lights-paver-driveway-night-manvel-tx.webp"
+           data-caption="Curved Seating Wall + Step Lights — Manvel TX">
+        <div class="mnv-zone-card__photo" style="background-image:url('assets/images/manvel/curved-seating-wall-step-lights-paver-driveway-night-manvel-tx.webp');"></div>
+        <div class="mnv-zone-card__overlay"></div>
+        <div class="mnv-zone-card__info">
+          <p class="mnv-zone-card__num">Zone 03</p>
+          <p class="mnv-zone-card__label">Curb Appeal<br>&amp; Lighting</p>
         </div>
       </div>
-    </section>
 
-    <section class="section" aria-labelledby="why-heading">
-      <div class="container">
-        <div class="reveal">
-          <h2 id="why-heading">Why We Love Working in Manvel</h2>
-          <p>Manvel has some of the nicest lots in the South Houston area. We love working in Manvel because homeowners here have room to dream big. Whether it is a full outdoor living space with a pergola, fire pit, and turf, or a custom driveway with landscape lighting, Manvel projects give us the canvas to do our best work.</p>
-          <p>We proudly serve Manvel and surrounding areas including: Pearland, Alvin, Iowa Colony, Shadow Creek Ranch, and Brazoria County.</p>
-        </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="mnv-statement">
+    <div class="mnv-statement__inner">
+      <p class="mnv-statement__label" id="mnvStmtLabel">What We Stand For</p>
+      <h2 class="mnv-statement__big">
+        <span class="line"><span>No shortcuts.</span></span>
+        <span class="line"><span>No subcontractors.</span></span>
+        <span class="line line--accent"><span>Just our crew,</span></span>
+        <span class="line"><span>your backyard.</span></span>
+      </h2>
+      <div class="mnv-statement__divider" id="mnvStmtDivider"></div>
+      <div class="mnv-statement__body">
+        <p class="mnv-statement__p" id="mnvStmtP1">Every project in Manvel is handled start-to-finish by our own team — the same people who gave you an estimate are the ones pouring concrete, setting pavers, and installing lights. That's how we hold standards high and keep timelines tight.</p>
+        <p class="mnv-statement__p" id="mnvStmtP2">Manvel homeowners invest heavily in their properties. We match that investment with quality materials, clean craftsmanship, and work that adds real market value — not just curb appeal.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section section-light" aria-labelledby="map-heading">
-      <div class="container">
-        <div class="reveal">
-          <h2 id="map-heading">Find Us - Based in Missouri City, Serving Manvel &amp; Greater Houston</h2>
-          <p>We serve Manvel and all surrounding communities. Call us or request a free quote online.</p>
+  <!-- AERIAL -->
+  <section class="mnv-aerial">
+    <div class="mnv-aerial__photo" id="mnvAerialPhoto"></div>
+    <div class="mnv-aerial__overlay"></div>
+    <div class="mnv-aerial__badge" id="mnvAerialBadge">Completed Project — Manvel, TX</div>
+  </section>
+
+  <!-- SERVICES CAROUSEL -->
+  <section class="mnv-services">
+    <div class="mnv-services__header">
+      <h2 class="mnv-services__title">Everything <em>hardscape.</em><br>One contractor.</h2>
+      <p class="mnv-services__sub">All services available throughout Manvel and Brazoria County.</p>
+    </div>
+    <div class="mnv-services__scroll">
+      <div class="mnv-carousel__track">
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <p class="mnv-svc-card__name">Patio Covers</p>
+          <p class="mnv-svc-card__desc">Insulated flat covers and pergolas engineered for Houston summers.</p>
         </div>
-        <div class="map-embed reveal" style="margin-top:24px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.0!2d-95.5388!3d29.6185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640eed67f03f0a5%3A0x4a1d11e3d5d7e34!2s6140+Highway+6+%23+3116%2C+Missouri+City%2C+TX+77459!5e0!3m2!1sen!2sus!4v1700000000000" title="Longhorn Hardscape &amp; Construction - Missouri City, TX" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Maps showing Longhorn Hardscape office in Missouri City TX"></iframe>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <p class="mnv-svc-card__name">Paver Patios</p>
+          <p class="mnv-svc-card__desc">Concrete and natural stone pavers in any pattern — border to border.</p>
         </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <p class="mnv-svc-card__name">Artificial Turf</p>
+          <p class="mnv-svc-card__desc">Premium synthetic grass that stays green year-round with zero maintenance.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+          <p class="mnv-svc-card__name">Landscape Lighting</p>
+          <p class="mnv-svc-card__desc">Integrated step lights, uplighting, and path lights that last.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <p class="mnv-svc-card__name">Retaining Walls</p>
+          <p class="mnv-svc-card__desc">Structural and decorative seating walls built to handle Texas ground movement.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <p class="mnv-svc-card__name">Outdoor Kitchens</p>
+          <p class="mnv-svc-card__desc">Custom grill islands and kitchen setups with masonry surrounds.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="mnv-svc-card__name">Fire Features</p>
+          <p class="mnv-svc-card__desc">Fire pits and fire bowls with stone and paver surround seating.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <p class="mnv-svc-card__name">Paver Driveways</p>
+          <p class="mnv-svc-card__desc">Durable interlocking paver driveways with clean borders and edging.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+          <p class="mnv-svc-card__name">White Gravel Yards</p>
+          <p class="mnv-svc-card__desc">Decomposed granite and white gravel installs with weed barrier.</p>
+        </div>
+        <div class="mnv-svc-card">
+          <div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-10"/><path d="M14 7h7v7"/></svg></div>
+          <p class="mnv-svc-card__name">Walkways &amp; Steps</p>
+          <p class="mnv-svc-card__desc">Entry walkways, stepping stones, and custom step construction.</p>
+        </div>
+        <!-- Clones -->
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg></div><p class="mnv-svc-card__name">Patio Covers</p><p class="mnv-svc-card__desc">Insulated flat covers and pergolas engineered for Houston summers.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><p class="mnv-svc-card__name">Paver Patios</p><p class="mnv-svc-card__desc">Concrete and natural stone pavers in any pattern — border to border.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><p class="mnv-svc-card__name">Artificial Turf</p><p class="mnv-svc-card__desc">Premium synthetic grass that stays green year-round with zero maintenance.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></div><p class="mnv-svc-card__name">Landscape Lighting</p><p class="mnv-svc-card__desc">Integrated step lights, uplighting, and path lights that last.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><p class="mnv-svc-card__name">Retaining Walls</p><p class="mnv-svc-card__desc">Structural and decorative seating walls built to handle Texas ground movement.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><p class="mnv-svc-card__name">Outdoor Kitchens</p><p class="mnv-svc-card__desc">Custom grill islands and kitchen setups with masonry surrounds.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="mnv-svc-card__name">Fire Features</p><p class="mnv-svc-card__desc">Fire pits and fire bowls with stone and paver surround seating.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><p class="mnv-svc-card__name">Paver Driveways</p><p class="mnv-svc-card__desc">Durable interlocking paver driveways with clean borders and edging.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div><p class="mnv-svc-card__name">White Gravel Yards</p><p class="mnv-svc-card__desc">Decomposed granite and white gravel installs with weed barrier.</p></div>
+        <div class="mnv-svc-card mnv-clone" aria-hidden="true"><div class="mnv-svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-10"/><path d="M14 7h7v7"/></svg></div><p class="mnv-svc-card__name">Walkways &amp; Steps</p><p class="mnv-svc-card__desc">Entry walkways, stepping stones, and custom step construction.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="cta-banner" aria-labelledby="cta-heading">
-      <div class="container"><div class="reveal">
-        <h2 id="cta-heading">Ready to transform your Manvel backyard?</h2>
-        <p>Free consultation at your home — we provide estimates as soon as possible, no obligation.</p>
-        <div class="cta-banner-actions">
-          <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
-          <a href="tel:+13465518340" class="btn btn-secondary btn-lg">(346) 551-8340</a>
-        </div>
-      </div></div>
-    </section>
-  </main>
+  <!-- FAQ -->
+  <section class="mnv-faq">
+    <div class="mnv-faq__header">
+      <h2 class="mnv-faq__title">Frequently Asked Questions</h2>
+      <p class="mnv-faq__sub">Common questions from Manvel homeowners.</p>
+    </div>
+    <div class="mnv-faq__list">
+
+      <div class="mnv-faq__item">
+        <button class="mnv-faq__q" aria-expanded="false">
+          Do you work in Manvel and surrounding Brazoria County areas?
+          <span class="mnv-faq__q-icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <div class="mnv-faq__a">Yes — Manvel is a core service area for us. We also cover Pearland, Alvin, Iowa Colony, Shadow Creek Ranch, and other Brazoria County communities regularly. Call us to confirm your specific address.</div>
+      </div>
+
+      <div class="mnv-faq__item">
+        <button class="mnv-faq__q" aria-expanded="false">
+          What's the process for getting a quote?
+          <span class="mnv-faq__q-icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <div class="mnv-faq__a">Call or text us and we'll schedule an on-site visit at your Manvel property. After the walkthrough, we put together a detailed proposal covering scope, materials, and cost — no generic pricing sheets.</div>
+      </div>
+
+      <div class="mnv-faq__item">
+        <button class="mnv-faq__q" aria-expanded="false">
+          Can you combine a paver patio, turf, and patio cover into one project?
+          <span class="mnv-faq__q-icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <div class="mnv-faq__a">Absolutely — that's actually how we prefer to work. Combining multiple elements lets us plan grades, drainage, and layout as a single system. You get a cohesive final look and avoid the headache of coordinating multiple contractors.</div>
+      </div>
+
+      <div class="mnv-faq__item">
+        <button class="mnv-faq__q" aria-expanded="false">
+          Do your patio covers include electrical and ceiling fans?
+          <span class="mnv-faq__q-icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <div class="mnv-faq__a">Yes. Our insulated patio covers are built with rough-in for ceiling fans, recessed lighting, and outlets. We coordinate with licensed electricians for the final connections so everything is up to code.</div>
+      </div>
+
+      <div class="mnv-faq__item">
+        <button class="mnv-faq__q" aria-expanded="false">
+          How do I maintain my pavers once installed?
+          <span class="mnv-faq__q-icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <div class="mnv-faq__a">Pavers are low maintenance — occasional rinsing and re-sanding joints every few years is all that's needed. We use polymeric sand that resists weeds and insects. Sealing is optional but extends the color and life of the surface.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="mnv-areas">
+    <p class="mnv-areas__title">Service Area</p>
+    <h2 class="mnv-areas__heading">Manvel &amp; Brazoria County</h2>
+    <div class="mnv-areas__chips">
+      <span class="mnv-area-chip">Manvel</span>
+      <span class="mnv-area-chip">Pearland</span>
+      <span class="mnv-area-chip">Alvin</span>
+      <span class="mnv-area-chip">Iowa Colony</span>
+      <span class="mnv-area-chip">Shadow Creek Ranch</span>
+      <span class="mnv-area-chip">Fresno</span>
+      <span class="mnv-area-chip">Arcola</span>
+      <span class="mnv-area-chip">Houston</span>
+      <span class="mnv-area-chip">Missouri City</span>
+      <span class="mnv-area-chip">Sugar Land</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mnv-cta">
+    <div class="mnv-cta__ghost" aria-hidden="true">MANVEL</div>
+    <div class="mnv-cta__content">
+      <p class="mnv-cta__label">Ready to Start?</p>
+      <h2 class="mnv-cta__heading">Let's build your<br><em>dream backyard.</em></h2>
+      <p class="mnv-cta__sub">Serving Manvel, Pearland, Alvin, and all of Brazoria County. One crew. Zero subcontractors.</p>
+      <div class="mnv-cta__btns">
+        <a href="tel:+13465518340" class="mnv-cta__btn mnv-cta__btn--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 7.63 19.79 19.79 0 01.88 2.18 2 2 0 012.86.01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (346) 551-8340
+        </a>
+        <a href="index.html#contact" class="mnv-cta__btn mnv-cta__btn--ghost">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
 
   <div id="site-footer-placeholder"></div>
-  <div class="mobile-cta-bar" aria-label="Quick contact"><div class="mobile-cta-bar-inner"><a href="tel:+13465518340" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Call Now</a><a href="contact.html" class="btn btn-dark">Get Free Quote</a></div></div>
-  <script src="assets/js/partials.js" defer></script><script src="assets/js/gsap.min.js" defer></script><script src="assets/js/ScrollTrigger.min.js" defer></script><script src="assets/js/animations.js" defer></script><script src="assets/js/main.js" defer></script>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" style="display:none;">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__prev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox__next" aria-label="Next">&#8250;</button>
+    <div class="lightbox__inner">
+      <img class="lightbox__img" src="" alt="" />
+      <p class="lightbox__caption"></p>
+    </div>
+  </div>
+
+  <script src="assets/js/partials.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => { document.getElementById('mnvHeroBg').classList.add('is-loaded'); }, 100);
+
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.to('#mnvEyebrow', { opacity: 1, y: 0, duration: .7, delay: .3 })
+        .to('.mnv-hero__h1 .line span', { y: '0%', duration: .85, stagger: .12, ease: 'power4.out' }, '-=.3')
+        .to('#mnvSub',  { opacity: 1, y: 0, duration: .6 }, '-=.3')
+        .to('#mnvCta',  { opacity: 1, y: 0, duration: .5 }, '-=.25')
+        .to('#mnvScrollHint', { opacity: 1, duration: .6 }, '-=.2');
+
+      function isBelowFold(el) { return el.getBoundingClientRect().top >= window.innerHeight; }
+
+      /* Patio cover — wipe from right */
+      const coverPhoto = document.getElementById('mnvCoverPhoto');
+      function animateCover() {
+        gsap.to(coverPhoto, { clipPath: 'inset(0 0% 0 0)', duration: 1.4, ease: 'power3.inOut' });
+        gsap.to(['#mnvCoverLabel','#mnvCoverHead'], { opacity: 1, x: 0, duration: .8, stagger: .15, delay: .6, ease: 'power3.out' });
+      }
+      isBelowFold(coverPhoto) ? ScrollTrigger.create({ trigger: '.mnv-cover', start: 'top 80%', onEnter: animateCover }) : animateCover();
+
+      /* Zone cards — lift from bottom */
+      ScrollTrigger.create({
+        trigger: '.mnv-zones__grid', start: 'top 75%',
+        onEnter: () => {
+          gsap.to('.mnv-zone-card__photo', { clipPath: 'inset(0 0 0% 0)', duration: 1.1, stagger: .18, ease: 'power3.inOut' });
+          gsap.to([...document.querySelectorAll('.mnv-zone-card__num'), ...document.querySelectorAll('.mnv-zone-card__label')],
+            { opacity: 1, y: 0, duration: .6, stagger: .08, delay: .6, ease: 'power3.out' });
+        }
+      });
+
+      /* Statement */
+      ScrollTrigger.create({
+        trigger: '.mnv-statement', start: 'top 70%',
+        onEnter: () => {
+          gsap.to('#mnvStmtLabel', { opacity: 1, y: 0, duration: .6, ease: 'power3.out' });
+          gsap.to('.mnv-statement__big .line span', { y: '0%', duration: .8, stagger: .1, ease: 'power4.out', delay: .2 });
+          gsap.to('#mnvStmtDivider', { scaleX: 1, duration: .7, ease: 'power3.out', delay: .7 });
+          gsap.to(['#mnvStmtP1','#mnvStmtP2'], { opacity: 1, y: 0, duration: .6, stagger: .12, delay: .9, ease: 'power3.out' });
+        }
+      });
+
+      /* Aerial — lift from bottom */
+      const aerialPhoto = document.getElementById('mnvAerialPhoto');
+      function animateAerial() {
+        gsap.to(aerialPhoto, { clipPath: 'inset(0 0 0% 0)', duration: 1.3, ease: 'power3.inOut' });
+        gsap.to('#mnvAerialBadge', { opacity: 1, scale: 1, duration: .6, delay: .9, ease: 'back.out(1.2)' });
+      }
+      isBelowFold(aerialPhoto) ? ScrollTrigger.create({ trigger: '.mnv-aerial', start: 'top 80%', onEnter: animateAerial }) : animateAerial();
+
+      /* FAQ accordion */
+      document.querySelectorAll('.mnv-faq__q').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.mnv-faq__item');
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.mnv-faq__item.open').forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.mnv-faq__q').setAttribute('aria-expanded','false');
+          });
+          if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+        });
+      });
+    });
+  </script>
+
+  <script src="assets/js/animations.js?v=2" defer></script>
 </body>
 </html>
