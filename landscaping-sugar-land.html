@@ -29,11 +29,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --sl-dark:    #0a1520;
-      --sl-mid:     #112030;
-      --sl-surface: #1a3348;
-      --sl-pool:    #2e8fba;
-      --sl-pool-lt: #4fb3d9;
+      --sl-dark:    #0a0a0a;
+      --sl-mid:     #111111;
+      --sl-surface: #1a1a1a;
+      --sl-pool:    #F5A623;
+      --sl-pool-lt: #FFD166;
       --sl-sand:    #e6dcc9;
       --sl-stone:   #b5a48a;
       --sl-white:   #f4f1eb;
@@ -129,8 +129,8 @@
       background: var(--sl-mid);
       padding: 1.1rem 0;
       overflow: hidden;
-      border-top: 1px solid rgba(46,143,186,.18);
-      border-bottom: 1px solid rgba(46,143,186,.18);
+      border-top: 1px solid rgba(245,166,35,.18);
+      border-bottom: 1px solid rgba(245,166,35,.18);
     }
     .sl-marquee__track {
       display: flex; gap: 0;
@@ -216,7 +216,7 @@
     .sl-svc-card {
       flex: none; width: 260px;
       background: var(--sl-surface);
-      border: 1px solid rgba(46,143,186,.14);
+      border: 1px solid rgba(245,166,35,.14);
       padding: 1.8rem 1.5rem;
       display: flex; flex-direction: column; gap: .7rem;
       transition: border-color .25s, transform .25s;
@@ -268,7 +268,7 @@
     .sl-faq {
       background: var(--sl-mid);
       padding: clamp(3.5rem, 7vw, 6rem) clamp(1.5rem, 7vw, 6rem);
-      border-top: 1px solid rgba(46,143,186,.12);
+      border-top: 1px solid rgba(245,166,35,.12);
     }
     .sl-faq__inner { max-width: 800px; margin: 0 auto; }
     .sl-faq__header { margin-bottom: 3rem; }
@@ -297,14 +297,14 @@
     .sl-areas {
       background: var(--sl-dark);
       padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem);
-      border-top: 1px solid rgba(46,143,186,.1);
+      border-top: 1px solid rgba(245,166,35,.1);
     }
     .sl-areas__eyebrow { font-size: .68rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--sl-pool-lt); margin-bottom: .8rem; }
     .sl-areas__h2 { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 900; color: var(--sl-white); margin-bottom: 2rem; }
     .sl-chips { display: flex; flex-wrap: wrap; gap: .6rem; }
     .sl-chip {
       padding: .6rem 1.3rem;
-      border: 1px solid rgba(46,143,186,.3);
+      border: 1px solid rgba(245,166,35,.3);
       color: rgba(244,241,235,.75);
       font-size: .8rem; font-weight: 600;
       letter-spacing: .04em;
