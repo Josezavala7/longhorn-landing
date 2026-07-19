@@ -63,7 +63,9 @@
             <h2 id="contact-heading" class="reveal">Tell Us About Your Project</h2>
             <p class="reveal">Fill out the form below and we'll be in touch within one business day. Prefer to call? <a href="tel:+13465518340">(346) 551-8340</a></p>
 
-            <form class="contact-form reveal" id="quote-form" action="#" novalidate aria-label="Free quote request form">
+            <form class="contact-form reveal" id="quote-form" name="quote-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate aria-label="Free quote request form">
+              <input type="hidden" name="form-name" value="quote-request">
+              <input type="hidden" name="bot-field" style="display:none">
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Full Name <span aria-hidden="true">*</span></label>
