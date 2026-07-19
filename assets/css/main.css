@@ -3208,7 +3208,19 @@ p {
 .blog-article-body h3 {
   font-size: 1.15rem;
   margin: 28px 0 10px;
-  color: var(--color-primary);
+  color: #C9A84C !important;
+}
+
+.blog-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
 }
 
 .blog-article-body p {
