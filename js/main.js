@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = card.querySelector('h3');
       if (!img || !title) return;
       const wrap = card.querySelector('.service-card-img');
-      wrap.style.cursor = 'zoom-in';
       wrap.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
