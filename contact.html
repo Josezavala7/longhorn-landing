@@ -63,9 +63,10 @@
             <h2 id="contact-heading" class="reveal">Tell Us About Your Project</h2>
             <p class="reveal">Fill out the form below and we'll be in touch as soon as possible. Prefer to call? <a href="tel:+13465518340">(346) 551-8340</a></p>
 
-            <form class="contact-form reveal" id="quote-form" name="quote-request" action="/thank-you.html" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate aria-label="Free quote request form">
-              <input type="hidden" name="form-name" value="quote-request">
-              <input type="hidden" name="bot-field" style="display:none">
+            <form class="contact-form reveal" id="quote-form" action="https://api.web3forms.com/submit" method="POST" novalidate aria-label="Free quote request form">
+              <input type="hidden" name="access_key" value="23261eef-7256-4924-b45f-9fc778c93982">
+              <input type="hidden" name="subject" value="New Quote Request — Longhorn Hardscape">
+              <input type="hidden" name="redirect" value="https://longhornhardscape.netlify.app/thank-you.html">
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Full Name <span aria-hidden="true">*</span></label>
