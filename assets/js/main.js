@@ -295,7 +295,6 @@
       const title = card.querySelector('h3');
       if (!img || !title) return;
       const wrap  = card.querySelector('.service-card-img');
-      wrap.style.cursor = 'zoom-in';
       wrap.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
@@ -307,7 +306,6 @@
     const aboutTeaserWrap = document.querySelector('.about-teaser-img');
     if (aboutTeaserWrap) {
       const atImg = aboutTeaserWrap.querySelector('img');
-      aboutTeaserWrap.style.cursor = 'zoom-in';
       aboutTeaserWrap.addEventListener('click', e => {
         e.preventDefault();
         openSCLightbox(atImg.src, atImg.alt, 'Cesar Guilfarro — Longhorn Hardscape & Construction');
@@ -318,7 +316,6 @@
     document.querySelectorAll('.gallery-item').forEach(item => {
       const img = item.querySelector('img');
       if (!img) return;
-      item.style.cursor = 'zoom-in';
       item.addEventListener('click', e => {
         e.preventDefault();
         openSCLightbox(img.src, img.alt, img.alt);
@@ -329,7 +326,6 @@
     document.querySelectorAll('.svc-intro-split__photo, .svc-photo-break__main, .svc-photo-break__side').forEach(wrap => {
       const img = wrap.querySelector('img');
       if (!img) return;
-      wrap.style.cursor = 'zoom-in';
       wrap.addEventListener('click', () => openSCLightbox(img.src, img.alt, img.alt));
     });
 
@@ -337,7 +333,6 @@
     document.querySelectorAll('.lb-trigger').forEach(wrap => {
       const img = wrap.querySelector('img');
       if (!img) return;
-      wrap.style.cursor = 'zoom-in';
       wrap.addEventListener('click', () => openSCLightbox(img.src, img.alt, img.alt));
     });
 
