@@ -99,6 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Gallery grid lightbox
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      item.addEventListener('click', () => openLightbox(img.src, img.alt, ''));
+    });
+
     lbClose.addEventListener('click', closeLightbox);
     lbBackdrop.addEventListener('click', closeLightbox);
     document.addEventListener('keydown', (e) => {
