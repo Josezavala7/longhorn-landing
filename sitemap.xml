@@ -1,111 +1,41 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core Pages -->
-  <url>
-    <loc>https://longhornhctexas.com/</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/about.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/contact.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/projects.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/blog.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Core pages -->
+  <url><loc>https://longhornhctexas.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://longhornhctexas.com/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://longhornhctexas.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/projects.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/blog.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
-  <!-- Service Pages -->
-  <url><loc>https://longhornhctexas.com/patio-covers-houston.html</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/pergolas-houston.html</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/fire-features-houston.html</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/outdoor-kitchen-houston.html</loc><lastmod>2025-07-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/artificial-turf-houston.html</loc><lastmod>2025-07-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/outdoor-living-spaces-houston.html</loc><lastmod>2025-07-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/custom-stonework-houston.html</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/driveway-contractor-houston.html</loc><lastmod>2025-07-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/painting-houston.html</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://longhornhctexas.com/patio-installation-houston.html</loc><lastmod>2025-07-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Service pages -->
+  <url><loc>https://longhornhctexas.com/patio-covers-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/pergolas-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/outdoor-kitchen-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/artificial-turf-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/fire-features-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/driveway-contractor-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/custom-stonework-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/outdoor-living-spaces-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/painting-houston.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/patio-installation-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
-  <!-- Service Area Pages -->
-  <url>
-    <loc>https://longhornhctexas.com/landscaping-houston.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/landscaping-sugar-land.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/landscaping-katy.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/landscaping-pearland.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/landscaping-missouri-city.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/landscaping-fort-bend.html</loc>
-    <lastmod>2025-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- City / area pages -->
+  <url><loc>https://longhornhctexas.com/hardscape-houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-missouri-city.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-sugar-land.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-katy.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-pearland.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-sienna.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-manvel.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-fort-bend.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-richmond.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-rosenberg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://longhornhctexas.com/hardscape-cypress.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Blog Articles -->
-  <url>
-    <loc>https://longhornhctexas.com/blog/cost-to-build-patio-houston.html</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/blog/turf-vs-grass-texas.html</loc>
-    <lastmod>2025-05-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://longhornhctexas.com/blog/best-materials-patio-texas-heat.html</loc>
-    <lastmod>2025-05-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Blog posts -->
+  <url><loc>https://longhornhctexas.com/blog/cost-to-build-patio-houston.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://longhornhctexas.com/blog/turf-vs-grass-texas.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://longhornhctexas.com/blog/best-materials-patio-texas-heat.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <url><loc>https://longhornhctexas.com/landscaping-sienna.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://longhornhctexas.com/landscaping-manvel.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://longhornhctexas.com/landscaping-richmond.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://longhornhctexas.com/landscaping-cypress.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://longhornhctexas.com/landscaping-rosenberg.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
