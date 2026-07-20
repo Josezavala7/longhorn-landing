@@ -859,6 +859,12 @@ p {
   stroke-linejoin: round;
 }
 
+.trust-item.reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .trust-item h4 {
   font-size: 0.95rem;
   margin-bottom: 2px;
@@ -2577,11 +2583,6 @@ p {
   .trust-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-  }
-  .trust-item.reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 
   /* Services */
