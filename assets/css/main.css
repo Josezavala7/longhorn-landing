@@ -2556,7 +2556,7 @@ p {
   .hero-mobile-tagline {
     display: block;
     position: absolute;
-    bottom: 76px;
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     text-align: center;
