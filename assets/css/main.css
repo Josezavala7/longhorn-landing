@@ -2578,6 +2578,11 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
+  .trust-item.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
   /* Services */
   .services-grid {
