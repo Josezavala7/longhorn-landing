@@ -660,9 +660,14 @@
         el.style.cursor = 'zoom-in';
         el.addEventListener('click', function() {
           var src = el.dataset.full; if (!src) return;
-          lbImg.src = src; lbImg.alt = el.dataset.caption || '';
+          lbImg.style.opacity = '0';
+          lbImg.alt = el.dataset.caption || '';
           lbCap.textContent = el.dataset.caption || '';
           lb.classList.add('is-open'); document.body.style.overflow = 'hidden';
+          var onLoad = function() { lbImg.style.transition = 'opacity 0.2s ease'; lbImg.style.opacity = '1'; lbImg.removeEventListener('load', onLoad); };
+          lbImg.addEventListener('load', onLoad);
+          lbImg.src = src;
+          if (lbImg.complete && lbImg.naturalWidth > 0) onLoad();
         });
       });
       document.getElementById('lbClose').addEventListener('click', closeLb);

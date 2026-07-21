@@ -70,11 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const lbBackdrop = scLightbox.querySelector('.sc-lightbox__backdrop');
 
     function openLightbox(src, alt, caption) {
-      lbImg.src = src;
+      lbImg.style.opacity = '0';
       lbImg.alt = alt;
       lbCaption.textContent = caption;
       scLightbox.removeAttribute('hidden');
       document.body.style.overflow = 'hidden';
+      const onLoaded = () => {
+        lbImg.style.transition = 'opacity 0.2s ease';
+        lbImg.style.opacity = '1';
+        lbImg.removeEventListener('load', onLoaded);
+      };
+      lbImg.addEventListener('load', onLoaded);
+      lbImg.src = src;
+      if (lbImg.complete && lbImg.naturalWidth > 0) onLoaded();
     }
 
     function closeLightbox() {

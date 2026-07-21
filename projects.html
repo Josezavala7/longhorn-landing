@@ -1047,9 +1047,13 @@
     const lbBackdrop = document.getElementById('lbBackdrop');
 
     function openLightbox(src, alt) {
-      lbImg.src = src;
+      lbImg.style.opacity = '0';
       lbImg.alt = alt;
       lbCaption.textContent = alt;
+      const onLoad = () => { lbImg.style.transition = 'opacity 0.2s ease'; lbImg.style.opacity = '1'; lbImg.removeEventListener('load', onLoad); };
+      lbImg.addEventListener('load', onLoad);
+      lbImg.src = src;
+      if (lbImg.complete && lbImg.naturalWidth > 0) onLoad();
       const sw = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.paddingRight = sw + 'px';
       document.body.style.overflow = 'hidden';

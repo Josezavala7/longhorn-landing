@@ -804,11 +804,16 @@
     var lbBack = document.getElementById('mcLbBackdrop');
 
     function openLb(el) {
-      lbImg.src = el.dataset.full || '';
+      lbImg.style.opacity = '0';
       lbImg.alt = el.dataset.caption || '';
       lbCap.textContent = el.dataset.caption || '';
       lb.style.display = 'block';
       document.body.style.overflow = 'hidden';
+      var src = el.dataset.full || '';
+      var onLoad = function() { lbImg.style.transition = 'opacity 0.2s ease'; lbImg.style.opacity = '1'; lbImg.removeEventListener('load', onLoad); };
+      lbImg.addEventListener('load', onLoad);
+      lbImg.src = src;
+      if (lbImg.complete && lbImg.naturalWidth > 0) onLoad();
     }
     function closeLb() {
       lb.style.display = 'none';
