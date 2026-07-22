@@ -3573,3 +3573,135 @@ p {
     display: none;
   }
 }
+
+/* ============================================================
+   PAVER PATIO BUILD SCENE
+   ============================================================ */
+.patio-scene {
+  position: relative;
+  background: #07060a;
+  border-top: 1px solid #2a251f;
+  border-bottom: 1px solid #2a251f;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+/* Copy — sits above the patio grid */
+.patio-scene__copy {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px 2rem;
+}
+.patio-scene__tag {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #d9b68c;
+  opacity: 0.82;
+  margin-bottom: 0.75rem;
+}
+.patio-scene__headline {
+  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  font-size: clamp(1.9rem, 5vw, 3.1rem);
+  color: #f5f0e8;
+  margin: 0 0 0.75rem;
+  line-height: 1.12;
+  font-weight: 700;
+}
+.patio-scene__headline em {
+  font-style: italic;
+  background: linear-gradient(135deg, #d9b68c, #b8763e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.patio-scene__sub {
+  font-size: 0.8rem;
+  color: #a8a199;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+/* Stage — isometric patio grid */
+.patio-scene__stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* push down so the grid appears to extend below the viewport edge */
+  margin-top: 1.5rem;
+  /* perspective for 3D depth */
+  perspective: 600px;
+  perspective-origin: 50% 0%;
+}
+/* The isometric grid */
+.patio-iso {
+  display: grid;
+  gap: 5px;
+  /* tilt into isometric view */
+  transform: rotateX(54deg) rotateZ(45deg);
+  transform-style: preserve-3d;
+  /* fade edges with a mask */
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  padding: 4px;
+}
+/* Individual paver tile */
+.pv {
+  width: 52px;
+  height: 34px;
+  border-radius: 3px;
+  /* warm stone gradient — top face */
+  background: linear-gradient(135deg, #cdb080 0%, #b8956a 55%, #a07a50 100%);
+  /* simulate left + right side faces with box-shadow */
+  box-shadow:
+    -5px 5px 0 0 #7a5c38,   /* left face */
+    5px 5px 0 0 #6a4e2e,    /* right face */
+    0 1px 3px rgba(0,0,0,0.5);
+  /* grout line */
+  outline: 1.5px solid rgba(0,0,0,0.22);
+  /* start invisible, high up in Z */
+  opacity: 0;
+  transform: translateZ(70px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+/* Alternate paver tones for realism */
+.pv:nth-child(3n+1) { background: linear-gradient(135deg, #c4a870 0%, #b08860 55%, #9a7048 100%); }
+.pv:nth-child(5n+2) { background: linear-gradient(135deg, #d4b888 0%, #c09a72 55%, #aa8258 100%); }
+.pv:nth-child(7n+3) { background: linear-gradient(135deg, #ba9a62 0%, #a88252 55%, #956c3e 100%); }
+/* Placed state — drop to Z=0 and fade in */
+.pv--in {
+  opacity: 1;
+  transform: translateZ(0);
+}
+/* Subtle ambient glow under the patio */
+.patio-scene::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 70%; height: 40%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(184,118,62,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+@media (max-width: 520px) {
+  .patio-iso {
+    transform: rotateX(54deg) rotateZ(45deg) scale(0.72);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pv {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: translateZ(0) !important;
+  }
+}
