@@ -1311,7 +1311,14 @@ p {
   overflow: hidden;
   aspect-ratio: 4/3;
   cursor: pointer;
-  background: var(--color-bg-alt);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-alt) 0%,
+    rgba(255,255,255,0.07) 50%,
+    var(--color-bg-alt) 100%
+  );
+  background-size: 200% 100%;
+  animation: gallery-shimmer 1.5s ease infinite;
 }
 
 .gallery-item:first-child {
@@ -1322,28 +1329,6 @@ p {
 .gallery-item {
   position: relative;
 }
-
-.gallery-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    90deg,
-    var(--color-bg-alt) 0%,
-    rgba(255,255,255,0.07) 50%,
-    var(--color-bg-alt) 100%
-  );
-  background-size: 200% 100%;
-  animation: gallery-shimmer 1.5s ease infinite;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.gallery-item.is-loaded::before {
-  opacity: 0;
-}
-
 
 @keyframes gallery-shimmer {
   0%   { background-position: 200% 0; }
