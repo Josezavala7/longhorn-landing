@@ -4,12 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   const onScroll = () => {
     header.classList.toggle('is-scrolled', window.scrollY > 40);
-    if (mobileCta) {
-      mobileCta.classList.toggle('mobile-cta-bar--hidden', window.scrollY < 100);
-    }
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (mobileCta && hero) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        mobileCta.classList.toggle('mobile-cta-bar--hidden', entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    heroObserver.observe(hero);
+  }
 
   const navToggle = document.getElementById('nav-toggle');
   const nav = document.getElementById('site-nav');
