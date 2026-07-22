@@ -2509,7 +2509,6 @@ p {
   .hero {
     height: 100vh; /* fallback for older browsers */
     height: 100svh;
-    height: 100dvh;
     min-height: 0;
     max-height: 100vh;
     max-height: 100svh;
