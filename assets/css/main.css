@@ -2564,9 +2564,10 @@ p {
     display: block;
     position: absolute;
     bottom: calc(120px + env(safe-area-inset-bottom, 0px));
-    left: 24px;
-    right: 24px;
-    text-align: left;
+    left: 0;
+    right: 0;
+    padding: 0 24px;
+    text-align: center;
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 600;
@@ -2584,6 +2585,13 @@ p {
   .trust-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+
+  .trust-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
   }
 
   /* Services */
@@ -2683,7 +2691,7 @@ p {
    27. RESPONSIVE — SMALL MOBILE (≤ 375px)
    ============================================================ */
 @media (max-width: 400px) {
-  .trust-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
   .areas-grid { grid-template-columns: 1fr; }
   .why-grid   { grid-template-columns: 1fr; }
 
