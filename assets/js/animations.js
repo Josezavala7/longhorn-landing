@@ -97,7 +97,6 @@
   var batchSelectors = [
     '.gallery-grid .gallery-item',
     '.why-grid .why-card',
-    '.trust-grid .trust-item',
     '.areas-grid .area-chip',
   ];
 

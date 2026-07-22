@@ -8,15 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  if (mobileCta && hero) {
-    const heroObserver = new IntersectionObserver(
-      ([entry]) => {
-        mobileCta.classList.toggle('mobile-cta-bar--hidden', entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-    heroObserver.observe(hero);
-  }
 
   const navToggle = document.getElementById('nav-toggle');
   const nav = document.getElementById('site-nav');
