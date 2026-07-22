@@ -2,8 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('site-header');
   const mobileCta = document.querySelector('.mobile-cta-bar');
   const hero = document.querySelector('.hero');
+  const heroThreshold = Math.round(window.innerHeight * 0.6);
   const onScroll = () => {
     header.classList.toggle('is-scrolled', window.scrollY > 40);
+    if (mobileCta) {
+      mobileCta.classList.toggle('mobile-cta-bar--hidden', window.scrollY < heroThreshold);
+    }
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
