@@ -129,5 +129,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Gallery skeleton — fade in each image once loaded
+  document.querySelectorAll('.gallery-item img').forEach((img) => {
+    const item = img.closest('.gallery-item');
+    const markLoaded = () => item.classList.add('is-loaded');
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+    } else {
+      img.addEventListener('load', markLoaded);
+      img.addEventListener('error', markLoaded);
+    }
+  });
+
   // Reveal animations handled by GSAP ScrollTrigger in assets/js/animations.js
 });
