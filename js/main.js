@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   const onScroll = () => {
     header.classList.toggle('is-scrolled', window.scrollY > 40);
-    if (mobileCta && hero) {
-      const heroBelowFold = window.scrollY > hero.offsetHeight * 0.6;
-      mobileCta.classList.toggle('mobile-cta-bar--hidden', !heroBelowFold);
+    if (mobileCta) {
+      mobileCta.classList.toggle('mobile-cta-bar--hidden', window.scrollY < 100);
     }
   };
   onScroll();
