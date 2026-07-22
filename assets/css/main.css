@@ -1686,6 +1686,7 @@ p {
   position: fixed;
   bottom: 0;
   left: 0;
+  transition: transform 0.35s ease;
   right: 0;
   background: var(--color-dark);
   border-top: 1px solid rgba(255,255,255,0.1);
@@ -1694,6 +1695,10 @@ p {
   padding-bottom: max(8px, env(safe-area-inset-bottom));
   transform: translateZ(0);
   will-change: transform;
+}
+
+.mobile-cta-bar--hidden {
+  transform: translateY(110%);
 }
 
 .mobile-cta-bar-inner {
@@ -2563,7 +2568,7 @@ p {
   .hero-mobile-tagline {
     display: block;
     position: absolute;
-    bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     padding: 0 24px;

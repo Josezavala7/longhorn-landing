@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('site-header');
-  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+  const mobileCta = document.querySelector('.mobile-cta-bar');
+  const hero = document.querySelector('.hero');
+  const onScroll = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+    if (mobileCta && hero) {
+      const heroBelowFold = window.scrollY > hero.offsetHeight * 0.6;
+      mobileCta.classList.toggle('mobile-cta-bar--hidden', !heroBelowFold);
+    }
+  };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
