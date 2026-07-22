@@ -2507,12 +2507,12 @@ p {
 
   /* Hero — video-first mobile layout */
   .hero {
-    height: 100dvh;
-    height: 100svh;
     height: 100vh; /* fallback for older browsers */
+    height: 100svh;
+    height: 100dvh;
     min-height: 0;
-    max-height: 100svh;
     max-height: 100vh;
+    max-height: 100svh;
     align-items: flex-end;
     padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px));
   }
