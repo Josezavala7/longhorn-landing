@@ -790,9 +790,10 @@ p {
 
 .hero h2 {
   color: rgba(255,255,255,0.75);
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-size: clamp(1rem, 2vw, 1.15rem);
   font-weight: 500;
   margin-bottom: 28px;
+  max-width: 620px;
 }
 
 .hero-actions {
