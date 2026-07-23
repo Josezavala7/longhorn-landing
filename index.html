@@ -101,7 +101,7 @@
     <section class="hero" aria-labelledby="hero-h1">
       <div class="hero-video-wrap">
         <img class="hero-desktop-img" src="assets/images/hero/hero-desktop-premium.webp"
-             alt="" aria-hidden="true" fetchpriority="high">
+             alt="" aria-hidden="true" fetchpriority="high" width="2400" height="1350">
         <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero/hero-poster.webp" aria-hidden="true">
           <source src="assets/videos/hero-background.mp4" type="video/mp4">
         </video>
@@ -403,10 +403,13 @@
       <div class="container">
         <div class="about-teaser-grid">
           <div class="about-teaser-img no-parallax reveal" style="display:flex;align-items:center;justify-content:center;background:#0e1117;border-radius:12px;padding:3rem;">
-            <img src="assets/logo.png"
-                 alt="Longhorn Hardscape and Construction logo"
-                 width="420" height="auto" loading="lazy"
-                 style="max-width:100%;height:auto;display:block;">
+            <picture>
+              <source srcset="assets/logo.webp" type="image/webp">
+              <img src="assets/logo.png"
+                   alt="Longhorn Hardscape and Construction logo"
+                   width="420" height="256" loading="lazy"
+                   style="max-width:100%;height:auto;display:block;">
+            </picture>
           </div>
           <div class="about-teaser-content reveal">
             <span class="overline">About Longhorn</span>
@@ -632,7 +635,7 @@
     <div class="sc-lightbox__backdrop"></div>
     <div class="sc-lightbox__panel">
       <button class="sc-lightbox__close" aria-label="Close">&times;</button>
-      <img class="sc-lightbox__img" src="" alt="">
+      <img class="sc-lightbox__img" src="" alt="" width="1200" height="800">
       <p class="sc-lightbox__caption"></p>
     </div>
   </div>
