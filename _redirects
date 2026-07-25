@@ -41,3 +41,5 @@
 /services/          /index.html#services    301
 /blog               /blog.html              301
 /blog/              /blog.html              301
+/financing          /contact.html           301
+/financing/         /contact.html           301
