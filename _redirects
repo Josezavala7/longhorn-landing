@@ -1,8 +1,9 @@
 # Redirects from old GoDaddy site URLs to new site
 /contact-us         /contact.html           301
 /contact-us/        /contact.html           301
-/hardscaping        /patio-installation-houston.html  301
-/hardscaping/       /patio-installation-houston.html  301
+/hardscaping        /index.html#services    301
+/hardscaping/       /index.html#services    301
+/patio-installation-houston.html  /index.html#services  301
 /more-outdoor-construction  /outdoor-living-spaces-houston.html  301
 /more-outdoor-construction/ /outdoor-living-spaces-houston.html  301
 /areas-we-serve     /hardscape-houston.html  301
