@@ -1,4 +1,24 @@
 # Redirects from old GoDaddy site URLs to new site
+/artificial-turf          /artificial-turf-houston.html     301
+/artificial-turf/         /artificial-turf-houston.html     301
+/patio-covers             /patio-covers-houston.html        301
+/patio-covers/            /patio-covers-houston.html        301
+/pergolas                 /pergolas-houston.html            301
+/pergolas/                /pergolas-houston.html            301
+/outdoor-kitchen          /outdoor-kitchen-houston.html     301
+/outdoor-kitchen/         /outdoor-kitchen-houston.html     301
+/fire-features            /fire-features-houston.html       301
+/fire-features/           /fire-features-houston.html       301
+/driveways                /driveway-contractor-houston.html 301
+/driveways/               /driveway-contractor-houston.html 301
+/stonework                /custom-stonework-houston.html    301
+/stonework/               /custom-stonework-houston.html    301
+/outdoor-living           /outdoor-living-spaces-houston.html 301
+/outdoor-living/          /outdoor-living-spaces-houston.html 301
+/painting                 /painting-houston.html            301
+/painting/                /painting-houston.html            301
+/projects                 /projects.html                    301
+/projects/                /projects.html                    301
 /contact-us         /contact.html           301
 /contact-us/        /contact.html           301
 /hardscaping        /index.html#services    301
