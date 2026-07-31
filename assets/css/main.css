@@ -1401,6 +1401,12 @@ p {
   overflow: hidden;
 }
 
+.testimonials-section .section-header h2,
+.testimonials-section .section-header p,
+.testimonials-section .overline {
+  color: #fff;
+}
+
 .testimonials-section::before {
   content: '';
   position: absolute;
