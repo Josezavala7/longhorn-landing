@@ -434,7 +434,9 @@ p {
 }
 
 .nav-dropdown a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 9px 14px;
   color: var(--color-text);
   font-size: 0.875rem;
@@ -443,9 +445,19 @@ p {
   transition: background var(--transition), color var(--transition);
 }
 
+.nav-dropdown a svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+
 .nav-dropdown a:hover {
   background: var(--color-bg-alt);
   color: var(--color-accent);
+}
+
+.nav-dropdown a:hover svg {
+  opacity: 1;
 }
 
 /* Header CTA */
